@@ -1,0 +1,26 @@
+{
+	"name": "Project Name",
+	"version": "0.0.0",
+	"description": "",
+	"author": "cyan-dm",
+	"scripts": {
+		"install-pkg": "npm i sass postcss postcss-cli autoprefixer esbuild -g",
+		"recommend-pkg": "npm i gsap swiper",
+		"w-tailwind": "npx tailwindcss -i ./assets/css/base-tailwind.css -o ./assets/css/final-tailwind.css --watch",
+		"w-js": "esbuild ./assets/js/index.js --outfile=./assets/js/dist/scripts.bundle.js --target=es6,chrome58,edge18,firefox54,safari11 --bundle --watch",
+		"build-js": "esbuild ./assets/js/index.js --outfile=./assets/js/dist/scripts.bundle.min.js --target=es6,chrome58,edge18,firefox54,safari11 --bundle --minify --sourcemap"
+	},
+	"license": "ISC",
+	"devDependencies": {
+		"tailwindcss": "^3.4.3",
+		"zip-build": "^1.8.0"
+	},
+	"dependencies": {
+		"gsap": "^3.12.2",
+		"swiper": "^11.0.3"
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 version"
+	]
+}
