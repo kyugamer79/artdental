@@ -14,6 +14,7 @@ require_once ( __DIR__ . '/inc/classes/cyn-register.php' );
 //functions
 require_once ( __DIR__ . '/inc/functions/cyn-general.php' );
 require_once ( __DIR__ . '/inc/functions/cyn-update-checker.php' );
+require_once ( __DIR__ . '/inc/functions/cyn-menu.php' );
 
 //acf
 include_once ( CYN_ACF_PATH . 'acf.php' );

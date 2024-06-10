@@ -8,8 +8,8 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 
 		public function cyn_basic_settings( $wp_customize ) {
 
-			$this->cyn_register_panel_demo( $wp_customize );
-			$this->cyn_register_panel_demo_2( $wp_customize );
+			$this->cyn_register_panel_general( $wp_customize );
+			// $this->cyn_register_panel_demo_2( $wp_customize );
 
 		}
 
@@ -59,51 +59,46 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 			}
 		}
 
-		private function cyn_register_panel_demo( $wp_customize ) {
+		private function cyn_register_panel_general( $wp_customize ) {
 
 			$wp_customize->add_panel(
-				'demo_panel',
+				'general',
 				[ 
-					'title' => 'CyanTheme - Demo Panel',
+					'title' => 'تنظیمات تم - عمومی',
 					'priority' => 1
 				]
 			);
 
 
 			$wp_customize->add_section(
-				'demo_section',
+				'phones',
 				[ 
-					'title' => 'Demo section',
+					'title' => 'شماره تلفن ها',
 					'priority' => 1,
-					'panel' => 'demo_panel'
+					'panel' => 'general'
 				]
 			);
 
-			$this->cyn_add_control( $wp_customize, 'demo_section', 'text', 'demo_text_control', 'Demo Text Control' );
-		}
-
-		private function cyn_register_panel_demo_2( $wp_customize ) {
-
-			$wp_customize->add_panel(
-				'demo_panel_2',
-				[ 
-					'title' => 'CyanTheme - Demo Panel 2',
-					'priority' => 2
-				]
-			);
-
+			for ( $i = 1; $i <= 5; $i++ ) {
+				$this->cyn_add_control( $wp_customize, 'phones', 'tel', "cyn_phone_number_$i", "شماره تلفن $i" );
+			}
 
 			$wp_customize->add_section(
-				'demo_section_2',
+				'social_media',
 				[ 
-					'title' => 'Demo section 2',
+					'title' => 'شبکه های اجتماعی',
 					'priority' => 1,
-					'panel' => 'demo_panel_2'
+					'panel' => 'general'
 				]
 			);
 
-			$this->cyn_add_control( $wp_customize, 'demo_section_2', 'file', 'demo_file_control', 'Demo File Control' );
+			for ( $i = 1; $i <= 10; $i++ ) {
+				$this->cyn_add_control( $wp_customize, 'social_media', 'file', "cyn_social_media_img_$i", "تصویر شبکه اجتماعی $i" );
+				$this->cyn_add_control( $wp_customize, 'social_media', 'tel', "cyn_social_media_url_$i", "لینک شبکه اجتماعی $i" );
+			}
 		}
+
+
 
 	}
 }

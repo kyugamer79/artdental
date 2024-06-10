@@ -15,8 +15,8 @@ if ( ! class_exists( 'cyn_register' ) ) {
 
 			//for use in theme => wp_nav_menu(['theme_location' => 'header_demo'])
 			register_nav_menus( [ 
-				'header_demo' => "Header Demo",
-				'footer_demo' => "Footer Demo",
+				'header' => "Header",
+				'footer' => "Footer",
 			] );
 		}
 

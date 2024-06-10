@@ -1,2 +1,5 @@
 <?php
-defined( 'ABSPATH' ) || exit;
+
+?>
+
+this is search
