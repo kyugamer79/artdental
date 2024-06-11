@@ -10469,23 +10469,27 @@
     const selectBoxGroup = document.querySelectorAll(".select-box");
     if (!selectBoxGroup)
       return;
-    function toggleActivatePanel(panel) {
+    function toggleActivatePanel(panel, icon, selector3) {
       panel.classList.toggle("opacity-0");
       panel.classList.toggle("-translate-y-4");
       panel.classList.toggle("pointer-events-none");
+      icon.classList.toggle("rotate-180");
+      icon.classList.toggle("text-accent-40");
+      selector3.classList.toggle("border-accent-40");
     }
     selectBoxGroup.forEach((selectBox2) => {
       const selector3 = selectBox2.querySelector(".select-box-selector");
       const panel = selectBox2.querySelector(".select-box-panel");
       const value = selectBox2.querySelector(".select-box-value");
       const options = selectBox2.querySelectorAll(".select-box-option");
+      const icon = selectBox2.querySelector("svg");
       selector3.addEventListener("click", () => {
-        toggleActivatePanel(panel);
+        toggleActivatePanel(panel, icon, selector3);
       });
       options.forEach((option) => {
         option.addEventListener("click", () => {
           value.innerText = option.innerText;
-          toggleActivatePanel(panel);
+          toggleActivatePanel(panel, icon, selector3);
         });
       });
     });

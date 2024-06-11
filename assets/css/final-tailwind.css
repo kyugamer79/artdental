@@ -1275,6 +1275,11 @@ video {
   border-color: rgb(14 15 16 / var(--tw-border-opacity));
 }
 
+.border-accent-40 {
+  --tw-border-opacity: 1;
+  border-color: rgb(34 74 175 / var(--tw-border-opacity));
+}
+
 .bg-accent-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1594,6 +1599,11 @@ video {
 .text-accent-50 {
   --tw-text-opacity: 1;
   color: rgb(46 94 214 / var(--tw-text-opacity));
+}
+
+.text-accent-40 {
+  --tw-text-opacity: 1;
+  color: rgb(34 74 175 / var(--tw-text-opacity));
 }
 
 .underline {

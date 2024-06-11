@@ -48,13 +48,13 @@ $faq_cats = get_terms( [
 						<?php echo $faq_cats[0]->name ?>
 					</span>
 
-					<svg class="size-4">
+					<svg class="size-4 transition-all duration-300">
 						<use href="#icon-chevron-down"></use>
 					</svg>
 				</div>
 
 				<div
-					 class="select-box-panel | bg-background-card_1 px-4 rounded-xl divide-y divide-primary-70 shadow-md absolute top-11 w-full z-50 opacity-0 -translate-y-4 pointer-events-none transition-all duration-300">
+					 class="select-box-panel | bg-background-card_1 px-4 rounded-xl divide-y divide-primary-90  shadow-md absolute top-12 w-full z-50 opacity-0 -translate-y-4 pointer-events-none transition-all duration-300">
 
 					<?php foreach ( $faq_cats as $index => $category ) : ?>
 						<div id="<?php echo "faq-cat-" . $category->term_id ?>"
