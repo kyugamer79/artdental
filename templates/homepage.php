@@ -18,6 +18,7 @@
 <div class="py-6"></div>
 <?php cyn_get_page_template( 'home/blogs' ); ?>
 <div class="py-6"></div>
-
+<?php cyn_get_page_template( 'home/faq' ); ?>
+<div class="py-6"></div>
 
 <?php get_footer() ?>

@@ -79,7 +79,7 @@ class Button extends HTMLElement {
 
 	connectedCallback() {
 		this.title = this.getAttribute('title');
-		this.href = this.getAttribute('href');
+		this.href = this.getAttribute('href') ?? '#';
 		this.id = this.getAttribute('id');
 		this.type = this.getAttribute('type');
 		this.icon = this.getAttribute('icon');

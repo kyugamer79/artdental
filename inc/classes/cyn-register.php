@@ -24,11 +24,13 @@ if ( ! class_exists( 'cyn_register' ) ) {
 			$this->cyn_make_post_type( 'price', 'قیمت', 'قیمت ها', 'dashicons-money-alt' );
 			$this->cyn_make_post_type( 'testimonial', 'نظر', 'نظرات بیماران', 'dashicons-format-chat', [ 'title', 'thumbnail', 'editor' ] );
 			$this->cyn_make_post_type( 'doctor', 'پزشک', 'پزشکان', 'dashicons-groups' );
+			$this->cyn_make_post_type( 'faq', 'سوال', 'سوالات متداول', 'dashicons-lightbulb', [ 'title', 'editor' ] );
 		}
 
 		public function cyn_taxonomy_register() {
 
 			$this->cyn_make_taxonomy( 'service-cat', '  دسته بندی خدمات ', 'دسته بندی های خدمات', [ 'service' ] );
+			$this->cyn_make_taxonomy( 'faq-cat', '  دسته بندی ', 'دسته بندی ها', [ 'faq' ] );
 
 		}
 
