@@ -12,8 +12,6 @@ if ( ! class_exists( 'cyn_register' ) ) {
 		}
 
 		public function cyn_register_menus() {
-
-			//for use in theme => wp_nav_menu(['theme_location' => 'header_demo'])
 			register_nav_menus( [ 
 				'header' => "Header",
 				'footer' => "Footer",
@@ -21,14 +19,14 @@ if ( ! class_exists( 'cyn_register' ) ) {
 		}
 
 		public function cyn_post_type_register() {
-			// $this->cyn_make_post_type('demo_post_type' , 'demo' , 'demos')
 			$this->cyn_make_post_type( 'service', 'خدمت', 'خدمات', 'dashicons-info' );
 			$this->cyn_make_post_type( 'video', 'ویدئو', 'ویدئو ها', 'dashicons-video-alt3' );
 			$this->cyn_make_post_type( 'price', 'قیمت', 'قیمت ها', 'dashicons-money-alt' );
+			$this->cyn_make_post_type( 'testimonial', 'نظر', 'نظرات بیماران', 'dashicons-format-chat', [ 'title', 'thumbnail', 'editor' ] );
 		}
 
 		public function cyn_taxonomy_register() {
-			// $this->cyn_make_taxonomy( 'demo_taxonomy', 'demo', 'demos' , ['demo_post_type'] )
+
 			$this->cyn_make_taxonomy( 'service-cat', '  دسته بندی خدمات ', 'دسته بندی های خدمات', [ 'service' ] );
 
 		}

@@ -36,7 +36,8 @@ if ( ! is_array( $prices ) || count( $prices ) < 0 ) {
 
 	<div class="flex gap-3 max-lg:flex-col">
 		<?php foreach ( $prices as $index => $price ) : ?>
-			<div class="flex-1 ">
+			<div class="flex-1 fade-in-down"
+				 anim-delay="<?php echo $index * 0.7 ?>">
 				<?php cyn_get_card( 'price', [ 'post-id' => $price, 'class' => 'min-h-[400px] max-lg:min-h-[240px]' ] ) ?>
 			</div>
 		<?php endforeach; ?>

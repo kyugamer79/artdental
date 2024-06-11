@@ -50,6 +50,5 @@ if ( ! is_array( $services ) || count( $services ) < 1 ) {
 				</swiper-slide>
 			<?php endforeach; ?>
 		</swiper-container>
-
 	</div>
 </div>

@@ -10,7 +10,7 @@
 		<?php wp_head() ?>
 	</head>
 
-	<body <?php body_class( 'bg-background-main font-peyda' ) ?>>
+	<body <?php body_class( 'bg-background-main font-peyda text-primary-20' ) ?>>
 		<?php get_template_part( '/partials/icons' ) ?>
 		<?php wp_body_open() ?>
 
