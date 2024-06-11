@@ -82,6 +82,7 @@
       this.iconPosition = this.getAttribute("icon-position");
       this.setType(this.type);
       this.setSize(this.size);
+      this.addClass(this.classList);
       this.render();
     }
     render() {

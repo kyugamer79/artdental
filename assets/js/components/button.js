@@ -83,6 +83,8 @@ class Button extends HTMLElement {
 		this.setType(this.type);
 		this.setSize(this.size);
 
+		this.addClass(this.classList);
+
 		this.render();
 	}
 
