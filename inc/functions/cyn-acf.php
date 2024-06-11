@@ -64,7 +64,12 @@ function cyn_acf_register_home_page() {
 		cyn_acf_add_post_object( 'doctors', 'انتخاب پزشکان', 'doctor', '', 1 ),
 	];
 
-	$fields = array_merge( $hero, $features, $services, $videos, $price, $doctors );
+	$blogs = [ 
+		cyn_acf_add_tab( 'بلاگ ها' ),
+		cyn_acf_add_post_object( 'posts', 'انتخاب بلاگ ها', 'post', '', 1 ),
+	];
+
+	$fields = array_merge( $hero, $features, $services, $videos, $price, $doctors, $blogs );
 
 	$location = [ 
 		[ 

@@ -2,7 +2,7 @@
 
 $prices = get_field( 'prices' ) ?? [];
 
-if ( ! is_array( $prices ) || count( $prices ) < 0 ) {
+if ( ! is_array( $prices ) || count( $prices ) < 1 ) {
 	$prices = get_posts( [ 
 		'post_type' => 'price',
 		'posts_per_page' => 2,

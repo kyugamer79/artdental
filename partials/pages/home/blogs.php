@@ -1,37 +1,38 @@
 <?php
-$doctors = get_field( 'doctors' ) ?? [];
+$blogs = get_field( 'blogs' ) ?? [];
 
-if ( ! is_array( $doctors ) || count( $doctors ) < 1 ) {
-	$doctors = get_posts( [ 
-		'post_type' => 'doctor',
+if ( ! is_array( $blogs ) || count( $blogs ) < 1 ) {
+	$blogs = get_posts( [ 
 		'posts_per_page' => 3,
 		'fields' => 'ids',
 	] );
 }
 
+
 ?>
 
 
 <div class="container space-y-4">
-	<div class="flex justify-between items-center">
+	<div class="flex justify-between ">
+
 		<span class="text-h1 max-lg:text-h5">
-			<?php _e( 'متخصص های مجموعه', 'cyn-dm' ) ?>
+			<?php _e( 'مقالاتی که شاید به دردت بخوره', 'cyn-dm' ) ?>
 		</span>
+
 
 		<cyn-button type="secondary-dark"
 					size="md"
 					class="max-lg:hidden"
-					href="<?php get_post_type_archive_link( 'doctor' ) ?>">
+					href="<?php echo get_post_type_archive_link( 'post' ) ?>">
 			<?php _e( 'مشاهده همه', 'cyn-dm' ) ?>
 		</cyn-button>
 	</div>
 
-
 	<div class="columns-3 max-lg:hidden">
-		<?php foreach ( $doctors as $index => $postId ) : ?>
+		<?php foreach ( $blogs as $index => $postId ) : ?>
 			<div class="fade-in-down"
 				 anim-delay="<?php echo $index * 0.3 ?>">
-				<?php cyn_get_card( 'doctor', [ 'post-id' => $postId ] ) ?>
+				<?php cyn_get_card( 'post', [ 'post-id' => $postId, 'class' => 'min-h-[400px]' ] ) ?>
 			</div>
 		<?php endforeach; ?>
 	</div>
@@ -40,10 +41,10 @@ if ( ! is_array( $doctors ) || count( $doctors ) < 1 ) {
 		<swiper-container slides-per-view="auto"
 						  space-between="12"
 						  pagination='true'>
-			<?php foreach ( $doctors as $index => $postId ) : ?>
+			<?php foreach ( $blogs as $index => $postId ) : ?>
 				<swiper-slide class="max-w-[340px] fade-in-down"
 							  anim-delay="<?php echo $index * 0.3 ?>">
-					<?php cyn_get_card( 'doctor', [ 'post-id' => $postId ] ) ?>
+					<?php cyn_get_card( 'post', [ 'post-id' => $postId, 'class' => 'min-h-[400px]' ] ) ?>
 				</swiper-slide>
 			<?php endforeach; ?>
 		</swiper-container>
@@ -52,7 +53,7 @@ if ( ! is_array( $doctors ) || count( $doctors ) < 1 ) {
 	<cyn-button type="secondary-dark"
 				size="md"
 				class="justify-center mt-3 lg:hidden"
-				href="<?php get_post_type_archive_link( 'doctor' ) ?>">
+				href="<?php get_post_type_archive_link( 'post' ) ?>">
 		<?php _e( 'مشاهده همه', 'cyn-dm' ) ?>
 	</cyn-button>
 </div>
