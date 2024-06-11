@@ -79,17 +79,17 @@
 			<div class="flex gap-2">
 				<?php for ( $i = 1; $i <= 10; $i++ ) :
 
-					$social_media = [ 
+					$social_group = [ 
 						'img' => get_option( "cyn_social_media_img_$i" ),
 						'url' => get_option( "cyn_social_media_url_$i" )
 					];
 
-					if ( count( array_filter( $social_media ) ) == 0 )
+					if ( count( array_filter( $social_group ) ) == 0 )
 						continue;
 					?>
 
-					<a href="<?php echo $social_media['url'] ?>">
-						<img src="<?php echo $social_media['img'] ?>"
+					<a href="<?php echo $social_group['url'] ?>">
+						<img src="<?php echo $social_group['img'] ?>"
 							 alt="">
 					</a>
 

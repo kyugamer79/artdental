@@ -7,6 +7,7 @@ function cyn_register_acf() {
 	}
 	cyn_acf_register_home_page();
 	cyn_acf_register_price();
+	cyn_acf_register_doctor();
 }
 
 
@@ -58,7 +59,12 @@ function cyn_acf_register_home_page() {
 		cyn_acf_add_post_object( 'prices', 'انتخاب قیمت ها', 'price', '', 1 ),
 	];
 
-	$fields = array_merge( $hero, $features, $services, $videos, $price );
+	$doctors = [ 
+		cyn_acf_add_tab( 'پزشکان' ),
+		cyn_acf_add_post_object( 'doctors', 'انتخاب پزشکان', 'doctor', '', 1 ),
+	];
+
+	$fields = array_merge( $hero, $features, $services, $videos, $price, $doctors );
 
 	$location = [ 
 		[ 
@@ -94,4 +100,35 @@ function cyn_acf_register_price() {
 
 	cyn_register_acf_group( 'تنظیمات ', $fields, $location );
 
+}
+
+function cyn_acf_register_doctor() {
+
+	$social_media = [];
+
+	for ( $i = 1; $i <= 10; $i++ ) {
+		array_push( $social_media, cyn_acf_add_group( "social_$i", "شبکه اجتماعی $i", [ 
+			cyn_acf_add_image( 'social_image', 'تصویر شبکه اجتماعی', 50 ),
+			cyn_acf_add_text( 'social_link', 'لینک شبکه اجتماعی', 0, 50 )
+		], 50 ) );
+	}
+
+	$fields = [ 
+		cyn_acf_add_tab( 'عمومی' ),
+		cyn_acf_add_text( 'expert', 'تخصص' ),
+		cyn_acf_add_tab( 'شبکه های اجتماعی' ),
+		cyn_acf_add_group( 'social_group', 'شبکه های اجتماعی', $social_media ),
+	];
+
+	$location = [ 
+		[ 
+			[ 
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'doctor'
+			]
+		]
+	];
+
+	cyn_register_acf_group( 'تنظیمات ', $fields, $location );
 }

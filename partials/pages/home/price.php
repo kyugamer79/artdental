@@ -26,7 +26,7 @@ if ( ! is_array( $prices ) || count( $prices ) < 0 ) {
 				<?php _e( 'مشاوره رایگان', 'cyn-dm' ) ?>
 			</cyn-button>
 
-			<cyn-button type="accent"
+			<cyn-button type="secondary-dark"
 						size="md"
 						href="#">
 				<?php _e( 'مشاهده همه', 'cyn-dm' ) ?>
@@ -51,7 +51,7 @@ if ( ! is_array( $prices ) || count( $prices ) < 0 ) {
 			<?php _e( 'مشاوره رایگان', 'cyn-dm' ) ?>
 		</cyn-button>
 
-		<cyn-button type="accent"
+		<cyn-button type="secondary-dark"
 					size="md"
 					class="justify-center"
 					href="#">

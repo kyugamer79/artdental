@@ -48,6 +48,11 @@
             "bg-background-card_1/20 border border-primary-100 color-primary-100 hover:bg-primary-100 hover:color-primary-20 hover:border-primary-20"
           );
           break;
+        case "secondary-dark":
+          this.addClass(
+            "border border-primary-20 bg-transparent text-primary-20 hover:bg-primary-20 hover:text-primary-100"
+          );
+          break;
         case "accent":
           this.addClass(
             "bg-primary-100 text-primary-20 hover:bg-primary-20 hover:text-primary-100"

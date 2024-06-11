@@ -23,6 +23,7 @@ if ( ! class_exists( 'cyn_register' ) ) {
 			$this->cyn_make_post_type( 'video', 'ویدئو', 'ویدئو ها', 'dashicons-video-alt3' );
 			$this->cyn_make_post_type( 'price', 'قیمت', 'قیمت ها', 'dashicons-money-alt' );
 			$this->cyn_make_post_type( 'testimonial', 'نظر', 'نظرات بیماران', 'dashicons-format-chat', [ 'title', 'thumbnail', 'editor' ] );
+			$this->cyn_make_post_type( 'doctor', 'پزشک', 'پزشکان', 'dashicons-groups' );
 		}
 
 		public function cyn_taxonomy_register() {
