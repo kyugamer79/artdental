@@ -22,10 +22,14 @@ if ( ! class_exists( 'cyn_register' ) ) {
 
 		public function cyn_post_type_register() {
 			// $this->cyn_make_post_type('demo_post_type' , 'demo' , 'demos')
+			$this->cyn_make_post_type( 'service', 'خدمت', 'خدمات', 'dashicons-info' );
+			$this->cyn_make_post_type( 'video', 'ویدئو', 'ویدئو ها', 'dashicons-video-alt3' );
 		}
 
 		public function cyn_taxonomy_register() {
 			// $this->cyn_make_taxonomy( 'demo_taxonomy', 'demo', 'demos' , ['demo_post_type'] )
+			$this->cyn_make_taxonomy( 'service-cat', '  دسته بندی خدمات ', 'دسته بندی های خدمات', [ 'service' ] );
+
 		}
 
 		public function cyn_term_register() {
@@ -38,14 +42,18 @@ if ( ! class_exists( 'cyn_register' ) ) {
 		public function cyn_page_register() {
 			//This pages can't be removed
 
-			if ( is_null( get_page_by_path( 'sample' ) ) ) {
-				wp_insert_post( [ 
+			if ( is_null( get_page_by_path( 'homepage' ) ) ) {
+				$front_page_id = wp_insert_post( [ 
 					'post_type' => 'page',
 					'post_status' => 'publish',
-					'post_title' => 'Sample',
-					'post_name' => 'sample',
-					'page_template' => 'templates/sample.php'
+					'post_title' => 'صفحه اصلی',
+					'post_name' => 'homepage',
+					'page_template' => 'templates/homepage.php',
 				] );
+
+
+				update_option( 'show_on_front', 'page' );
+				update_option( 'page_on_front', $front_page_id );
 			}
 
 		}

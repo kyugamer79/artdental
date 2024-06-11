@@ -1,3 +1,4 @@
+import './components/_index';
 import './modules/__index';
 import './pages/__index';
-import './components/_index';
+import './animations/_index';

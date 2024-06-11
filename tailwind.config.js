@@ -3,9 +3,10 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
 	content: [
-		'./{partials , templates}/**/*.php',
+		'./partials/**/*.php',
+		'./templates/**/*.php',
 		'./assets/js/**/*.js',
-		'./*.php',
+		'./**/*.php',
 	],
 	theme: {
 		container: {
@@ -86,44 +87,14 @@ module.exports = {
 		},
 	},
 	extend: {
-		colors: {
-			primary: {
-				0: '#0E0F10',
-				10: '#25272D',
-				20: '#3C3F49',
-				300: '#535765',
-				40: '#6A6F81',
-				50: '#6A6F81',
-				60: '#A0A4B1',
-				70: '#BCBFC8',
-				80: '#D8DADF',
-				90: '#F4F4F6',
-				100: '#FFFFFF',
-			},
-			accent: {
-				0: '#010204',
-				10: '#09142F',
-				20: '#122659',
-				30: '#1A3884',
-				40: '#224AAF',
-				50: '#2E5ED6',
-				60: '#587FDF',
-				70: '#83A0E7',
-				80: '#AEC1EF',
-				90: '#D9E2F7',
-				100: '#FFFFFF',
-			},
-			background: {
-				main: '#F6F7F9',
-				card_1: '#FFFFFF',
-				card_2: '#7C828B',
-			},
-		},
 		fontFamily: {
 			peyda: ['Peyda', 'sans-serif'],
 		},
 		gridTemplateRows: {
 			0: '0fr',
+		},
+		backgroundImage: {
+			'cyn-noise': "url('../img/noise.png')",
 		},
 	},
 	plugins: [],

@@ -10,13 +10,12 @@
 		<?php wp_head() ?>
 	</head>
 
-	<body <?php body_class( 'bg-background-main font-peyda container' ) ?>>
+	<body <?php body_class( 'bg-background-main font-peyda' ) ?>>
 		<?php get_template_part( '/partials/icons' ) ?>
 		<?php wp_body_open() ?>
 
 		<?php if ( $render_template ) : ?>
-			<header class="my-8 flex justify-between">
-
+			<header class="my-8 flex justify-between container">
 				<div class="flex items-center gap-5">
 					<div class="logo size-10 max-md:hidden">
 						<?php the_custom_logo() ?>
@@ -49,7 +48,6 @@
 											<?php endforeach; ?>
 										</div>
 									</div>
-
 								<?php endif; ?>
 							</div>
 

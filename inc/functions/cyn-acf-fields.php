@@ -45,7 +45,7 @@ function cyn_acf_add_post_object( $name, $label, $post_type, $width = '', $multi
 	];
 }
 
-function cyn_acf_add_image( $name, $label ) {
+function cyn_acf_add_image( $name, $label, $width = '25' ) {
 	return [ 
 		'key' => 'filed_' . cyn_acf_unique_id(),
 		'label' => $label,
@@ -53,7 +53,7 @@ function cyn_acf_add_image( $name, $label ) {
 		'type' => 'image',
 		'return_format' => 'id',
 		'wrapper' => [ 
-			'width' => '25'
+			'width' => $width
 		]
 	];
 }
@@ -319,7 +319,7 @@ function cyn_acf_add_date_picker( $name, $label, $width = '' ) {
 	];
 }
 
-function cyn_acf_add_group( $name, $label, $sub_fields ) {
+function cyn_acf_add_group( $name, $label, $sub_fields, $width = '' ) {
 	return [ 
 		'key' => 'filed_' . cyn_acf_unique_id(),
 		'label' => $label,
@@ -330,7 +330,7 @@ function cyn_acf_add_group( $name, $label, $sub_fields ) {
 		'required' => 0,
 		'conditional_logic' => 0,
 		'wrapper' => [ 
-			'width' => '',
+			'width' => $width,
 			'class' => '',
 			'id' => '',
 		],

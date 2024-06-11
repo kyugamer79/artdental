@@ -3,3 +3,9 @@
 @tailwind utilities;
 
 @import url('../fonts/peyda/style.css');
+
+@layer {
+	.bg-noise {
+		@apply bg-background-card_2 bg-[url(../img/noise.png)] bg-blend-soft-light;
+	}
+}
