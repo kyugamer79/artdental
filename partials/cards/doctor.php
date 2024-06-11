@@ -8,7 +8,7 @@ if ( $postId === 0 ) {
 
 ?>
 
-<div class="bg-background-card_1 rounded-xl p-6">
+<div class="bg-background-card_1 rounded-xl p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
 	<div class="">
 		<div class="text-h5">
 			<?php echo get_the_title( $postId ) ?>

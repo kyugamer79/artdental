@@ -6,7 +6,8 @@ if ( $postId === 0 ) {
 }
 ?>
 
-<div class="relative overflow-hidden rounded-3xl h-full">
+<div
+	 class="relative overflow-hidden rounded-3xl h-full hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
 	<div class="h-full">
 		<?php echo get_the_post_thumbnail( $postId, 'medium', [ 'class' => 'w-full h-full object-cover' ] ) ?>
 	</div>

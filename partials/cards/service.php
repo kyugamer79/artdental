@@ -10,7 +10,7 @@ $terms = get_the_terms( $postId, 'service-cat' );
 
 ?>
 
-<div class="rounded-2xl overflow-hidden flex flex-col justify-between text-primary-100 min-h-[360px] bg-cover p-5 after:content-[''] after:inset-0 after:absolute relative after:bg-accent-0/35 after:-z-[1] isolate"
+<div class="rounded-2xl overflow-hidden flex flex-col justify-between text-primary-100 min-h-[360px] bg-cover p-5 after:content-[''] after:inset-0 after:absolute relative after:bg-accent-0/35 after:-z-[1] isolate hover:rotate-2 transition-all duration-300 "
 	 style="background-image: url('<?php echo get_the_post_thumbnail_url( $postId ) ?>');">
 	<div class="">
 		<div class="text-caption">

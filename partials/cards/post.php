@@ -8,7 +8,7 @@ if ( $postId === 0 ) {
 
 ?>
 
-<div class="h-full w-full bg-cover rounded-3xl after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:to-primary-0/0 after:from-primary-0/40 after:-z-10 isolate relative overflow-hidden <?php echo $class ?>"
+<div class="h-full w-full bg-cover rounded-3xl after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:to-primary-0/0 after:from-primary-0/40 after:-z-10 isolate relative overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 <?php echo $class ?>"
 	 style="background-image: url('<?php echo get_the_post_thumbnail_url( $postId ) ?>');">
 
 	<a href="<?php echo get_permalink( $postId ) ?>">

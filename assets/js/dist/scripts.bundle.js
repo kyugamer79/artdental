@@ -10475,7 +10475,7 @@
       panel.classList.toggle("pointer-events-none");
       icon.classList.toggle("rotate-180");
       icon.classList.toggle("text-accent-40");
-      selector3.classList.toggle("border-accent-40");
+      selector3.classList.contains("border-accent-40") ? selector3.classList.replace("border-accent-40", "border-primary-70") : selector3.classList.replace("border-primary-70", "border-accent-40");
     }
     selectBoxGroup.forEach((selectBox2) => {
       const selector3 = selectBox2.querySelector(".select-box-selector");

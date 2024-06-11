@@ -8,7 +8,9 @@ function selectBox() {
 		panel.classList.toggle('pointer-events-none');
 		icon.classList.toggle('rotate-180');
 		icon.classList.toggle('text-accent-40');
-		selector.classList.toggle('border-accent-40');
+		selector.classList.contains('border-accent-40')
+			? selector.classList.replace('border-accent-40', 'border-primary-70')
+			: selector.classList.replace('border-primary-70', 'border-accent-40');
 	}
 
 	selectBoxGroup.forEach((selectBox) => {
