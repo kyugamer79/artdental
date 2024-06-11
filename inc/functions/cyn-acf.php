@@ -6,7 +6,7 @@ function cyn_register_acf() {
 		return;
 	}
 	cyn_acf_register_home_page();
-
+	cyn_acf_register_price();
 }
 
 
@@ -53,7 +53,12 @@ function cyn_acf_register_home_page() {
 		cyn_acf_add_post_object( 'videos', 'انتخاب ویدئوها', 'video', '', 1 ),
 	];
 
-	$fields = array_merge( $hero, $features, $services, $videos );
+	$price = [ 
+		cyn_acf_add_tab( 'ویدئوها' ),
+		cyn_acf_add_post_object( 'prices', 'انتخاب قیمت ها', 'price', '', 1 ),
+	];
+
+	$fields = array_merge( $hero, $features, $services, $videos, $price );
 
 	$location = [ 
 		[ 
@@ -69,3 +74,24 @@ function cyn_acf_register_home_page() {
 	cyn_register_acf_group( 'تنظیمات صفحه اصلی', $fields, $location );
 }
 
+function cyn_acf_register_price() {
+
+	$fields = [ 
+		cyn_acf_add_text( 'brand', 'برند' ),
+		cyn_acf_add_text( 'country', 'کشور سازنده' ),
+		cyn_acf_add_text( 'price_per_unit', 'قیمت هر واحد' ),
+	];
+
+	$location = [ 
+		[ 
+			[ 
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'price'
+			]
+		]
+	];
+
+	cyn_register_acf_group( 'تنظیمات ', $fields, $location );
+
+}

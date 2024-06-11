@@ -1,4 +1,4 @@
-<div class="fixed bg-background-card_1 inset-0 py-12 px-5 space-y-4 transition-all duration-500 overflow-y-auto h-screen | [clip-path:polygon(100%_0%_,100%_0_,100%_100%,_100%_100%)]"
+<div class="fixed bg-background-card_1 inset-0 py-12 px-5 space-y-4 transition-all duration-500 overflow-y-auto h-screen z-50 | [clip-path:polygon(100%_0%_,100%_0_,100%_100%,_100%_100%)]"
 	 id="mobileMenu">
 
 	<div class="flex justify-between items-center">

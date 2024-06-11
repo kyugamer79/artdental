@@ -37,7 +37,8 @@
 										<use href="#icon-chevron-down"></use>
 									</svg>
 
-									<div class="absolute w-min min-w-[200px] pt-2 top-full hidden group-hover:block">
+									<div
+										 class="absolute z-50 w-min min-w-[200px] pt-2 top-full opacity-0 translate-y-8 pointer-events-none transition-all group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-y-0">
 										<div class=" divide-y-[1px] divide-primary-90 bg-primary-100 border-primary-90">
 											<?php foreach ( $menu_item->child_items as $index => $child ) : ?>
 												<div class="px-4 py-3 text-primary-20">

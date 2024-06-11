@@ -24,6 +24,7 @@ if ( ! class_exists( 'cyn_register' ) ) {
 			// $this->cyn_make_post_type('demo_post_type' , 'demo' , 'demos')
 			$this->cyn_make_post_type( 'service', 'خدمت', 'خدمات', 'dashicons-info' );
 			$this->cyn_make_post_type( 'video', 'ویدئو', 'ویدئو ها', 'dashicons-video-alt3' );
+			$this->cyn_make_post_type( 'price', 'قیمت', 'قیمت ها', 'dashicons-money-alt' );
 		}
 
 		public function cyn_taxonomy_register() {

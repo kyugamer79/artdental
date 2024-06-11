@@ -4,7 +4,7 @@ $postId = $args['post-id'] ?? get_the_ID();
 
 
 if ( $postId === 0 ) {
-	throw new ErrorException( 'service id is invalid', 0, E_WARNING );
+	throw new ErrorException( 'post id is invalid', 0, E_WARNING );
 }
 
 $terms = get_the_terms( $postId, 'service-cat' );
