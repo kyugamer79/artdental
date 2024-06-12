@@ -4,7 +4,7 @@
 	"description": "",
 	"author": "cyan-dm",
 	"scripts": {
-		"install-pkg": "npm i sass postcss postcss-cli autoprefixer esbuild -g",
+		"install-pkg": "npm i sass postcss postcss-cli autoprefixer esbuild",
 		"recommend-pkg": "npm i gsap swiper",
 		"w-tailwind": "npx tailwindcss -i ./assets/css/base-tailwind.css -o ./assets/css/final-tailwind.css --watch",
 		"w-js": "esbuild ./assets/js/index.js --outfile=./assets/js/dist/scripts.bundle.js --target=es6,chrome58,edge18,firefox54,safari11 --bundle --watch",
@@ -16,7 +16,12 @@
 		"zip-build": "^1.8.0"
 	},
 	"dependencies": {
+		"autoprefixer": "^10.4.19",
+		"esbuild": "^0.21.5",
 		"gsap": "^3.12.2",
+		"postcss": "^8.4.38",
+		"postcss-cli": "^11.0.0",
+		"sass": "^1.77.5",
 		"swiper": "^11.0.3"
 	},
 	"browserslist": [

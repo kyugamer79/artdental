@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -888,6 +888,10 @@ video {
   min-width: 200px;
 }
 
+.max-w-\[320px\] {
+  max-width: 320px;
+}
+
 .max-w-\[340px\] {
   max-width: 340px;
 }
@@ -898,10 +902,6 @@ video {
 
 .max-w-\[390px\] {
   max-width: 390px;
-}
-
-.max-w-\[320px\] {
-  max-width: 320px;
 }
 
 .flex-1 {
@@ -1097,6 +1097,10 @@ video {
 
 .gap-5 {
   gap: 20px;
+}
+
+.gap-6 {
+  gap: 24px;
 }
 
 .gap-8 {
@@ -1425,6 +1429,10 @@ video {
   padding-top: 20px;
 }
 
+.pb-4 {
+  padding-bottom: 16px;
+}
+
 .text-left {
   text-align: left;
 }
@@ -1650,11 +1658,13 @@ video {
 }
 
 .\[clip-path\:polygon\(0_0\2c _100\%_0_\2c _100\%_100\%_\2c _0_100\%\)\] {
-  clip-path: polygon(0 0, 100% 0 , 100% 100% , 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0 , 100% 100% , 0 100%);
+          clip-path: polygon(0 0, 100% 0 , 100% 100% , 0 100%);
 }
 
 .\[clip-path\:polygon\(100\%_0\%_\2c 100\%_0_\2c 100\%_100\%\2c _100\%_100\%\)\] {
-  clip-path: polygon(100% 0% ,100% 0 ,100% 100%, 100% 100%);
+  -webkit-clip-path: polygon(100% 0% ,100% 0 ,100% 100%, 100% 100%);
+          clip-path: polygon(100% 0% ,100% 0 ,100% 100%, 100% 100%);
 }
 
 .\[direction\:ltr\] {
@@ -1957,10 +1967,6 @@ video {
   .max-md\:mx-auto {
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .max-md\:mt-2 {
-    margin-top: 8px;
   }
 
   .max-md\:mt-4 {
