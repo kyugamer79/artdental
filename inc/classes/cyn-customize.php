@@ -9,6 +9,7 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 		public function cyn_basic_settings( $wp_customize ) {
 
 			$this->cyn_register_panel_general( $wp_customize );
+
 			// $this->cyn_register_panel_demo_2( $wp_customize );
 
 		}
@@ -94,9 +95,56 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 
 			for ( $i = 1; $i <= 10; $i++ ) {
 				$this->cyn_add_control( $wp_customize, 'social_media', 'file', "cyn_social_media_img_$i", "تصویر شبکه اجتماعی $i" );
-				$this->cyn_add_control( $wp_customize, 'social_media', 'tel', "cyn_social_media_url_$i", "لینک شبکه اجتماعی $i" );
+				$this->cyn_add_control( $wp_customize, 'social_media', 'text', "cyn_social_media_url_$i", "لینک شبکه اجتماعی $i" );
 			}
+
+
+			$wp_customize->add_section(
+				'address',
+				[ 
+					'title' => 'آدرس',
+					'priority' => 1,
+					'panel' => 'general'
+				]
+			);
+
+			$this->cyn_add_control( $wp_customize, 'address', 'textarea', "cyn_address", "آدرس" );
+
+			for ( $i = 1; $i <= 10; $i++ ) {
+				$this->cyn_add_control( $wp_customize, 'address', 'file', "cyn_address_img_$i", "تصویر مسیریاب $i" );
+				$this->cyn_add_control( $wp_customize, 'address', 'tel', "cyn_address_url_$i", "لینک مسیریاب $i" );
+			}
+
+
+			$wp_customize->add_section(
+				'work_hours',
+				[ 
+					'title' => 'ساعت کاری',
+					'priority' => 1,
+					'panel' => 'general'
+				]
+			);
+
+			for ( $i = 1; $i <= 7; $i++ ) {
+				$this->cyn_add_control( $wp_customize, 'work_hours', 'text', "cyn_work_hours_$i", "ساعت کاری $i" );
+			}
+
+			$wp_customize->add_section(
+				'custom_logo',
+				[ 
+					'title' => 'لوگوی دوم',
+					'priority' => 1,
+					'panel' => 'general'
+				]
+			);
+
+			$this->cyn_add_control( $wp_customize, 'custom_logo', 'file', "cyn_custom_logo", "لوگو" );
+
+
 		}
+
+
+
 
 
 

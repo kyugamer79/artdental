@@ -35,7 +35,10 @@ function faqTabs() {
 
 			//enable related panel
 			panels.forEach((panel) => {
-				if (panel.getAttribute('controlled-by') === handler.id) {
+				const isRelatedPanel =
+					panel.getAttribute('controlled-by') === handler.id;
+
+				if (isRelatedPanel) {
 					activatePanel(panel);
 				} else {
 					deActivatePanel(panel);
@@ -44,8 +47,6 @@ function faqTabs() {
 		});
 	});
 }
-
-faqTabs();
 
 function faqCard() {
 	const faqCards = document.querySelectorAll('.faq-card');
@@ -63,13 +64,13 @@ function faqCard() {
 
 	faqCards.forEach((faq) => {
 		const faqToggle = faq.querySelector('.faq-toggle');
+		const expert = faq.querySelector('.faq-expert');
+		if (!expert) return;
+
 		faqToggle?.addEventListener('click', () => {
-			const expert = faq.querySelector('.faq-expert');
-			if (!expert) return;
+			const faqIsActive = expert.classList.contains('grid-rows-[1fr]');
 
-			const isActive = expert.classList.contains('grid-rows-[1fr]');
-
-			if (isActive) {
+			if (faqIsActive) {
 				deActivateFaq(faq, expert);
 			} else {
 				activateFaq(faq, expert);
@@ -78,4 +79,5 @@ function faqCard() {
 	});
 }
 
+faqTabs();
 faqCard();

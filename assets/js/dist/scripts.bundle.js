@@ -10423,7 +10423,8 @@
         handlers.forEach((innerHandler) => deActivateTab(innerHandler));
         activateTab(handler);
         panels.forEach((panel) => {
-          if (panel.getAttribute("controlled-by") === handler.id) {
+          const isRelatedPanel = panel.getAttribute("controlled-by") === handler.id;
+          if (isRelatedPanel) {
             activatePanel(panel);
           } else {
             deActivatePanel(panel);
@@ -10432,7 +10433,6 @@
       });
     });
   }
-  faqTabs();
   function faqCard() {
     const faqCards = document.querySelectorAll(".faq-card");
     if (!faqCards)
@@ -10449,12 +10449,12 @@
     }
     faqCards.forEach((faq) => {
       const faqToggle = faq.querySelector(".faq-toggle");
+      const expert = faq.querySelector(".faq-expert");
+      if (!expert)
+        return;
       faqToggle == null ? void 0 : faqToggle.addEventListener("click", () => {
-        const expert = faq.querySelector(".faq-expert");
-        if (!expert)
-          return;
-        const isActive = expert.classList.contains("grid-rows-[1fr]");
-        if (isActive) {
+        const faqIsActive = expert.classList.contains("grid-rows-[1fr]");
+        if (faqIsActive) {
           deActivateFaq(faq, expert);
         } else {
           activateFaq(faq, expert);
@@ -10462,6 +10462,7 @@
       });
     });
   }
+  faqTabs();
   faqCard();
 
   // assets/js/modules/select-box.js
