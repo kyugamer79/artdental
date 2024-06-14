@@ -1,5 +1,5 @@
 <!-- side bar -->
-<div>
+<div class="grid justify-evenly">
     <!-- Search -->
     <div class="bg-primary-100 p-5 rounded-3xl">
 
@@ -32,6 +32,11 @@
 
     <!-- Suggestion Blogs -->
     <div>
+
+    <div class="pb-4">
+            <?php _e('مقالات پیشنهادی', 'cyn-dm') ?>
+    </div>
+
 
     </div>
 
