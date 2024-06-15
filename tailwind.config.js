@@ -85,6 +85,8 @@ module.exports = {
 			16: '100px',
 			17: '120px',
 		},
+
+
 	},
 	extend: {
 		fontFamily: {
@@ -96,6 +98,9 @@ module.exports = {
 		backgroundImage: {
 			'cyn-noise': "url('../img/noise.png')",
 		},
+
 	},
-	plugins: [],
+	plugins: [
+		require("@tailwindcss/typography")
+	],
 };

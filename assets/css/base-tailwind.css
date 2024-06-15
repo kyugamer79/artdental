@@ -8,4 +8,5 @@
 	.bg-noise {
 		@apply bg-background-card_2 bg-[url(../img/noise.png)] bg-blend-soft-light;
 	}
+
 }
