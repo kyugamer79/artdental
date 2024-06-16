@@ -5,20 +5,29 @@ function faqTabs() {
 	if (!panels || !handlers) return;
 
 	function activateTab(element) {
+
+		if (!element) return;
+
 		element.classList.replace('border-background-card_1', 'border-primary-0');
 		element.classList.replace('text-primary-50', 'text-primary-20');
 	}
 
 	function deActivateTab(element) {
+		if (!element) return;
+
 		element.classList.replace('border-primary-0', 'border-background-card_1');
 		element.classList.replace('text-primary-20', 'text-primary-50');
 	}
 
 	function activatePanel(element) {
+		if (!element) return;
+
 		element.classList.replace('grid-rows-[0fr]', 'grid-rows-[1fr]');
 	}
 
 	function deActivatePanel(element) {
+		if (!element) return;
+
 		element.classList.replace('grid-rows-[1fr]', 'grid-rows-[0fr]');
 	}
 

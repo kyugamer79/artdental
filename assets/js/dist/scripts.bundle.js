@@ -10117,17 +10117,21 @@
     const panels = document.querySelectorAll(".faq-panel");
     if (!panels || !handlers) return;
     function activateTab(element) {
+      if (!element) return;
       element.classList.replace("border-background-card_1", "border-primary-0");
       element.classList.replace("text-primary-50", "text-primary-20");
     }
     function deActivateTab(element) {
+      if (!element) return;
       element.classList.replace("border-primary-0", "border-background-card_1");
       element.classList.replace("text-primary-20", "text-primary-50");
     }
     function activatePanel(element) {
+      if (!element) return;
       element.classList.replace("grid-rows-[0fr]", "grid-rows-[1fr]");
     }
     function deActivatePanel(element) {
+      if (!element) return;
       element.classList.replace("grid-rows-[1fr]", "grid-rows-[0fr]");
     }
     activateTab(handlers[0]);
@@ -10207,6 +10211,12 @@
     });
   }
   selectBox();
+
+  // assets/js/modules/bread-crumb.js
+  var separator = document.querySelectorAll(".separator");
+  separator.forEach((el) => {
+    el.innerHTML = '<svg class="icon w-6 h-6 rotate-180"><use href="#icon-Right,-Arrow"/></svg>';
+  });
 
   // assets/js/pages/home.js
   var containerComponent = class extends HTMLElement {
