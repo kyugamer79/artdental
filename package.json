@@ -22,7 +22,7 @@
 		"gsap": "^3.12.5",
 		"postcss": "^8.4.38",
 		"postcss-cli": "^11.0.0",
-		"sass": "^1.77.5",
+		"sass": "^1.77.6",
 		"swiper": "^11.1.4"
 	},
 	"browserslist": [

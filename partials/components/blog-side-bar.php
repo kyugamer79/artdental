@@ -146,8 +146,6 @@ $post_categories = get_terms([
 
                 <?php $gallery = get_field('gallery_section') ?>
 
-
-
             </div>
 
         </div>

@@ -1,27 +1,29 @@
 <div>
     <div class="contact-container">
-        <form action="#" class="comment-form waituk_contact-form row">
-            <div class="row">
+        <form action="#" class="comment-form waituk_contact-form">
+            <div class="">
                 <?php comment_form([
                     'fields' => [
-                        'author' => '<div class="col-sm-6 form-group">
-                                        <input placeholder="نام شما" type="text" class="form-control" name="author">
+                        'author' => '<div class="form-group">
+                                        <input placeholder="نام شما" type="text" class="form-control w-full px-3 rounded-3xl py-2" name="author">
                                     </div>',
 
-                        'email' => '<div class="col-sm-6 form-group">
-                                        <input placeholder="ایمیل شما" type="email" class="form-control" name="email">
+                        'email' => '<div class="form-group">
+                                        <input placeholder="ایمیل شما" type="email" class="form-control w-full px-3 rounded-3xl py-2" name="email">
                                     </div>',
                         'cookies' => '',
                     ],
                     'comment_field' => '<div class="order-3">
-                                    <textarea placeholder="نظر شما" class="form-control" name="comment"></textarea>
+                                    <textarea placeholder="نظر شما" class="form-control w-full h-17 px-3 rounded-3xl py-4" name="comment"></textarea>
                                 </div>',
                     'comment_notes_before' => '',
                     'class_form' => 'sss',
-                    'class_container' => 'grid gap-2',
+                    'class_container' => 'grid gap-4',
+                    'title_reply' => '',
                     'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
                     'title_reply_after' => '</h3>',
-                    'submit_field' => '<div class="form-submit order-3">%1$s %2$s</div>'
+                    'submit_field' => '<div class="form-submit order-3 grid justify-items-end">%1$s %2$s</div>',
+                    'class_submit'=> 'comment-submit-btn rounded-full flex gap-1 transition-all duration-300 cursor-pointer bg-gradient-to-t from-primary-50 to-primary-70 text-primary-100 shadow-md shadow-slate-400/50 hover:from-primary-20 hover:to-primary-20 px-4 py-2 text-body_s '
                 ]); ?>
             </div>
         </form>

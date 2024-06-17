@@ -24,14 +24,14 @@ $postId = $args['post-id'] ?? get_the_ID();
 <main class="container grid grid-cols-4 gap-6">
 
     <!-- Side Bar -->
-    <section class="col-span-1 max-xl:col-span-2 max-lg:col-span-4 max-lg:order-1">
+    <section class="col-span-1 max-lg:col-span-4 max-lg:order-1">
 
         <?php cyn_get_component("blog-side-bar") ?>
 
     </section>
 
     <!-- Paragraph -->
-    <section class="col-span-3 max-xl:col-span-2 max-lg:col-span-4">
+    <section class="col-span-3 max-lg:col-span-4 max-xl:mx-5">
 
         <!--Blog Title  -->
         <div class="text-h1">
@@ -88,7 +88,9 @@ $postId = $args['post-id'] ?? get_the_ID();
             </div>
 
             <!-- Comment Form -->
-            <?php comments_template(); ?>
+             <div class="max-lg:order-2">
+                 <?php comments_template(); ?>
+             </div>
 
         </div>
 
