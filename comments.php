@@ -1,20 +1,23 @@
 <div>
     <div class="contact-container">
-        <form action="#" class="comment-form waituk_contact-form">
-            <div class="">
+        <form action="" class="comment-form">
+            <div class="right-6">
                 <?php comment_form([
                     'fields' => [
-                        'author' => '<div class="form-group">
-                                        <input placeholder="نام شما" type="text" class="form-control w-full px-3 rounded-3xl py-2" name="author">
-                                    </div>',
+                        'author' => '<label class="form-group relative">
+                                        <svg class="icon text-primary-50 w-6 h-6 mx-3 absolute top-1/2 transform -translate-y-1/2"><use href="#icon-User,-Profile"/></svg> 
+                                        <input placeholder="نام شما" type="text" class="form-control w-full rounded-3xl py-2 px-10" name="author">
+                                    </label>',
 
-                        'email' => '<div class="form-group">
-                                        <input placeholder="ایمیل شما" type="email" class="form-control w-full px-3 rounded-3xl py-2" name="email">
+                        'email' => '<div class="form-group relative">
+                                        <svg class="icon text-primary-50 w-6 h-6 mx-3 absolute top-1/2 transform -translate-y-1/2"><use href="#icon-Emails,-Letter,-Mail-1"/></svg>
+                                        <input placeholder="ایمیل شما" type="email" class="form-control w-full rounded-3xl py-2 px-10" name="email">
                                     </div>',
                         'cookies' => '',
                     ],
-                    'comment_field' => '<div class="order-3">
-                                    <textarea placeholder="نظر شما" class="form-control w-full h-17 px-3 rounded-3xl py-4" name="comment"></textarea>
+                    'comment_field' => '<div class="order-3 relative">
+                                    <svg class="icon text-primary-50 w-6 h-6 mx-3 absolute top-1/3 transform -translate-y-6"><use href="#icon-Chat,-Messages-1"/></svg>
+                                    <textarea placeholder="نظر شما" class="form-control resize-none w-full h-17 rounded-3xl py-4 px-10" name="comment"></textarea>
                                 </div>',
                     'comment_notes_before' => '',
                     'class_form' => 'sss',
@@ -22,8 +25,10 @@
                     'title_reply' => '',
                     'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
                     'title_reply_after' => '</h3>',
-                    'submit_field' => '<div class="form-submit order-3 grid justify-items-end">%1$s %2$s</div>',
-                    'class_submit'=> 'comment-submit-btn rounded-full flex gap-1 transition-all duration-300 cursor-pointer bg-gradient-to-t from-primary-50 to-primary-70 text-primary-100 shadow-md shadow-slate-400/50 hover:from-primary-20 hover:to-primary-20 px-4 py-2 text-body_s '
+                    'submit_field' => '<div class="form-submit order-3 grid justify-items-end relative">%1$s %2$s
+                        <svg class="icon text-primary-100 w-6 h-6 absolute top-1/2 transform -translate-y-1/2"><use href="#icon-Send"/></svg>
+                    </div>',
+                    'class_submit' => 'comment-submit-btn rounded-full flex gap-1 transition-all duration-300 cursor-pointer bg-gradient-to-t from-primary-50 to-primary-70 text-primary-100 shadow-md shadow-slate-400/50 hover:from-primary-20 hover:to-primary-20 py-2 px-8 text-body_s '
                 ]); ?>
             </div>
         </form>
