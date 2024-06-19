@@ -72,7 +72,7 @@ $postId = $args['post-id'] ?? get_the_ID();
             <?php the_content() ?>
         </div>
 
-        <div class="pt-4"></div>
+        <div class="py-3"></div>
 
         <!-- Comments -->
         <div class="max-lg:hidden">

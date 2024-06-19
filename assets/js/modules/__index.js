@@ -4,4 +4,5 @@ import './swiper';
 import './faq-group';
 import './select-box';
 import './bread-crumb';
-// import './comment-submit';
+import './comments'
+

@@ -10218,6 +10218,19 @@
     el.innerHTML = '<svg class="icon w-6 h-6 rotate-180"><use href="#icon-Right,-Arrow"/></svg>';
   });
 
+  // assets/js/modules/comments.js
+  function commentReply() {
+    const replyButtons = document.querySelectorAll(".reply-comment");
+    const commentFormParent = document.querySelector("#commentform #comment_parent");
+    if (!commentFormParent || !replyButtons) return;
+    replyButtons.forEach((element) => {
+      element.addEventListener("click", () => {
+        commentFormParent.value = element.getAttribute("comment-id");
+      });
+    });
+  }
+  commentReply();
+
   // assets/js/pages/home.js
   var containerComponent = class extends HTMLElement {
     constructor() {

@@ -47,7 +47,7 @@
                 'type'               => 'plain',
                 'prev_text'          => __('﹤'),
                 'next_text'          => __('﹥'),
-                'before_page_number' => '<span class="bg-primary-100 rounded-full border border-primary-0 p-1 inline-flex justify-center items-center size-8">',
+                'before_page_number' => '<span class="bg-primary-100 rounded-full border border-primary-50 p-1 inline-flex justify-center items-center size-8">',
                 'after_page_number' => '</span>',
             ]);
             ?>
