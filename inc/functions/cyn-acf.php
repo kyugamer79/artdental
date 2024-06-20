@@ -1,5 +1,7 @@
 <?php
+
 add_action('acf/include_fields', 'cyn_register_acf');
+
 
 function cyn_register_acf()
 {
@@ -9,6 +11,7 @@ function cyn_register_acf()
 	cyn_acf_register_home_page();
 	cyn_acf_register_price();
 	cyn_acf_register_doctor();
+	cyn_acf_register_about_us();
 }
 
 
@@ -87,6 +90,7 @@ function cyn_acf_register_home_page()
 	cyn_register_acf_group('تنظیمات صفحه اصلی', $fields, $location);
 }
 
+
 function cyn_acf_register_price()
 {
 
@@ -108,6 +112,7 @@ function cyn_acf_register_price()
 
 	cyn_register_acf_group('تنظیمات ', $fields, $location);
 }
+
 
 function cyn_acf_register_doctor()
 {
@@ -133,6 +138,33 @@ function cyn_acf_register_doctor()
 				'param' => 'post_type',
 				'operator' => '==',
 				'value' => 'doctor'
+			]
+		]
+	];
+
+	cyn_register_acf_group('تنظیمات', $fields, $location);
+}
+
+
+function cyn_acf_register_about_us(){
+
+	$fields = [
+
+		cyn_acf_add_tab('هیرو'),
+		cyn_acf_add_image('بنر','banner',100),
+		cyn_acf_add_text('hero_title','متن اصلی', 0, 33),
+		cyn_acf_add_text('hero_subtitle','متن فرعی',0 ,33),
+
+		
+	];
+
+
+	$location = [
+		[
+			[
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'templates/about-us.php'
 			]
 		]
 	];
