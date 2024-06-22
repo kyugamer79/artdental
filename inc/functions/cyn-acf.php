@@ -146,16 +146,33 @@ function cyn_acf_register_doctor()
 }
 
 
-function cyn_acf_register_about_us(){
+function cyn_acf_register_about_us()
+{
 
 	$fields = [
 
 		cyn_acf_add_tab('هیرو'),
-		cyn_acf_add_image('بنر','banner',100),
-		cyn_acf_add_text('hero_title','متن اصلی', 0, 33),
-		cyn_acf_add_text('hero_subtitle','متن فرعی',0 ,33),
+		cyn_acf_add_image('banner', 'بنر', 100),
+		cyn_acf_add_text('hero_title', 'متن اصلی', 0, 33),
+		cyn_acf_add_text('hero_subtitle', 'متن فرعی', 0, 33),
 
-		
+		cyn_acf_add_tab('توضیحات درباره ما'),
+		cyn_acf_add_image('description_img', 'عکس توضیحات'),
+		cyn_acf_add_text('description_title', 'سربرگ توضیحات', 0, 33),
+		cyn_acf_add_text('description_txt', 'متن توضیحات'),
+
+		cyn_acf_add_tab('پرسنل'),
+		cyn_acf_add_image('crow_img', 'عکس پرسنل'),
+		cyn_acf_add_text('crow_title', 'سربرگ پرسنل', 0, 33),
+		cyn_acf_add_text('crow_txt', 'متن پرسنل'),
+
+		cyn_acf_add_tab('تاریخچه'),
+		cyn_acf_add_image('history_img', 'عکس تاریخچه'),
+		cyn_acf_add_text('history_title', 'سربرگ تاریخچه', 0, 33),
+		cyn_acf_add_text('history_txt', 'متن تاریخچه'),
+
+
+
 	];
 
 
