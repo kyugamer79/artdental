@@ -23,7 +23,7 @@ if (!class_exists('cyn_register')) {
 
 		public function cyn_post_type_register()
 		{
-			$this->cyn_make_post_type('service', 'خدمت', 'خدمات', 'dashicons-info');
+			$this->cyn_make_post_type('service', 'خدمت', 'خدمات', 'dashicons-info', ['title', 'thumbnail', 'editor', 'comments']);
 			$this->cyn_make_post_type('video', 'ویدئو', 'ویدئو ها', 'dashicons-video-alt3');
 			$this->cyn_make_post_type('price', 'قیمت', 'قیمت ها', 'dashicons-money-alt');
 			$this->cyn_make_post_type('testimonial', 'نظر', 'نظرات بیماران', 'dashicons-format-chat', ['title', 'thumbnail', 'editor']);

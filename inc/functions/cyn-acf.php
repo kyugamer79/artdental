@@ -12,6 +12,7 @@ function cyn_register_acf()
 	cyn_acf_register_price();
 	cyn_acf_register_doctor();
 	cyn_acf_register_about_us();
+	cyn_acf_register_service();
 }
 
 
@@ -171,8 +172,6 @@ function cyn_acf_register_about_us()
 		cyn_acf_add_text('history_title', 'سربرگ تاریخچه', 0, 33),
 		cyn_acf_add_text('history_txt', 'متن تاریخچه'),
 
-
-
 	];
 
 
@@ -182,6 +181,27 @@ function cyn_acf_register_about_us()
 				'param' => 'page_template',
 				'operator' => '==',
 				'value' => 'templates/about-us.php'
+			]
+		]
+	];
+
+	cyn_register_acf_group('تنظیمات', $fields, $location);
+}
+
+function cyn_acf_register_service()
+{
+
+	$fields = [
+		cyn_acf_add_post_object('faq-group', 'سوالات متداول', 'faq', '', 1)
+	];
+
+
+	$location = [
+		[
+			[
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'service'
 			]
 		]
 	];

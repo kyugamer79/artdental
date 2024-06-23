@@ -1,4 +1,4 @@
-<!-- side bar -->
+<!-- Blog SideBar -->
 
 <?php
 

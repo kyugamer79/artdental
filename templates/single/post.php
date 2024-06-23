@@ -15,7 +15,7 @@ $postId = $args['post-id'] ?? get_the_ID();
 
 <!-- Bread Crumb -->
 
-<?php cyn_get_component('breadcrumb')?>
+<?php cyn_get_component('breadcrumb') ?>
 
 <!-- blog main -->
 <main class="container grid grid-cols-4 gap-6">
