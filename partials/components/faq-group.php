@@ -2,6 +2,7 @@
 $acf_field = $args['acf_field'] ?? null;
 $term_ids = $args['term_ids'] ?? [];
 $type = $args['type'] ?? 'query';
+$postId = $args['post-id'] ?? null;
 
 $faq_group = [];
 
@@ -22,7 +23,7 @@ if ($type === 'query') {
 }
 
 if ($type === 'acf') {
-	$faq_group = get_field($acf_field);
+	$faq_group = get_field($acf_field, $postId);
 }
 
 if (is_null($faq_group)) return;

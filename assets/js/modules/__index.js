@@ -6,4 +6,5 @@ import './select-box';
 import './bread-crumb';
 import './comments'
 import './taxonomy-terms'
+import './table-of-content'
 

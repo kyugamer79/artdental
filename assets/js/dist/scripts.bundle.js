@@ -10231,6 +10231,58 @@
   }
   commentReply();
 
+  // assets/js/modules/taxonomy-terms.js
+  function taxTerm() {
+    const terms = document.querySelectorAll(".term");
+    if (!terms) return;
+    function activeTax(termToggle, termPanel) {
+      var _a, _b;
+      termPanel.classList.replace("grid-rows-[0fr]", "grid-rows-[1fr]");
+      (_a = termToggle.querySelector("svg")) == null ? void 0 : _a.classList.add("rotate-180", "text-accent-50");
+      (_b = termToggle.querySelector(".title")) == null ? void 0 : _b.classList.add("text-accent-50");
+    }
+    function deActiveTax(termToggle, termPanel) {
+      var _a, _b;
+      termPanel.classList.replace("grid-rows-[1fr]", "grid-rows-[0fr]");
+      (_a = termToggle.querySelector("svg")) == null ? void 0 : _a.classList.remove("rotate-180", "text-accent-50");
+      (_b = termToggle.querySelector(".title")) == null ? void 0 : _b.classList.remove("text-accent-50");
+    }
+    terms.forEach((term) => {
+      const termToggle = term.querySelector(".term-title");
+      const termPanel = term.querySelector(".term-panel");
+      termToggle == null ? void 0 : termToggle.addEventListener("click", () => {
+        const termIsActive = termPanel.classList.contains("grid-rows-[1fr]");
+        if (termIsActive) {
+          deActiveTax(termToggle, termPanel);
+        } else {
+          activeTax(termToggle, termPanel);
+        }
+      });
+    });
+  }
+  taxTerm();
+
+  // assets/js/modules/table-of-content.js
+  document.addEventListener("DOMContentLoaded", function() {
+    const toc = document.getElementById("toc");
+    const prose = document.querySelector(".prose");
+    const headings = prose == null ? void 0 : prose.querySelectorAll("h2");
+    const icon = document.querySelector(".separator svg");
+    headings.forEach(function(heading, index) {
+      const id = "section-" + index;
+      heading.setAttribute("id", id);
+      const li = document.createElement("li");
+      li.classList.add("flex", "flex-row-reverse", "justify-between");
+      const a = document.createElement("a");
+      const svg = icon.cloneNode(true);
+      a.textContent = heading.textContent;
+      a.setAttribute("href", "#" + id);
+      li.appendChild(svg);
+      li.appendChild(a);
+      toc.appendChild(li);
+    });
+  });
+
   // assets/js/pages/home.js
   var containerComponent = class extends HTMLElement {
     constructor() {

@@ -33,7 +33,9 @@ $postId = $args['post-id'] ?? get_the_ID();
         <div class="pt-4"></div>
 
         <!-- Blog Thumbnail -->
-        <?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'full', false, ['class' => 'blog-thumbnail rounded-3xl my-0 w-full object-cover']) ?>
+        <div class="">
+            <?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'full', false, ['class' => 'blog-thumbnail rounded-3xl my-0 aspect-video w-full object-cover']) ?>
+        </div>
 
         <div class="pb-4"></div>
 
@@ -43,10 +45,14 @@ $postId = $args['post-id'] ?? get_the_ID();
             <?php the_content() ?>
         </div>
 
-        <div class="pt-[93px]"></div>
+
+
 
         <!-- FAQ -->
-        <?php if (!is_null(get_field('faq-group'))) : ?>
+        <?php if (!is_null(get_field('faq-group', $postId))) : ?>
+        <div class="pt-[93px]"></div>
+
+
         <div>
             <!-- Title -->
             <div class="text-h2">
@@ -54,7 +60,7 @@ $postId = $args['post-id'] ?? get_the_ID();
             </div>
 
             <div class="p-6">
-                <?php cyn_get_component('faq-group', ['type' => 'acf', 'acf_field' => 'faq-group']) ?>
+                <?php cyn_get_component('faq-group', ['type' => 'acf', 'acf_field' => 'faq-group', 'post-id' => $postId]) ?>
             </div>
         </div>
         <?php endif; ?>

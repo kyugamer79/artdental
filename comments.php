@@ -104,17 +104,18 @@
             <?php echo $comment->comment_content; ?>
         </div>
 
+        <?php
+                $children = get_comments([
+                    'post_id' => get_the_ID(),
+                    'status' => 'approve',
+                    'orderby' => 'comment_date',
+                    'order' => 'ASC',
+                    'parent' => $comment->comment_ID,
+                ]); ?>
+
+        <?php if ($children) : ?>
         <!-- comment children -->
         <div class="bg-primary-90 p-4 rounded-3xl">
-            <?php
-                    $children = get_comments([
-                        'post_id' => get_the_ID(),
-                        'status' => 'approve',
-                        'orderby' => 'comment_date',
-                        'order' => 'ASC',
-                        'parent' => $comment->comment_ID,
-                    ]); ?>
-
 
             <?php foreach ($children as $child_comment) : ?>
 
@@ -164,6 +165,7 @@
 
             <?php endforeach; ?>
         </div>
+        <?php endif; ?>
 
     </div>
 
