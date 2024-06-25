@@ -45,11 +45,9 @@ $postId = $args['post-id'] ?? get_the_ID();
             <?php the_content() ?>
         </div>
 
-
-
-
         <!-- FAQ -->
         <?php if (!is_null(get_field('faq-group', $postId))) : ?>
+
         <div class="pt-[93px]"></div>
 
 
@@ -63,6 +61,7 @@ $postId = $args['post-id'] ?? get_the_ID();
                 <?php cyn_get_component('faq-group', ['type' => 'acf', 'acf_field' => 'faq-group', 'post-id' => $postId]) ?>
             </div>
         </div>
+
         <?php endif; ?>
 
         <div class="py-3"></div>

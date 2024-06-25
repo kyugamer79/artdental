@@ -10272,7 +10272,7 @@
       const id = "section-" + index;
       heading.setAttribute("id", id);
       const li = document.createElement("li");
-      li.classList.add("flex", "flex-row-reverse", "justify-between");
+      li.classList.add("flex", "flex-row-reverse", "justify-between", "p-1");
       const a = document.createElement("a");
       const svg = icon.cloneNode(true);
       a.textContent = heading.textContent;

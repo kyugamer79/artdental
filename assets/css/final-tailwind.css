@@ -1463,6 +1463,12 @@ video {
   width: 24px;
 }
 
+.w-fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .w-full {
   width: 100%;
 }
@@ -1639,13 +1645,6 @@ video {
           flex-direction: column;
 }
 
-.flex-col-reverse {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
-}
-
 .flex-wrap {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -1697,10 +1696,6 @@ video {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-}
-
-.justify-items-end {
-  justify-items: end;
 }
 
 .gap-1 {
@@ -1779,12 +1774,6 @@ video {
   margin-bottom: calc(16px * var(--tw-space-y-reverse));
 }
 
-.space-y-1 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(4px * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(4px * var(--tw-space-y-reverse));
-}
-
 .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1815,11 +1804,6 @@ video {
 .divide-primary-90 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(244 244 246 / var(--tw-divide-opacity));
-}
-
-.divide-primary-10 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-opacity: 1;
-  border-color: rgb(37 39 45 / var(--tw-divide-opacity));
 }
 
 .overflow-hidden {
@@ -2690,6 +2674,13 @@ video {
   }
 }
 
+@media (max-width: 1280px) {
+  .max-\[1280px\]\:mx-5 {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
 @media not all and (min-width: 1024px) {
   .max-lg\:order-1 {
     -webkit-box-ordinal-group: 2;
@@ -2758,6 +2749,12 @@ video {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+
+  .max-lg\:justify-center {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .max-lg\:justify-between {

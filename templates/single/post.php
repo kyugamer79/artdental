@@ -28,10 +28,10 @@ $postId = $args['post-id'] ?? get_the_ID();
     </section>
 
     <!-- Paragraph -->
-    <section class="col-span-3 max-lg:col-span-4 max-xl:mx-5">
+    <section class="col-span-3 max-lg:col-span-4 max-[1280px]:mx-5">
 
         <!--Blog Title  -->
-        <div class="text-h1">
+        <div class="text-h1 max-lg:text-h5">
             <?php the_title() ?>
         </div>
 
@@ -45,8 +45,7 @@ $postId = $args['post-id'] ?? get_the_ID();
         <!-- Blog Author -->
         <div class="bg-primary-100 rounded-2xl p-3 flex justify-between gap-3 max-sm:flex-col ">
             <!-- Author Name -->
-            <div
-                class="before:w-3 before:h-3 before:bg-accent-50 before:rounded-full before:inline-block flex items-center gap-3">
+            <div class="before:w-3 before:h-3 before:bg-accent-50 before:rounded-full before:inline-block flex items-center gap-3">
                 <a href="<?php echo get_permalink($authorId) ?>">
                     <?php echo get_the_author_meta('display_name', $authorId); ?>
                 </a>
@@ -64,8 +63,7 @@ $postId = $args['post-id'] ?? get_the_ID();
         <div class="pt-4"></div>
 
         <!-- Blog Content -->
-        <div
-            class="bg-accent-100 rounded-3xl p-5 prose prose-img:w-full prose-img:rounded-3xl prose-img:object-cover min-w-full prose-p:text-primary-50 prose-p:text-body_s prose-h4:text-h4 prose-h6:text-h6">
+        <div class="bg-accent-100 rounded-3xl p-5 prose prose-img:w-full prose-img:rounded-3xl prose-img:object-cover min-w-full prose-p:text-primary-50 prose-p:text-body_s prose-h4:text-h4 prose-h6:text-h6">
             <?php the_content() ?>
         </div>
 

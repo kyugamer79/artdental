@@ -3,10 +3,6 @@
 <!-- Archive blog page -->
 <?php get_header() ?>
 
-<div>
-    <?php ?>
-</div>
-
 <main class="container grid grid-cols-3 gap-3">
 
     <!-- Side Bar -->
@@ -47,7 +43,7 @@
                 'type'               => 'plain',
                 'prev_text'          => __('﹤'),
                 'next_text'          => __('﹥'),
-                'before_page_number' => '<span class="bg-primary-100 rounded-full border border-primary-50 p-1 inline-flex justify-center items-center size-8">',
+                'before_page_number' => '<span class="bg-primary-100 rounded-full border border-primary-50 p-1 inline-flex justify-center items-center size-8 transition-all duration-300 cursor-pointer color-primary-20  hover:border-primary-20 hover:bg-primary-100/0"">',
                 'after_page_number' => '</span>',
             ]);
             ?>

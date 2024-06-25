@@ -49,10 +49,10 @@ $cats = get_categories([
             </div>
 
             <div id="toc-container">
-                <h2></h2>
-                <ul id="toc" class="divide-y-[1px] divide-primary-90 space-y-3">
 
-                </ul>
+                <h2></h2>
+
+                <ul id="toc" class="grid gap-3 divide-y-[1px] divide-primary-90 space-y-3"></ul>
 
             </div>
 
