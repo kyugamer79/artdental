@@ -11,32 +11,9 @@ $cats = get_categories([
 
 <div class="h-full">
 
-    <div class="grid justify-evenly sticky top-3">
+    <div class="grid sticky top-3">
         <!-- Search -->
-        <div class="bg-primary-100 p-5 rounded-3xl">
-
-            <!-- Title  -->
-            <div class="text-h6 pb-4">
-                <?php _e('جستجو', 'cyn-dm') ?>
-            </div>
-
-            <!-- Input Search -->
-            <form action="/">
-
-                <div class="flex items-center gap-1 py-2 px-3 border border-l-primary-50 rounded-full">
-                    <button type="submit">
-                        <svg class="icon size-4">
-                            <use href="#icon-search-loupe" />
-                        </svg>
-                    </button>
-
-                    <div>
-                        <input class="focus-visible:outline-0" type="search" value="<?php the_search_query() ?>"
-                            id="search" name="s" placeholder="جستجو در مقالات">
-                    </div>
-                </div>
-            </form>
-        </div>
+        <?php cyn_get_component('side-bar-search') ?>
 
         <div class="py-3"></div>
 
@@ -44,7 +21,7 @@ $cats = get_categories([
         <div class="bg-primary-100 p-5 rounded-3xl">
 
             <!-- Title  -->
-            <div class="text-h6 pb-4">
+            <div class="text-h6 pb-4 font-medium">
                 <?php _e('جدول محتوایی', 'cyn-dm') ?>
             </div>
 
@@ -62,6 +39,10 @@ $cats = get_categories([
 
         <!-- Services Category -->
         <div class="bg-primary-100 p-5 rounded-3xl">
+
+            <div class="text-h6 font-medium">
+                <?php _e('دسته بندی ها', 'cyn-dm') ?>
+            </div>
 
             <?php
             $service_terms = get_terms([

@@ -22,7 +22,6 @@
             'comment_notes_before' => '',
             'class_form' => 'flex flex-col gap-4',
             'class_container' => '',
-            'title_reply' => 'reply',
             'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
             'title_reply_after' => '</h3>',
             'submit_field' => '<div class="grid justify-end order-3">
@@ -40,9 +39,9 @@
 
 ?>
 
-    <div class="comment-list gap-20" id="comment-list">
+<div class="comment-list gap-20" id="comment-list">
 
-        <?php
+    <?php
         $comments = get_comments(array(
             'post_id' => get_the_ID(),
             'status' => 'approve',
@@ -51,7 +50,7 @@
         ));
         ?>
 
-        <?php foreach ($comments as $comment) :
+    <?php foreach ($comments as $comment) :
 
             if ($comment->comment_parent != 0) {
                 continue;
@@ -59,23 +58,82 @@
 
         ?>
 
-            <div class="flex flex-col gap-3 bg-primary-100 rounded-3xl p-6 my-4">
+    <div class="flex flex-col gap-3 bg-primary-100 rounded-3xl p-6 my-4">
 
+        <div class="flex items-center gap-3">
+
+            <!-- Avatar -->
+            <div>
+                <?php echo get_avatar($comment, 50, '', 'avatar', ['class' => 'rounded-full']); ?>
+            </div>
+
+            <div class="flex flex-col gap-3">
+
+                <!-- Name & Reply -->
+                <div class="flex flex-row gap-2">
+                    <?php echo get_comment_author_link($comment); ?>
+
+
+                    <a class="reply-comment cursor-pointer" id="comment-reply"
+                        comment-id='<?php echo $comment->comment_ID ?>'>
+                        <svg class="icon w-6 h-6">
+                            <use href="#icon-Reply,-Emails,-Letter,-Mail-1" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Date & Time-->
+                <div class="flex flex-row gap-1">
+                    <!-- Date -->
+                    <div>
+                        <time
+                            datetime="<?php echo get_comment_date('c', $comment); ?>"><?php echo get_comment_date('', $comment); ?></time>
+                    </div>
+                    ،
+                    <!-- Time -->
+                    <div>
+                        <?php comment_time('H:i:s'); ?>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- comment text -->
+        <div>
+            <?php echo $comment->comment_content; ?>
+        </div>
+
+        <?php
+                $children = get_comments([
+                    'post_id' => get_the_ID(),
+                    'status' => 'approve',
+                    'orderby' => 'comment_date',
+                    'order' => 'ASC',
+                    'parent' => $comment->comment_ID,
+                ]); ?>
+
+        <?php if ($children) : ?>
+        <!-- comment children -->
+        <div class="bg-primary-90 p-4 rounded-3xl">
+
+            <?php foreach ($children as $child_comment) : ?>
+
+            <div>
                 <div class="flex items-center gap-3">
 
                     <!-- Avatar -->
                     <div>
-                        <?php echo get_avatar($comment, 50, '', 'avatar', ['class' => 'rounded-full']); ?>
+                        <?php echo get_avatar($child_comment, 50, '', 'avatar', ['class' => 'rounded-full']); ?>
                     </div>
 
                     <div class="flex flex-col gap-3">
 
                         <!-- Name & Reply -->
                         <div class="flex flex-row gap-2">
-                            <?php echo get_comment_author_link($comment); ?>
-
-
-                            <a class="reply-comment cursor-pointer" id="comment-reply" comment-id='<?php echo $comment->comment_ID ?>'>
+                            <?php echo get_comment_author_link($child_comment); ?>
+                            <a href="<?php echo esc_url(get_comment_link($child_comment)); ?>">
                                 <svg class="icon w-6 h-6">
                                     <use href="#icon-Reply,-Emails,-Letter,-Mail-1" />
                                 </svg>
@@ -86,7 +144,8 @@
                         <div class="flex flex-row gap-1">
                             <!-- Date -->
                             <div>
-                                <time datetime="<?php echo get_comment_date('c', $comment); ?>"><?php echo get_comment_date('', $comment); ?></time>
+                                <time
+                                    datetime="<?php echo get_comment_date('c', $child_comment); ?>"><?php echo get_comment_date('', $child_comment); ?></time>
                             </div>
                             ،
                             <!-- Time -->
@@ -101,80 +160,23 @@
 
                 <!-- comment text -->
                 <div>
-                    <?php echo $comment->comment_content; ?>
+                    <?php echo $child_comment->comment_content; ?>
                 </div>
-
-                <?php
-                $children = get_comments([
-                    'post_id' => get_the_ID(),
-                    'status' => 'approve',
-                    'orderby' => 'comment_date',
-                    'order' => 'ASC',
-                    'parent' => $comment->comment_ID,
-                ]); ?>
-
-                <?php if ($children) : ?>
-                    <!-- comment children -->
-                    <div class="bg-primary-90 p-4 rounded-3xl">
-
-                        <?php foreach ($children as $child_comment) : ?>
-
-                            <div>
-                                <div class="flex items-center gap-3">
-
-                                    <!-- Avatar -->
-                                    <div>
-                                        <?php echo get_avatar($child_comment, 50, '', 'avatar', ['class' => 'rounded-full']); ?>
-                                    </div>
-
-                                    <div class="flex flex-col gap-3">
-
-                                        <!-- Name & Reply -->
-                                        <div class="flex flex-row gap-2">
-                                            <?php echo get_comment_author_link($child_comment); ?>
-                                            <a href="<?php echo esc_url(get_comment_link($child_comment)); ?>">
-                                                <svg class="icon w-6 h-6">
-                                                    <use href="#icon-Reply,-Emails,-Letter,-Mail-1" />
-                                                </svg>
-                                            </a>
-                                        </div>
-
-                                        <!-- Date & Time-->
-                                        <div class="flex flex-row gap-1">
-                                            <!-- Date -->
-                                            <div>
-                                                <time datetime="<?php echo get_comment_date('c', $child_comment); ?>"><?php echo get_comment_date('', $child_comment); ?></time>
-                                            </div>
-                                            ،
-                                            <!-- Time -->
-                                            <div>
-                                                <?php comment_time('H:i:s'); ?>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <!-- comment text -->
-                                <div>
-                                    <?php echo $child_comment->comment_content; ?>
-                                </div>
-                            </div>
-
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
-
             </div>
 
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+
     </div>
+
+    <?php endforeach; ?>
+</div>
 
 <?php else : ?>
 
-    <div class="comment-list">
-        <p class="fs-h2 text-secondary-400">کامنتی ثبت نشده است</p>
-    </div>
+<div class="comment-list">
+    <p class="fs-h2 text-secondary-400">کامنتی ثبت نشده است</p>
+</div>
 
 <?php endif; ?>

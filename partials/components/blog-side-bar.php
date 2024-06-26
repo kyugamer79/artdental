@@ -13,51 +13,25 @@ $recommendPosts = get_posts([
 ?>
 
 <?php
+
 $post_categories = get_terms([
     'taxonomy' => 'category',
     'hide_empty' => true,
 ]);
+
 ?>
 
 
 <div class="h-full">
 
-    <div class="grid justify-evenly sticky top-3">
+    <div class="grid justify-evenly sticky top-3 space-y-3">
         <!-- Search -->
-        <div class="bg-primary-100 p-5 rounded-3xl">
-
-            <!-- Title  -->
-            <div class="text-h6 pb-4">
-                <?php _e('جستجو', 'cyn-dm') ?>
-            </div>
-
-
-            <!-- Input Search -->
-            <form action="/">
-
-                <div class="flex items-center gap-1 py-2 px-3 border border-l-primary-50 rounded-full">
-                    <button type="submit">
-                        <svg class="icon size-4">
-                            <use href="#icon-search-loupe" />
-                        </svg>
-                    </button>
-
-                    <div>
-                        <input class="focus-visible:outline-0" type="search" value="<?php the_search_query() ?>"
-                            id="search" name="s" placeholder="جستجو در مقالات">
-                    </div>
-                </div>
-            </form>
-
-
-        </div>
-
-        <div class="py-3"></div>
+        <?php cyn_get_component('side-bar-search') ?>
 
         <!-- Suggestion Blogs -->
         <div class="bg-primary-100 p-5 rounded-3xl">
 
-            <div class="text-h6">
+            <div class="text-h6 font-medium">
                 <?php _e('مقالات پیشنهادی', 'cyn-dm') ?>
             </div>
 
@@ -65,30 +39,25 @@ $post_categories = get_terms([
 
             <div class="grid gap-y-3 divide-y-[1px] divide-primary-90">
 
-                <?php
-
-                foreach ($recommendPosts as $recommendPost) : ?>
+                <?php foreach ($recommendPosts as $recommendPost) : ?>
                 <?php cyn_get_card('post-mini', ['post-id' => $recommendPost]) ?>
                 <?php endforeach ?>
 
             </div>
 
-
         </div>
-
-        <div class="py-3"></div>
 
         <!-- Category -->
         <div class="bg-primary-100 p-5 rounded-3xl">
 
-            <div class="text-h6">
+            <div class="text-h6 font-medium">
                 <?php _e('دسته بندی ها', 'cyn-dm') ?>
             </div>
 
             <div class="py-2"></div>
 
             <div>
-                <div class="">
+                <div>
                     <ul class="space-y-3 divide-y-[1px] divide-primary-90">
                         <?php foreach ($post_categories as $term) : ?>
                         <a href="<?php echo get_term_link($term) ?>" class="text-secondary-400 pt-3 block">
@@ -109,12 +78,10 @@ $post_categories = get_terms([
 
         </div>
 
-        <div class="py-3"></div>
-
         <!-- Tags -->
         <div class="bg-primary-100 p-5 rounded-3xl">
 
-            <div class="text-h6">
+            <div class="text-h6 font-medium">
                 <?php _e('تگ ها', 'cyn-dm') ?>
             </div>
 
@@ -131,12 +98,10 @@ $post_categories = get_terms([
             </div>
         </div>
 
-        <div class="py-3"></div>
-
         <!-- Gallery -->
         <div class="bg-primary-100 p-5 rounded-3xl">
 
-            <div class="text-h6">
+            <div class="text-h6 font-medium">
                 <?php _e('گالری تصاویر', 'cyn-dm') ?>
             </div>
 
