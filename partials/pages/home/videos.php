@@ -1,7 +1,7 @@
 <?php
 $videos = get_field( 'videos' ) ?? [];
 
-if ( ! is_array( $videos ) || count( $videos ) < 0 ) {
+if ( ! is_array( $videos ) || count( $videos ) < 1 ) {
 	$videos = get_posts( [ 
 		'post_type' => 'video',
 		'posts_per_page' => 12,

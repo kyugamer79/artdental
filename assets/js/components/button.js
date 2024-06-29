@@ -42,6 +42,12 @@ class Button extends HTMLElement {
 				);
 				break;
 
+			case 'secondary-dark':
+				this.addClass(
+					'border border-primary-20 bg-transparent text-primary-20 hover:bg-primary-20 hover:text-primary-100'
+				);
+				break;
+
 			case 'accent':
 				this.addClass(
 					'bg-primary-100 text-primary-20 hover:bg-primary-20 hover:text-primary-100'
@@ -73,7 +79,7 @@ class Button extends HTMLElement {
 
 	connectedCallback() {
 		this.title = this.getAttribute('title');
-		this.href = this.getAttribute('href');
+		this.href = this.getAttribute('href') ?? '#';
 		this.id = this.getAttribute('id');
 		this.type = this.getAttribute('type');
 		this.icon = this.getAttribute('icon');
@@ -82,6 +88,8 @@ class Button extends HTMLElement {
 
 		this.setType(this.type);
 		this.setSize(this.size);
+
+		this.addClass(this.classList);
 
 		this.render();
 	}

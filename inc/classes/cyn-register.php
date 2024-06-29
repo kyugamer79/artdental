@@ -1,62 +1,70 @@
 <?php
 
-if ( ! class_exists( 'cyn_register' ) ) {
-	class cyn_register {
-		function __construct() {
+if (!class_exists('cyn_register')) {
+	class cyn_register
+	{
+		function __construct()
+		{
 
-			add_action( 'init', [ $this, 'cyn_post_type_register' ] );
-			add_action( 'init', [ $this, 'cyn_taxonomy_register' ] );
-			add_action( 'init', [ $this, 'cyn_term_register' ] );
-			add_action( 'init', [ $this, 'cyn_page_register' ] );
-			add_action( 'after_setup_theme', [ $this, 'cyn_register_menus' ] );
+			add_action('init', [$this, 'cyn_post_type_register']);
+			add_action('init', [$this, 'cyn_taxonomy_register']);
+			add_action('init', [$this, 'cyn_term_register']);
+			add_action('init', [$this, 'cyn_page_register']);
+			add_action('after_setup_theme', [$this, 'cyn_register_menus']);
 		}
 
-		public function cyn_register_menus() {
-
-			//for use in theme => wp_nav_menu(['theme_location' => 'header_demo'])
-			register_nav_menus( [ 
+		public function cyn_register_menus()
+		{
+			register_nav_menus([
 				'header' => "Header",
 				'footer' => "Footer",
-			] );
+			]);
 		}
 
-		public function cyn_post_type_register() {
-			// $this->cyn_make_post_type('demo_post_type' , 'demo' , 'demos')
-			$this->cyn_make_post_type( 'service', 'خدمت', 'خدمات', 'dashicons-info' );
-			$this->cyn_make_post_type( 'video', 'ویدئو', 'ویدئو ها', 'dashicons-video-alt3' );
-			$this->cyn_make_post_type( 'price', 'قیمت', 'قیمت ها', 'dashicons-money-alt' );
+		public function cyn_post_type_register()
+		{
+			$this->cyn_make_post_type('service', 'خدمت', 'خدمات', 'dashicons-info', ['title', 'thumbnail', 'editor', 'comments']);
+			$this->cyn_make_post_type('video', 'ویدئو', 'ویدئو ها', 'dashicons-video-alt3');
+			$this->cyn_make_post_type('price', 'قیمت', 'قیمت ها', 'dashicons-money-alt');
+			$this->cyn_make_post_type('testimonial', 'نظر', 'نظرات بیماران', 'dashicons-format-chat', ['title', 'thumbnail', 'editor']);
+			$this->cyn_make_post_type('doctor', 'پزشک', 'پزشکان', 'dashicons-groups', ['title', 'thumbnail', 'editor']);
+			$this->cyn_make_post_type('faq', 'سوال', 'سوالات متداول', 'dashicons-lightbulb', ['title', 'editor']);
+			$this->cyn_make_post_type('form', 'فرم', 'فرم ها', 'dashicons-format-status', ['title', 'thumbnail', 'editor']);
 		}
 
-		public function cyn_taxonomy_register() {
-			// $this->cyn_make_taxonomy( 'demo_taxonomy', 'demo', 'demos' , ['demo_post_type'] )
-			$this->cyn_make_taxonomy( 'service-cat', '  دسته بندی خدمات ', 'دسته بندی های خدمات', [ 'service' ] );
+		public function cyn_taxonomy_register()
+		{
 
+			$this->cyn_make_taxonomy('service-cat', '  دسته بندی خدمات ', 'دسته بندی های خدمات', ['service']);
+			$this->cyn_make_taxonomy('faq-cat', '  دسته بندی ', 'دسته بندی ها', ['faq']);
+			$this->cyn_make_taxonomy('special-services', ' خدمت ویژه', 'خدمات ویژه', ['service']);
 		}
 
-		public function cyn_term_register() {
-			//This terms can't be removed
+		public function cyn_term_register()
+		{
+			wp_insert_term('نوشته های ویژه', 'special-services', ['slug' => 'special-service']);
 
 
 			// wp_insert_term( 'name', 'taxonomy', [ 'slug' => 'slug' ] );
 		}
 
-		public function cyn_page_register() {
+		public function cyn_page_register()
+		{
 			//This pages can't be removed
 
-			if ( is_null( get_page_by_path( 'homepage' ) ) ) {
-				$front_page_id = wp_insert_post( [ 
+			if (is_null(get_page_by_path('homepage'))) {
+				$front_page_id = wp_insert_post([
 					'post_type' => 'page',
 					'post_status' => 'publish',
 					'post_title' => 'صفحه اصلی',
 					'post_name' => 'homepage',
 					'page_template' => 'templates/homepage.php',
-				] );
+				]);
 
 
-				update_option( 'show_on_front', 'page' );
-				update_option( 'page_on_front', $front_page_id );
+				update_option('show_on_front', 'page');
+				update_option('page_on_front', $front_page_id);
 			}
-
 		}
 
 
@@ -69,8 +77,9 @@ if ( ! class_exists( 'cyn_register' ) ) {
 		 * @param string[] $supports 
 		 * @return void
 		 */
-		private function cyn_make_post_type( $slug, $singular_name, $plural_name, $icon, $supports = [ 'title', 'thumbnail' ] ) {
-			$labels = [ 
+		private function cyn_make_post_type($slug, $singular_name, $plural_name, $icon, $supports = ['title', 'thumbnail'])
+		{
+			$labels = [
 				'name' => $singular_name,
 				'singular_name' => $singular_name,
 				'menu_name' => $plural_name,
@@ -86,14 +95,14 @@ if ( ! class_exists( 'cyn_register' ) ) {
 				'not_found_in_trash' => $singular_name . ' پیدا نشد'
 			];
 
-			$args = [ 
+			$args = [
 				'labels' => $labels,
 				'public' => true,
 				'publicly_queryable' => true,
 				'show_ui' => true,
 				'show_in_menu' => true,
 				'query_var' => true,
-				'rewrite' => [ 'slug' => $slug ],
+				'rewrite' => ['slug' => $slug],
 				'exclude_from_search' => false,
 				'has_archive' => true,
 				'hierarchical' => false,
@@ -103,7 +112,7 @@ if ( ! class_exists( 'cyn_register' ) ) {
 
 			];
 
-			register_post_type( $slug, $args );
+			register_post_type($slug, $args);
 		}
 
 		/**
@@ -115,10 +124,11 @@ if ( ! class_exists( 'cyn_register' ) ) {
 		 * @param boolean $is_hierarchical
 		 * @return void
 		 */
-		private function cyn_make_taxonomy( $slug, $singular_name, $plural_name, $post_types, $is_hierarchical = true ) {
+		private function cyn_make_taxonomy($slug, $singular_name, $plural_name, $post_types, $is_hierarchical = true)
+		{
 
-			$args = [ 
-				'labels' => [ 
+			$args = [
+				'labels' => [
 					'name' => $plural_name,
 					'menu_name' => $plural_name,
 					'all_items' => 'همه ' . $plural_name,
@@ -131,10 +141,10 @@ if ( ! class_exists( 'cyn_register' ) ) {
 				'show_in_nav_menus' => true,
 				'show_tagcloud' => true,
 				'query_var' => true,
-				'rewrite' => [ 'slug' => $slug ],
+				'rewrite' => ['slug' => $slug],
 			];
 
-			register_taxonomy( $slug, $post_types, $args );
+			register_taxonomy($slug, $post_types, $args);
 		}
 	}
 }
