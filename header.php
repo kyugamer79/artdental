@@ -1,7 +1,7 @@
 <?php $render_template = $args['render_template'] ?? true ?>
 
 <!DOCTYPE html>
-<html <?php language_attributes() ?> class=" scroll-smooth">
+<html <?php language_attributes() ?>>
 
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,8 @@
 
 <body <?php body_class('bg-background-main font-peyda text-primary-20') ?>>
     <?php get_template_part('/partials/icons') ?>
+    <?php get_template_part('/partials/components/reserve-popup') ?>
+
     <?php wp_body_open() ?>
 
     <?php if ($render_template) : ?>

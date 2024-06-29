@@ -7,4 +7,7 @@ import './bread-crumb';
 import './comments'
 import './taxonomy-terms'
 import './table-of-content'
+import './contact-us'
+import './search'
+import './toastify'
 
