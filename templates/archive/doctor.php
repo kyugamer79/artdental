@@ -1,40 +1,32 @@
 <?php defined('ABSPATH') || exit; ?>
 
+<?php
+$doctor_posts = get_posts([
+    'post_type'     => 'doctor',
+    "post_per_page" => -1,
+    'order'         => 'DESC',
+
+]);
+
+?>
+
 <!-- Archive Doctor Page -->
 <?php get_header() ?>
 
 <?php cyn_get_component('breadcrumb') ?>
 
-<main class="container">
+<main class="container grid gap-[48px]">
 
-    <!-- Doctors Card -->
-    <section>
+    <!-- Title -->
+    <div class="text-h1 max-lg:text-h4 pb-6">
+        <?php _e('متخصص های مجموعه', 'cyn-dm') ?>
+    </div>
 
-        <!-- Title -->
-        <div class="text-h1 max-lg:text-h4">
-            <?php _e('متخصص های مجموعه', 'cyn-dm') ?>
-        </div>
+    <?php foreach ($doctor_posts as $index => $doctor_post) : ?>
 
-        <!-- Introduction -->
-        <div>
+    <?php cyn_get_card('archive-doctor', ['index' => $index]) ?>
 
-            <!-- Name -->
-            <div class="text-h5 font-medium">
-                <?php echo the_title() ?>
-            </div>
-
-            <div class="text-body_s font-normal">
-                <?php echo get_field('expert') ?>
-            </div>
-        </div>
-
-        <!-- Image -->
-        <div>
-
-        </div>
-
-
-    </section>
+    <?php endforeach; ?>
 
 </main>
 

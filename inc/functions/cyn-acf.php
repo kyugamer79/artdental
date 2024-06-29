@@ -126,11 +126,20 @@ function cyn_acf_register_doctor()
 		], 50));
 	}
 
+	$slideshow_imgs = [];
+
+	for ($i = 1; $i <= 6; $i++) {
+
+		array_push($slideshow_imgs, cyn_acf_add_image("image_$i", __("عکس $i", "cyn-dm")));
+	}
+
 	$fields = [
 		cyn_acf_add_tab('عمومی'),
 		cyn_acf_add_text('expert', 'تخصص'),
 		cyn_acf_add_tab('شبکه های اجتماعی'),
 		cyn_acf_add_group('social_group', 'شبکه های اجتماعی', $social_media),
+		cyn_acf_add_tab('اسلایدشو'),
+		cyn_acf_add_group('slideshow_group', 'اسلایدشو', $slideshow_imgs),
 	];
 
 	$location = [
