@@ -21,14 +21,14 @@ $postId = $args['post-id'] ?? get_the_ID();
 <main class="container grid grid-cols-4 gap-6">
 
     <!-- Side Bar -->
-    <section class="col-span-1 max-lg:col-span-4 max-lg:order-1">
+    <section class="col-span-1  max-lg:col-span-4 max-lg:order-2">
 
         <?php cyn_get_component("blog-side-bar") ?>
 
     </section>
 
     <!-- Paragraph -->
-    <section class="col-span-3 max-lg:col-span-4 max-[1280px]:mx-5">
+    <section class="col-span-3 max-lg:col-span-4 md:max-[1407px]:ms-6">
 
         <!--Blog Title  -->
         <div class="text-h1 max-lg:text-h5">
@@ -43,9 +43,10 @@ $postId = $args['post-id'] ?? get_the_ID();
         <div class="pb-4"></div>
 
         <!-- Blog Author -->
-        <div class="bg-primary-100 rounded-2xl p-3 flex justify-between gap-3 max-sm:flex-col ">
+        <div class="bg-primary-100 rounded-2xl p-3 flex justify-between gap-3 max-sm:flex-col">
             <!-- Author Name -->
-            <div class="before:w-3 before:h-3 before:bg-accent-50 before:rounded-full before:inline-block flex items-center gap-3">
+            <div
+                class="before:w-3 before:h-3 before:bg-accent-50 before:rounded-full before:inline-block flex items-center gap-3">
                 <a href="<?php echo get_permalink($authorId) ?>">
                     <?php echo get_the_author_meta('display_name', $authorId); ?>
                 </a>
@@ -56,14 +57,15 @@ $postId = $args['post-id'] ?? get_the_ID();
                 <svg class="icon w-6 h-6">
                     <use href="#icon-calendar-schedule-1" />
                 </svg>
-                <?php echo get_the_date('F j, Y') ?>
+                <?php echo get_the_date() ?>
             </div>
         </div>
 
         <div class="pt-4"></div>
 
         <!-- Blog Content -->
-        <div class="bg-accent-100 rounded-3xl p-5 prose prose-img:w-full prose-img:rounded-3xl prose-img:object-cover min-w-full prose-p:text-primary-50 prose-p:text-body_s prose-h4:text-h4 prose-h6:text-h6">
+        <div
+            class="bg-accent-100 rounded-3xl p-5 prose prose-img:w-full prose-img:rounded-3xl prose-img:object-cover min-w-full prose-p:text-primary-50 prose-p:text-body_s prose-h4:text-h4 prose-h6:text-h6">
             <?php the_content() ?>
         </div>
 
@@ -91,7 +93,7 @@ $postId = $args['post-id'] ?? get_the_ID();
     </section>
 
     <!-- Comments For Mobile -->
-    <section class="max-lg:col-span-4 min-[1024px]:hidden max-lg:order-2">
+    <section class="max-lg:col-span-4 min-[1024px]:hidden max-lg:order-1">
         <!-- Comments -->
         <div>
             <!-- Comment Count -->

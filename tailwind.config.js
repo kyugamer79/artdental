@@ -2,6 +2,15 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
+
+	plugins: [
+		require('@tailwindcss/typography')],
+	content: [
+		"./partials/**/*.php",
+		"./templates/**/*.php",
+		"./assets/js/**/*.js",
+		"./**/*.php",
+	],
 	theme: {
 		container: {
 			center: true,
@@ -91,5 +100,5 @@ module.exports = {
 			"cyn-noise": "url('../img/noise.png')",
 		},
 	},
-	// plugins: [require("@tailwindcss/forms")],
+
 };
