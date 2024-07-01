@@ -25,14 +25,11 @@ $inputs = [
 
 <!-- header  -->
 <?php get_header() ?>
-<!-- Bread Crumb -->
-<section class=" bg-noise bg-primary-80 py-7 space-y-2 max-lg:space-y-13">
-    <div class="container">
-        <P>Salam man bread crumb hastam bia mano bekhooon</P>
-    </div>
-</section>
-<div class="py-3"></div>
 
+<!-- Bread Crumb -->
+<?php cyn_get_component('breadcrumb') ?>
+
+<div class="py-3"></div>
 
 <main class="container">
     <!-- search part -->
@@ -111,10 +108,8 @@ $inputs = [
 
 </main>
 
-
-
-<!-- pagination  -->
-<!-- faraz mizane  -->
+<!-- Pagination -->
+<?php cyn_get_component('pagination') ?>
 
 
 

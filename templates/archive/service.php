@@ -32,6 +32,7 @@ $query = new WP_Query([
         </div>
 
         <div class="grid grid-cols-3 max-xl:grid-cols-2 max-sm:grid-cols-1 gap-3">
+
             <?php
             if ($query->have_posts()) :
                 while ($query->have_posts()) : $query->the_post();

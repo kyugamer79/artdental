@@ -72,47 +72,12 @@ $postId = $args['post-id'] ?? get_the_ID();
         <div class="py-3"></div>
 
         <!-- Comments -->
-        <div class="max-lg:hidden">
-            <!-- Comment Count -->
-            <div class="flex flex-col gap-1">
-
-                <div class="text-primary-0">
-                    <?php echo get_comments_number() . '&nbsp' . '&nbsp' .  'دیدگاه' ?>
-                </div>
-
-                <div class="text-primary-50"><?php _e('شماهم توی این بحث شرکت کنید', 'cyn-dm') ?></div>
-            </div>
-
-            <!-- Comment Form -->
-            <div class="max-lg:order-2">
-                <?php comments_template(); ?>
-            </div>
-
-        </div>
+        <?php cyn_get_component('single-comment')?>
 
     </section>
 
     <!-- Comments For Mobile -->
-    <section class="max-lg:col-span-4 min-[1024px]:hidden max-lg:order-1">
-        <!-- Comments -->
-        <div>
-            <!-- Comment Count -->
-            <div class="flex flex-col gap-1">
-
-                <div class="text-primary-0">
-                    <?php echo get_comments_number() . '&nbsp' . '&nbsp' .  'دیدگاه' ?>
-                </div>
-
-                <div class="text-primary-50"><?php _e('شماهم توی این بحث شرکت کنید', 'cyn-dm') ?></div>
-            </div>
-
-            <!-- Comment Form -->
-            <div class="max-lg:order-2">
-                <?php comments_template(); ?>
-            </div>
-
-        </div>
-    </section>
+    <?php cyn_get_component('mobile-res-comment')?>
 
 </main>
 

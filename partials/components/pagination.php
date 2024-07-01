@@ -7,7 +7,7 @@ $query = new WP_Query([
 
 ?>
 
-<div class="pagination flex mb-40 justify-start">
+<div class="container pagination flex mb-40 justify-start">
     <?php
 
     $big = 999999999;
