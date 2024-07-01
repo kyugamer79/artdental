@@ -5,7 +5,7 @@
 
 <?php cyn_get_component('breadcrumb') ?>
 
-<main class="container grid grid-cols-3 gap-3">
+<main class="container grid grid-cols-4 gap-3">
 
     <!-- Side Bar -->
     <section class="col-span-1 max-lg:col-span-4 max-lg:order-1">
@@ -15,7 +15,7 @@
     </section>
 
     <!-- Blog Card -->
-    <section class="grid gap-y-6 col-span-2 max-lg:col-span-4 max-xl:mx-5">
+    <section class="grid gap-y-6 col-span-3 max-lg:col-span-4 max-xl:mx-5">
 
         <!-- Title -->
         <div class="text-h1 max-lg:text-h4">
@@ -40,7 +40,5 @@
     </section>
 
 </main>
-
-
 
 <?php get_footer() ?>

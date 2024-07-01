@@ -1,6 +1,6 @@
 <!-- Comment Form -->
+<a href="#comment-reply"></a>
 <div class="contact-container">
-    <a href="#comment-reply"></a>
     <div class="py-4">
         <?php comment_form([
             'fields' => [
@@ -22,7 +22,7 @@
             'comment_notes_before' => '',
             'class_form' => 'flex flex-col gap-4',
             'class_container' => '',
-            'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
+            'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title py-2 hidden">',
             'title_reply_after' => '</h3>',
             'submit_field' => '<div class="grid justify-end order-3">
             <div class="form-submit  w-fit flex flex-row-reverse flex-end max-lg:justify-center gap-1 relative rounded-full transition-all duration-300 cursor-pointer bg-gradient-to-t from-primary-50 to-primary-70 text-primary-100 shadow-md shadow-slate-400/50 hover:from-primary-20 hover:to-primary-20 py-2 px-8 text-body_s">%1$s %2$s
@@ -72,7 +72,6 @@
                 <!-- Name & Reply -->
                 <div class="flex flex-row gap-2">
                     <?php echo get_comment_author_link($comment); ?>
-
 
                     <a class="reply-comment cursor-pointer" id="comment-reply"
                         comment-id='<?php echo $comment->comment_ID ?>'>

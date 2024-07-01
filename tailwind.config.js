@@ -2,13 +2,14 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-	plugins: [require("flowbite/plugin")],
+
+	plugins: [
+		require('@tailwindcss/typography')],
 	content: [
 		"./partials/**/*.php",
 		"./templates/**/*.php",
 		"./assets/js/**/*.js",
 		"./**/*.php",
-		"./node_modules/flowbite/**/*.js",
 	],
 	theme: {
 		container: {
@@ -99,5 +100,5 @@ module.exports = {
 			"cyn-noise": "url('../img/noise.png')",
 		},
 	},
-	plugins: [require("@tailwindcss/forms")],
+
 };

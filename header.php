@@ -11,7 +11,8 @@
 
 <body <?php body_class('bg-background-main font-peyda text-primary-20') ?>>
     <?php get_template_part('/partials/icons') ?>
-    <?php get_template_part('/partials/components/reserve-popup') ?>
+    <?php //get_template_part('/partials/components/reserve-popup') 
+    ?>
 
     <?php wp_body_open() ?>
 
@@ -24,9 +25,9 @@
 
             <nav class="flex gap-4 max-xl:hidden ">
                 <?php
-					$menu = cyn_get_menu_items_by_slug('header');
+                    $menu = cyn_get_menu_items_by_slug('header');
 
-					foreach ($menu as $menu_item) : ?>
+                    foreach ($menu as $menu_item) : ?>
 
                 <div class="text-primary-50 flex gap-1 items-center relative group">
                     <a href="<?php echo $menu_item->url ?>">
