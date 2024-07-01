@@ -104,8 +104,6 @@ $inputs = [
     <!--search not found-->
     <?php endif; ?>
 
-
-
 </main>
 
 <!-- Pagination -->
