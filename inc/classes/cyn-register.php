@@ -25,6 +25,8 @@ if (!class_exists('cyn_register')) {
 		{
 			$this->cyn_make_post_type('service', 'خدمت', 'خدمات', 'dashicons-info', ['title', 'thumbnail', 'editor', 'comments']);
 			$this->cyn_make_post_type('video', 'ویدئو', 'ویدئو ها', 'dashicons-video-alt3');
+			$this->cyn_make_post_type('photo', 'تصویر', 'تصاویر', 'dashicons-format-image');
+			$this->cyn_make_post_type('podcast', 'پادکست', 'پادکست ها', 'dashicons-playlist-audio');
 			$this->cyn_make_post_type('price', 'قیمت', 'قیمت ها', 'dashicons-money-alt');
 			$this->cyn_make_post_type('testimonial', 'نظر', 'نظرات بیماران', 'dashicons-format-chat', ['title', 'thumbnail', 'editor']);
 			$this->cyn_make_post_type('doctor', 'پزشک', 'پزشکان', 'dashicons-groups', ['title', 'thumbnail', 'editor']);
