@@ -1,5 +1,6 @@
 <?php
-require ( get_stylesheet_directory() . '/inc/libs/plugin-update-checker/plugin-update-checker.php' );
+require(get_stylesheet_directory() . '/inc/libs/plugin-update-checker/plugin-update-checker.php');
+
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 $updateChecker = PucFactory::buildUpdateChecker(
@@ -9,4 +10,4 @@ $updateChecker = PucFactory::buildUpdateChecker(
 );
 
 //Set the branch that contains the stable release.
-$updateChecker->setBranch( 'main' );
+$updateChecker->setBranch('main');
