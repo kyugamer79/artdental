@@ -10709,6 +10709,7 @@
   // assets/js/modules/popUpForm.js
   function PopUpForm() {
     const PopUpForm2 = document.querySelector("#reservePopUpForm");
+    if (!PopUpForm2) return;
     PopUpForm2.addEventListener("submit", (e) => {
       e.preventDefault();
       const formData = new FormData(PopUpForm2);

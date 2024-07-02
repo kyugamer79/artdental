@@ -11,7 +11,7 @@
 
 <body <?php body_class('bg-background-main font-peyda text-primary-20') ?>>
     <?php get_template_part('/partials/icons') ?>
-    <?php //get_template_part('/partials/components/reserve-popup') 
+    <?php get_template_part('/partials/components/reserve-popup')
     ?>
 
     <?php wp_body_open() ?>
@@ -73,7 +73,7 @@
                 </svg>
             </a>
 
-            <cyn-button type="primary" size="md" href="#">
+            <cyn-button class="reservePopUpOpener" type="primary" size="md" href="#">
                 <?php _e('رزرو نوبت آنلاین', 'cyn-dm') ?>
             </cyn-button>
         </div>

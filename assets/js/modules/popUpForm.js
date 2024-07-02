@@ -3,11 +3,12 @@ import { errorToast, successFormToast } from "./toastify";
 function PopUpForm() {
   const PopUpForm = document.querySelector("#reservePopUpForm");
 
+  if (!PopUpForm) return;
+
   PopUpForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const formData = new FormData(PopUpForm);
-
     jQuery(($) => {
       $.ajax({
         type: "POST",
@@ -41,6 +42,8 @@ function reservePopUp() {
   );
   const reservePopUp = document.querySelector("#reservePopUp");
   const reservePopUpCloser = document.querySelector("#reservePopUpCloser");
+
+
 
   if (!reservePopUpOpenerGroup || !reservePopUp || !reservePopUpCloser) return;
 
