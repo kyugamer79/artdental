@@ -32,7 +32,9 @@ if (is_null($faq_group)) return;
 
 
 <div class="py-6 px-4 bg-background-card_1 divide-y divide-primary-80 rounded-3xl">
+    <?php if (!is_null($postId) && (is_array($faq_group) || is_object($faq_group))) : ?>
     <?php foreach ($faq_group as $index => $postId) : ?>
     <?php cyn_get_card('faq', ['post-id' => $postId]) ?>
     <?php endforeach; ?>
+    <?php endif; ?>
 </div>

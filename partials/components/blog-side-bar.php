@@ -26,7 +26,7 @@ $post_categories = get_terms([
 
     <div class="grid justify-evenly sticky top-3 space-y-3">
         <!-- Search -->
-        <?php cyn_get_component('side-bar-search') ?>
+        <?php cyn_get_component('blog-side-bar-search') ?>
 
         <!-- Suggestion Blogs -->
         <div class="bg-primary-100 p-5 rounded-3xl">
@@ -99,21 +99,23 @@ $post_categories = get_terms([
         </div>
 
         <!-- Gallery -->
-        <div class="bg-primary-100 p-5 rounded-3xl">
+        <!-- <div class="bg-primary-100 p-5 rounded-3xl">
 
             <div class="text-h6 font-medium">
-                <?php _e('گالری تصاویر', 'cyn-dm') ?>
+                <?php // _e('گالری تصاویر', 'cyn-dm') 
+                ?>
             </div>
 
             <div class="py-2"></div>
 
             <div>
 
-                <?php $gallery = get_field('gallery_section') ?>
+                <?php //$gallery = get_field('gallery_section') 
+                ?>
 
             </div>
 
-        </div>
+        </div> -->
 
     </div>
 </div>
