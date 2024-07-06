@@ -2,7 +2,7 @@
 
 <?php
 
-$podcasts = get_field('podcasts') ?? [];
+$podcasts = get_field('podcast') ?? [];
 
 if (!is_array($podcasts) || count($podcasts) < 1) {
     $podcasts = get_posts([
