@@ -52,7 +52,11 @@ $postId = $args['post-id'] ?? get_the_ID();
         <div>
             <!-- Title -->
             <div class="text-h2">
-                <?php _e('سوالات متداول ', 'cyn-dm') ?>
+                <?php _e('سوالات متداول ', 'cyn-dm') . ' ' . the_title() ?>
+            </div>
+
+            <div class="text-h2">
+
             </div>
 
             <div class="p-6">

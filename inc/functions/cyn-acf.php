@@ -13,6 +13,7 @@ function cyn_register_acf()
 	cyn_acf_register_doctor();
 	cyn_acf_register_about_us();
 	cyn_acf_register_service();
+	cyn_acf_register_video();
 }
 
 
@@ -216,4 +217,24 @@ function cyn_acf_register_service()
 	];
 
 	cyn_register_acf_group('تنظیمات', $fields, $location);
+}
+
+function cyn_acf_register_video()
+{
+
+	$fields = [
+		cyn_acf_add_file('video_file', 'فایل ویدئو', '50'),
+	];
+
+	$location = [
+		[
+			[
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'video'
+			]
+		]
+	];
+
+	cyn_register_acf_group('تنظیمات ', $fields, $location);
 }

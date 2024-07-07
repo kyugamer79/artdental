@@ -1,7 +1,7 @@
  <?php $index = $args['index'] ?? 1 ?>
 
  <!-- Doctors Card -->
- <section class="grid grid-cols-3 gap-[48px] items-center">
+ <section class="grid grid-cols-3 gap-[48px] items-center" id="<?php echo  'doctor-' . get_the_ID() ?>">
 
      <!-- Texts -->
      <div class="col-span-2 order-2 max-lg:col-span-3">
