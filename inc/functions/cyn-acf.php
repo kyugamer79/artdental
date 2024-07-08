@@ -218,14 +218,11 @@ function cyn_acf_register_service()
 
 	cyn_register_acf_group('تنظیمات', $fields, $location);
 }
-
 function cyn_acf_register_video()
 {
-
 	$fields = [
 		cyn_acf_add_file('video_file', 'فایل ویدئو', '50'),
 	];
-
 	$location = [
 		[
 			[
@@ -235,6 +232,5 @@ function cyn_acf_register_video()
 			]
 		]
 	];
-
 	cyn_register_acf_group('تنظیمات ', $fields, $location);
 }

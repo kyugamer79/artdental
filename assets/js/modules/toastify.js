@@ -1,4 +1,5 @@
 import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 const successColor = "#4caf50";
 const errorColor = "#ef5350";

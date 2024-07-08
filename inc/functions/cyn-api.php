@@ -65,6 +65,7 @@ function cyn_handle_search_posts(WP_REST_Request $request)
 }
 
 
+
 function cyn_handle_contact_form(WP_REST_Request $request)
 {
 
@@ -111,7 +112,7 @@ function cyn_render_by_query($query, $post_type, array $args = [])
 }
 
 // copy by fateme 
-function cyn_handle_reserve_form(WP_REST_Request $request)
+function cyn_handle_reserve_popUp_form(WP_REST_Request $request)
 {
 
     $body_params = $request->get_body_params();
@@ -119,7 +120,7 @@ function cyn_handle_reserve_form(WP_REST_Request $request)
     $name = sanitize_text_field($body_params['name']);
     $gender = sanitize_text_field($body_params['gender']);
     $services = sanitize_text_field($body_params['services']);
-    $reservation_time = sanitize_text_field($body_params['reservation_time']);
+    // $reservation_time = sanitize_text_field($body_params['reservation_time']);
     $phone_number = sanitize_text_field($body_params['phone_number']);
     $email = sanitize_email($body_params['email']);
     $message = sanitize_textarea_field($body_params['message']);
@@ -127,13 +128,13 @@ function cyn_handle_reserve_form(WP_REST_Request $request)
     $post_id = wp_insert_post([
         'post_type' => 'form',
         'post_title' => $name,
-        'post_content' => $message,
+        'post_content' => $phone_number,
         'meta_input' => [
             'email' => $email,
             'gender' => $gender,
             'services' => $services,
-            'reservation_time' => $reservation_time,
-            'phone_number' => $phone_number,
+            // 'reservation_time' => $reservation_time,
+            'message' =>  $message,
         ]
     ]);
 

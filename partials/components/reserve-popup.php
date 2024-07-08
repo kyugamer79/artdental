@@ -13,7 +13,7 @@ $services = get_posts([
     class="z-50 backdrop-blur w-full h-full fixed inset-0 flex justify-center items-center overflow-hidden opacity-0 pointer-events-none transition-all duration-300"
     id="reservePopUp">
     <!-- form  -->
-    <div class="bg-primary-100 flex flex-col  rounded-3xl">
+    <div class="bg-primary-100 flex flex-col rounded-3xl">
         <!--close form button -->
         <div class="mt-5 flex">
             <div class="px-5">
@@ -34,9 +34,9 @@ $services = get_posts([
                 <input name="name" type="text" required="required" placeholder="نام و نام خانوادگی"
                     class="py-1 pr-3 h-9 rounded-3xl border border-primary-80 w-2/4 max-lg:w-full">
                 <!-- gender  -->
-                <select name="gender" id="gender" required
+                <select name="gender" id="gender"
                     class="h-10 text-primary-50 rounded-3xl border border-primary-80 w-2/4 max-lg:w-full">
-                    <option value=""><?php _e('جنسیت', 'cyn-dm') ?></option>
+                    <option value=""><?php _e('انتخاب جنسیت', 'cyn-dm') ?></option>
                     <option value="woman"><?php _e('زن', 'cyn-dm') ?></option>
                     <option value="man"><?php _e('مرد', 'cyn-dm') ?></option>
                 </select>
@@ -44,9 +44,10 @@ $services = get_posts([
             <!-- second row  -->
             <div class="flex gap-4 w-full max-lg:flex-col">
                 <!-- services  -->
-                <select name="services" id="services" required
-                    class=" text-primary-50 rounded-3xl border border-primary-80 w-2/4 max-lg:w-full">
-                    <option value="">خدمات</option>
+                <!-- w-2/4 max-lg:w-full  -->
+                <select name="services" id="services"
+                    class=" text-primary-50 rounded-3xl border border-primary-80 h-9  w-full">
+                    <option value=""><?php _e('انتخاب خدمات', 'cyn-dm') ?></option>
                     <?php foreach ($services as $index => $service) : ?>
                     <option value="<?php echo $service->post_title ?>">
                         <?php echo $service->post_title ?>
@@ -54,17 +55,14 @@ $services = get_posts([
                     <?php endforeach; ?>
                 </select>
                 <!-- reservation date and time -->
-                <div class="relative flex w-2/4 max-lg:w-full justify-end">
-                    <input id="reservation_time" type="text" onfocus="(this.type='datetime-local')"
-                        onblur="(this.type='text')" required="required" placeholder="تاریخ و ساعت رزرو"
-                        class="h-9 rounded-3xl border border-primary-80 w-full peer" name="reservation_time">
-                    <!-- svg  -->
+                <!-- <div class="relative flex w-2/4 max-lg:w-full justify-end ">
+                    <input id="reservation_time" type="text" onfocus="(this.type='datetime-local')" onblur="(this.type='text')" required="required" placeholder="تاریخ و ساعت رزرو" class="h-9 rounded-3xl border border-primary-80 w-full peer" name="reservation_time">
                     <div class="icon absolute text-primary-50 px-3 py-1 peer-focus:hidden">
                         <svg class="icon w-6 h-6">
                             <use href="#icon-calendar-schedule-1" />
                         </svg>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- third row  -->
             <div class="flex gap-4 w-full max-lg:flex-col">
@@ -74,7 +72,7 @@ $services = get_posts([
                     class="py-0.5 pr-3 h-9 rounded-3xl border border-primary-80 w-2/4 max-lg:w-full"
                     name="phone_number">
                 <!-- email -->
-                <input type="mail" required="required" placeholder="ایمیل(اختیاری)"
+                <input type="mail" placeholder="ایمیل(اختیاری)"
                     class="py-0.5 pr-3 h-9 rounded-3xl border border-primary-80  w-2/4 max-lg:w-full" name="email"
                     id="email">
             </div>
@@ -85,8 +83,7 @@ $services = get_posts([
                         <use href="#icon-Chat,-Messages-1" />
                     </svg>
                 </div>
-                <textarea name="message" id="message" required="required" cols="30" rows="5"
-                    placeholder="توضیحات تکمیلی"
+                <textarea name="message" id="message" cols="30" rows="5" placeholder="توضیحات تکمیلی"
                     class="py-1 pr-10 rounded-3xl border border-primary-80 w-full"></textarea>
             </div>
             <!-- form buttons  -->
@@ -103,7 +100,7 @@ $services = get_posts([
                     </button>
                 </div>
                 <!-- Submit button  -->
-                <div class="hidden flex items-end justify-end max-lg:items-center max-lg:justify-center max-lg:w-full">
+                <div class="flex items-end justify-end max-lg:items-center max-lg:justify-center max-lg:w-full">
                     <button class="max-lg:w-full max-lg:items-center max-lg:justify-center flex items-end justify-end flex-row-reverse gap-1 rounded-full transition-all duration-300 cursor-pointer
                          bg-gradient-to-t from-primary-50 to-primary-70 text-primary-100 shadow-md shadow-slate-400/50
                           hover:from-primary-20 hover:to-primary-20 py-2 px-4 text-body_s ">
