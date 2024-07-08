@@ -1,9 +1,8 @@
 <?php /* Template Name: Contact us */ ?>
 
-
-
 <!-- Contact Us page  -->
 <?php get_header() ?>
+
 <main class="container max-lg:flex max-lg:flex-col">
     <div class="text-h1 text-primary-20">
         <?php _e('اگه سوالی داری...', 'cyn-dm') ?>
@@ -44,10 +43,10 @@
                 </form>
             </div>
 
-
         </div>
 
     </div>
 
 </main>
+
 <?php get_footer() ?>

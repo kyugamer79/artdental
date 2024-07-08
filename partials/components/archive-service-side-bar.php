@@ -5,7 +5,7 @@
     <div class="grid justify-evenly sticky top-3 space-y-3">
         <!-- Search -->
         <div>
-            <?php cyn_get_component('side-bar-search') ?>
+            <?php cyn_get_component('service-side-bar-search') ?>
         </div>
 
         <!-- Special Services  -->

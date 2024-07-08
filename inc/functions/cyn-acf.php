@@ -13,6 +13,7 @@ function cyn_register_acf()
 	cyn_acf_register_doctor();
 	cyn_acf_register_about_us();
 	cyn_acf_register_service();
+	cyn_acf_register_video();
 }
 
 
@@ -27,9 +28,9 @@ function cyn_acf_register_home_page()
 		cyn_acf_add_text('hero_desc', 'توضیحات', 0, 33),
 
 		cyn_acf_add_text('hero_card_title_1', 'عنوان کارت 1', 0, 50),
-		cyn_acf_add_url('hero_card_url_1', 'لینک کارت 1', 0, 50),
+		cyn_acf_add_text('hero_card_url_1', 'لینک کارت 1', 0, 50),
 		cyn_acf_add_text('hero_card_title_2', 'عنوان کارت 2', 0, 50),
-		cyn_acf_add_url('hero_card_url_2', 'لینک کارت 2', 0, 50),
+		cyn_acf_add_text('hero_card_url_2', 'لینک کارت 2', 0, 50),
 
 		cyn_acf_add_image('hero_tiny_banner_1', 'تصویر کوچک 1'),
 		cyn_acf_add_image('hero_tiny_banner_2', 'تصویر کوچک 2'),
@@ -61,7 +62,7 @@ function cyn_acf_register_home_page()
 	];
 
 	$price = [
-		cyn_acf_add_tab('ویدئوها'),
+		cyn_acf_add_tab('قیمت ها'),
 		cyn_acf_add_post_object('prices', 'انتخاب قیمت ها', 'price', '', 1),
 	];
 
@@ -216,4 +217,20 @@ function cyn_acf_register_service()
 	];
 
 	cyn_register_acf_group('تنظیمات', $fields, $location);
+}
+function cyn_acf_register_video()
+{
+	$fields = [
+		cyn_acf_add_file('video_file', 'فایل ویدئو', '50'),
+	];
+	$location = [
+		[
+			[
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'video'
+			]
+		]
+	];
+	cyn_register_acf_group('تنظیمات ', $fields, $location);
 }

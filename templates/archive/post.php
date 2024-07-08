@@ -15,7 +15,7 @@
     </section>
 
     <!-- Blog Card -->
-    <section class="grid gap-y-6 col-span-3 max-lg:col-span-4 max-xl:mx-5">
+    <section class="space-y-3 col-span-3 max-lg:col-span-4 max-xl:mx-5">
 
         <!-- Title -->
         <div class="text-h1 max-lg:text-h4">

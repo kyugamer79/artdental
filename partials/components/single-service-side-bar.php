@@ -13,7 +13,7 @@ $cats = get_categories([
 
     <div class="grid sticky top-3">
         <!-- Search -->
-        <?php cyn_get_component('side-bar-search') ?>
+        <?php cyn_get_component('service-side-bar-search') ?>
 
         <div class="py-3"></div>
 

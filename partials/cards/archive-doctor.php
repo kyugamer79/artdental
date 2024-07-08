@@ -1,7 +1,11 @@
- <?php $index = $args['index'] ?? 1 ?>
+ <?php
+    $index = $args['index'] ?? 1;
+    $postId = $args['post-id'] ?? 0;
+
+    ?>
 
  <!-- Doctors Card -->
- <section class="grid grid-cols-3 gap-[48px] items-center">
+ <section class="grid grid-cols-3 gap-[48px] items-center" id="<?php echo  'doctor-' .   $postId ?>">
 
      <!-- Texts -->
      <div class="col-span-2 order-2 max-lg:col-span-3">
@@ -30,8 +34,7 @@
 
 
      <!-- Swiper Image -->
-     <div
-         class="col-span-1 space-y-5 max-lg:col-span-3 max-lg:order-1 <?php echo $index % 2 === 0 ? 'order-3' : 'order-0' ?>">
+     <div class="col-span-1 space-y-5 max-lg:col-span-3 max-lg:order-1 <?php echo $index % 2 === 0 ? 'order-3' : 'order-0' ?>">
 
          <!-- Mobile Name Responsive -->
          <div class="hidden max-lg:block">
@@ -48,13 +51,12 @@
          </div>
 
          <div>
-             <swiper-container navigation-next-el="#servicesNext" navigation-prev-el="#servicesPrev" space-between="12"
-                 slides-per-view="1">
+             <swiper-container navigation-next-el="#servicesNext" navigation-prev-el="#servicesPrev" space-between="12" slides-per-view="1">
 
                  <?php for ($i = 1; $i <= 6; $i++) : ?>
-                 <swiper-slide class="fade-in-down ">
+                     <swiper-slide class="fade-in-down ">
 
-                     <?php
+                         <?php
 
                             $slideShow_image = get_field("slideshow_group_image_$i");
 
@@ -62,7 +64,7 @@
 
                             ?>
 
-                 </swiper-slide>
+                     </swiper-slide>
                  <?php endfor; ?>
              </swiper-container>
          </div>

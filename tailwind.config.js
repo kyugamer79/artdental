@@ -52,8 +52,7 @@ module.exports = {
 			// black: colors.black,
 		},
 		fontFamily: {
-			sans: ["Peyda", "sans-serif"],
-			serif: ["Peyda", "serif"],
+			peyda: ['"Peyda-1" , sans'],
 		},
 		fontSize: {
 			title_1: "64px",

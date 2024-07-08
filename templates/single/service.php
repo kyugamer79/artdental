@@ -49,11 +49,14 @@ $postId = $args['post-id'] ?? get_the_ID();
 
         <div class="pt-[93px]"></div>
 
-
         <div>
             <!-- Title -->
             <div class="text-h2">
-                <?php _e('سوالات متداول درباره جرمگیری', 'cyn-dm') ?>
+                <?php _e('سوالات متداول ', 'cyn-dm') . ' ' . the_title() ?>
+            </div>
+
+            <div class="text-h2">
+
             </div>
 
             <div class="p-6">
@@ -73,12 +76,12 @@ $postId = $args['post-id'] ?? get_the_ID();
         <div class="pt-[48px]"></div>
 
         <!-- Comments -->
-        <?php cyn_get_component('single-comment')?>
+        <?php cyn_get_component('single-comment') ?>
 
     </section>
 
     <!-- Comments For Mobile -->
-    <?php cyn_get_component('mobile-res-comment')?>
+    <?php cyn_get_component('mobile-res-comment') ?>
 
 </main>
 

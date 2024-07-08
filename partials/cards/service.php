@@ -5,10 +5,7 @@ if ($postId === 0) {
     throw new ErrorException('post id is invalid', 0, E_WARNING);
 }
 
-
-
 $terms = get_the_terms($postId, 'service-cat');
-
 
 ?>
 
@@ -16,12 +13,14 @@ $terms = get_the_terms($postId, 'service-cat');
     style="background-image: url('<?php echo get_the_post_thumbnail_url($postId) ?>');">
     <div class="">
         <div class="text-caption">
+            <?php if (!empty($terms)) : ?>
             <?php foreach ($terms as $index => $term) : ?>
             <?php
-                echo $term->name;
-                echo $index === array_key_last($terms) ? '' : ' • ';
-                ?>
+                    echo $term->name;
+                    echo $index === array_key_last($terms) ? '' : ' • ';
+                    ?>
             <?php endforeach; ?>
+            <?php endif; ?>
         </div>
 
         <div class="text-h6">
