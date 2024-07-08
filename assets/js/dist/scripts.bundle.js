@@ -1,8 +1,12 @@
 (() => {
+  var __create = Object.create;
   var __defProp = Object.defineProperty;
   var __defProps = Object.defineProperties;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
   var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
   var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+  var __getProtoOf = Object.getPrototypeOf;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
   var __propIsEnum = Object.prototype.propertyIsEnumerable;
   var __pow = Math.pow;
@@ -19,6 +23,332 @@
     return a;
   };
   var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+  var __commonJS = (cb, mod) => function __require() {
+    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+  };
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+    }
+    return to;
+  };
+  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+    // If the importer is in node compatibility mode or this is not an ESM
+    // file that has been converted to a CommonJS file using a Babel-
+    // compatible transform (i.e. "__esModule" has not been set), then set
+    // "default" to the CommonJS "module.exports" for node compatibility.
+    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+    mod
+  ));
+
+  // node_modules/toastify-js/src/toastify.js
+  var require_toastify = __commonJS({
+    "node_modules/toastify-js/src/toastify.js"(exports, module) {
+      (function(root, factory) {
+        if (typeof module === "object" && module.exports) {
+          module.exports = factory();
+        } else {
+          root.Toastify = factory();
+        }
+      })(exports, function(global) {
+        var Toastify2 = function(options) {
+          return new Toastify2.lib.init(options);
+        }, version = "1.12.0";
+        Toastify2.defaults = {
+          oldestFirst: true,
+          text: "Toastify is awesome!",
+          node: void 0,
+          duration: 3e3,
+          selector: void 0,
+          callback: function() {
+          },
+          destination: void 0,
+          newWindow: false,
+          close: false,
+          gravity: "toastify-top",
+          positionLeft: false,
+          position: "",
+          backgroundColor: "",
+          avatar: "",
+          className: "",
+          stopOnFocus: true,
+          onClick: function() {
+          },
+          offset: { x: 0, y: 0 },
+          escapeMarkup: true,
+          ariaLive: "polite",
+          style: { background: "" }
+        };
+        Toastify2.lib = Toastify2.prototype = {
+          toastify: version,
+          constructor: Toastify2,
+          // Initializing the object with required parameters
+          init: function(options) {
+            if (!options) {
+              options = {};
+            }
+            this.options = {};
+            this.toastElement = null;
+            this.options.text = options.text || Toastify2.defaults.text;
+            this.options.node = options.node || Toastify2.defaults.node;
+            this.options.duration = options.duration === 0 ? 0 : options.duration || Toastify2.defaults.duration;
+            this.options.selector = options.selector || Toastify2.defaults.selector;
+            this.options.callback = options.callback || Toastify2.defaults.callback;
+            this.options.destination = options.destination || Toastify2.defaults.destination;
+            this.options.newWindow = options.newWindow || Toastify2.defaults.newWindow;
+            this.options.close = options.close || Toastify2.defaults.close;
+            this.options.gravity = options.gravity === "bottom" ? "toastify-bottom" : Toastify2.defaults.gravity;
+            this.options.positionLeft = options.positionLeft || Toastify2.defaults.positionLeft;
+            this.options.position = options.position || Toastify2.defaults.position;
+            this.options.backgroundColor = options.backgroundColor || Toastify2.defaults.backgroundColor;
+            this.options.avatar = options.avatar || Toastify2.defaults.avatar;
+            this.options.className = options.className || Toastify2.defaults.className;
+            this.options.stopOnFocus = options.stopOnFocus === void 0 ? Toastify2.defaults.stopOnFocus : options.stopOnFocus;
+            this.options.onClick = options.onClick || Toastify2.defaults.onClick;
+            this.options.offset = options.offset || Toastify2.defaults.offset;
+            this.options.escapeMarkup = options.escapeMarkup !== void 0 ? options.escapeMarkup : Toastify2.defaults.escapeMarkup;
+            this.options.ariaLive = options.ariaLive || Toastify2.defaults.ariaLive;
+            this.options.style = options.style || Toastify2.defaults.style;
+            if (options.backgroundColor) {
+              this.options.style.background = options.backgroundColor;
+            }
+            return this;
+          },
+          // Building the DOM element
+          buildToast: function() {
+            if (!this.options) {
+              throw "Toastify is not initialized";
+            }
+            var divElement = document.createElement("div");
+            divElement.className = "toastify on " + this.options.className;
+            if (!!this.options.position) {
+              divElement.className += " toastify-" + this.options.position;
+            } else {
+              if (this.options.positionLeft === true) {
+                divElement.className += " toastify-left";
+                console.warn("Property `positionLeft` will be depreciated in further versions. Please use `position` instead.");
+              } else {
+                divElement.className += " toastify-right";
+              }
+            }
+            divElement.className += " " + this.options.gravity;
+            if (this.options.backgroundColor) {
+              console.warn('DEPRECATION NOTICE: "backgroundColor" is being deprecated. Please use the "style.background" property.');
+            }
+            for (var property in this.options.style) {
+              divElement.style[property] = this.options.style[property];
+            }
+            if (this.options.ariaLive) {
+              divElement.setAttribute("aria-live", this.options.ariaLive);
+            }
+            if (this.options.node && this.options.node.nodeType === Node.ELEMENT_NODE) {
+              divElement.appendChild(this.options.node);
+            } else {
+              if (this.options.escapeMarkup) {
+                divElement.innerText = this.options.text;
+              } else {
+                divElement.innerHTML = this.options.text;
+              }
+              if (this.options.avatar !== "") {
+                var avatarElement = document.createElement("img");
+                avatarElement.src = this.options.avatar;
+                avatarElement.className = "toastify-avatar";
+                if (this.options.position == "left" || this.options.positionLeft === true) {
+                  divElement.appendChild(avatarElement);
+                } else {
+                  divElement.insertAdjacentElement("afterbegin", avatarElement);
+                }
+              }
+            }
+            if (this.options.close === true) {
+              var closeElement = document.createElement("button");
+              closeElement.type = "button";
+              closeElement.setAttribute("aria-label", "Close");
+              closeElement.className = "toast-close";
+              closeElement.innerHTML = "&#10006;";
+              closeElement.addEventListener(
+                "click",
+                (function(event2) {
+                  event2.stopPropagation();
+                  this.removeElement(this.toastElement);
+                  window.clearTimeout(this.toastElement.timeOutValue);
+                }).bind(this)
+              );
+              var width = window.innerWidth > 0 ? window.innerWidth : screen.width;
+              if ((this.options.position == "left" || this.options.positionLeft === true) && width > 360) {
+                divElement.insertAdjacentElement("afterbegin", closeElement);
+              } else {
+                divElement.appendChild(closeElement);
+              }
+            }
+            if (this.options.stopOnFocus && this.options.duration > 0) {
+              var self = this;
+              divElement.addEventListener(
+                "mouseover",
+                function(event2) {
+                  window.clearTimeout(divElement.timeOutValue);
+                }
+              );
+              divElement.addEventListener(
+                "mouseleave",
+                function() {
+                  divElement.timeOutValue = window.setTimeout(
+                    function() {
+                      self.removeElement(divElement);
+                    },
+                    self.options.duration
+                  );
+                }
+              );
+            }
+            if (typeof this.options.destination !== "undefined") {
+              divElement.addEventListener(
+                "click",
+                (function(event2) {
+                  event2.stopPropagation();
+                  if (this.options.newWindow === true) {
+                    window.open(this.options.destination, "_blank");
+                  } else {
+                    window.location = this.options.destination;
+                  }
+                }).bind(this)
+              );
+            }
+            if (typeof this.options.onClick === "function" && typeof this.options.destination === "undefined") {
+              divElement.addEventListener(
+                "click",
+                (function(event2) {
+                  event2.stopPropagation();
+                  this.options.onClick();
+                }).bind(this)
+              );
+            }
+            if (typeof this.options.offset === "object") {
+              var x = getAxisOffsetAValue("x", this.options);
+              var y = getAxisOffsetAValue("y", this.options);
+              var xOffset = this.options.position == "left" ? x : "-" + x;
+              var yOffset = this.options.gravity == "toastify-top" ? y : "-" + y;
+              divElement.style.transform = "translate(" + xOffset + "," + yOffset + ")";
+            }
+            return divElement;
+          },
+          // Displaying the toast
+          showToast: function() {
+            this.toastElement = this.buildToast();
+            var rootElement;
+            if (typeof this.options.selector === "string") {
+              rootElement = document.getElementById(this.options.selector);
+            } else if (this.options.selector instanceof HTMLElement || typeof ShadowRoot !== "undefined" && this.options.selector instanceof ShadowRoot) {
+              rootElement = this.options.selector;
+            } else {
+              rootElement = document.body;
+            }
+            if (!rootElement) {
+              throw "Root element is not defined";
+            }
+            var elementToInsert = Toastify2.defaults.oldestFirst ? rootElement.firstChild : rootElement.lastChild;
+            rootElement.insertBefore(this.toastElement, elementToInsert);
+            Toastify2.reposition();
+            if (this.options.duration > 0) {
+              this.toastElement.timeOutValue = window.setTimeout(
+                (function() {
+                  this.removeElement(this.toastElement);
+                }).bind(this),
+                this.options.duration
+              );
+            }
+            return this;
+          },
+          hideToast: function() {
+            if (this.toastElement.timeOutValue) {
+              clearTimeout(this.toastElement.timeOutValue);
+            }
+            this.removeElement(this.toastElement);
+          },
+          // Removing the element from the DOM
+          removeElement: function(toastElement) {
+            toastElement.className = toastElement.className.replace(" on", "");
+            window.setTimeout(
+              (function() {
+                if (this.options.node && this.options.node.parentNode) {
+                  this.options.node.parentNode.removeChild(this.options.node);
+                }
+                if (toastElement.parentNode) {
+                  toastElement.parentNode.removeChild(toastElement);
+                }
+                this.options.callback.call(toastElement);
+                Toastify2.reposition();
+              }).bind(this),
+              400
+            );
+          }
+        };
+        Toastify2.reposition = function() {
+          var topLeftOffsetSize = {
+            top: 15,
+            bottom: 15
+          };
+          var topRightOffsetSize = {
+            top: 15,
+            bottom: 15
+          };
+          var offsetSize = {
+            top: 15,
+            bottom: 15
+          };
+          var allToasts = document.getElementsByClassName("toastify");
+          var classUsed;
+          for (var i = 0; i < allToasts.length; i++) {
+            if (containsClass(allToasts[i], "toastify-top") === true) {
+              classUsed = "toastify-top";
+            } else {
+              classUsed = "toastify-bottom";
+            }
+            var height = allToasts[i].offsetHeight;
+            classUsed = classUsed.substr(9, classUsed.length - 1);
+            var offset = 15;
+            var width = window.innerWidth > 0 ? window.innerWidth : screen.width;
+            if (width <= 360) {
+              allToasts[i].style[classUsed] = offsetSize[classUsed] + "px";
+              offsetSize[classUsed] += height + offset;
+            } else {
+              if (containsClass(allToasts[i], "toastify-left") === true) {
+                allToasts[i].style[classUsed] = topLeftOffsetSize[classUsed] + "px";
+                topLeftOffsetSize[classUsed] += height + offset;
+              } else {
+                allToasts[i].style[classUsed] = topRightOffsetSize[classUsed] + "px";
+                topRightOffsetSize[classUsed] += height + offset;
+              }
+            }
+          }
+          return this;
+        };
+        function getAxisOffsetAValue(axis, options) {
+          if (options.offset[axis]) {
+            if (isNaN(options.offset[axis])) {
+              return options.offset[axis];
+            } else {
+              return options.offset[axis] + "px";
+            }
+          }
+          return "0px";
+        }
+        function containsClass(elem, yourClass) {
+          if (!elem || typeof yourClass !== "string") {
+            return false;
+          } else if (elem.className && elem.className.trim().split(/\s+/gi).indexOf(yourClass) > -1) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        Toastify2.lib.init.prototype = Toastify2.lib;
+        return Toastify2;
+      });
+    }
+  });
 
   // assets/js/components/button.js
   var Button = class extends HTMLElement {
@@ -48,6 +378,11 @@
             "bg-background-card_1/20 border border-primary-100 color-primary-100 hover:bg-primary-100 hover:color-primary-20 hover:border-primary-20"
           );
           break;
+        case "secondary-dark":
+          this.addClass(
+            "border border-primary-20 bg-transparent text-primary-20 hover:bg-primary-20 hover:text-primary-100"
+          );
+          break;
         case "accent":
           this.addClass(
             "bg-primary-100 text-primary-20 hover:bg-primary-20 hover:text-primary-100"
@@ -73,8 +408,9 @@
       }
     }
     connectedCallback() {
+      var _a;
       this.title = this.getAttribute("title");
-      this.href = this.getAttribute("href");
+      this.href = (_a = this.getAttribute("href")) != null ? _a : "#";
       this.id = this.getAttribute("id");
       this.type = this.getAttribute("type");
       this.icon = this.getAttribute("icon");
@@ -82,6 +418,7 @@
       this.iconPosition = this.getAttribute("icon-position");
       this.setType(this.type);
       this.setSize(this.size);
+      this.addClass(this.classList);
       this.render();
     }
     render() {
@@ -10104,6 +10441,330 @@
   // assets/js/modules/swiper.js
   register();
 
+  // assets/js/modules/faq-group.js
+  function faqTabs() {
+    const handlers = document.querySelectorAll(".faq-handler");
+    const panels = document.querySelectorAll(".faq-panel");
+    if (!panels || !handlers) return;
+    function activateTab(element) {
+      if (!element) return;
+      element.classList.replace("border-background-card_1", "border-primary-0");
+      element.classList.replace("text-primary-50", "text-primary-20");
+    }
+    function deActivateTab(element) {
+      if (!element) return;
+      element.classList.replace("border-primary-0", "border-background-card_1");
+      element.classList.replace("text-primary-20", "text-primary-50");
+    }
+    function activatePanel(element) {
+      if (!element) return;
+      element.classList.replace("grid-rows-[0fr]", "grid-rows-[1fr]");
+    }
+    function deActivatePanel(element) {
+      if (!element) return;
+      element.classList.replace("grid-rows-[1fr]", "grid-rows-[0fr]");
+    }
+    activateTab(handlers[0]);
+    activatePanel(panels[0]);
+    handlers.forEach((handler) => {
+      handler.addEventListener("click", () => {
+        handlers.forEach((innerHandler) => deActivateTab(innerHandler));
+        activateTab(handler);
+        panels.forEach((panel) => {
+          const isRelatedPanel = panel.getAttribute("controlled-by") === handler.id;
+          if (isRelatedPanel) {
+            activatePanel(panel);
+          } else {
+            deActivatePanel(panel);
+          }
+        });
+      });
+    });
+  }
+  function faqCard() {
+    const faqCards = document.querySelectorAll(".faq-card");
+    if (!faqCards) return;
+    function activateFaq(faq, expert) {
+      var _a;
+      expert.classList.replace("grid-rows-[0fr]", "grid-rows-[1fr]");
+      (_a = faq.querySelector("svg")) == null ? void 0 : _a.classList.add("rotate-45", "text-accent-50");
+    }
+    function deActivateFaq(faq, expert) {
+      var _a;
+      expert.classList.replace("grid-rows-[1fr]", "grid-rows-[0fr]");
+      (_a = faq.querySelector("svg")) == null ? void 0 : _a.classList.remove("rotate-45", "text-accent-50");
+    }
+    faqCards.forEach((faq) => {
+      const faqToggle = faq.querySelector(".faq-toggle");
+      const expert = faq.querySelector(".faq-expert");
+      if (!expert) return;
+      faqToggle == null ? void 0 : faqToggle.addEventListener("click", () => {
+        const faqIsActive = expert.classList.contains("grid-rows-[1fr]");
+        if (faqIsActive) {
+          deActivateFaq(faq, expert);
+        } else {
+          activateFaq(faq, expert);
+        }
+      });
+    });
+  }
+  faqTabs();
+  faqCard();
+
+  // assets/js/modules/select-box.js
+  function selectBox() {
+    const selectBoxGroup = document.querySelectorAll(".select-box");
+    if (!selectBoxGroup) return;
+    function toggleActivatePanel(panel, icon, selector3) {
+      panel.classList.toggle("opacity-0");
+      panel.classList.toggle("-translate-y-4");
+      panel.classList.toggle("pointer-events-none");
+      icon.classList.toggle("rotate-180");
+      icon.classList.toggle("text-accent-40");
+      selector3.classList.contains("border-accent-40") ? selector3.classList.replace("border-accent-40", "border-primary-70") : selector3.classList.replace("border-primary-70", "border-accent-40");
+    }
+    selectBoxGroup.forEach((selectBox2) => {
+      const selector3 = selectBox2.querySelector(".select-box-selector");
+      const panel = selectBox2.querySelector(".select-box-panel");
+      const value = selectBox2.querySelector(".select-box-value");
+      const options = selectBox2.querySelectorAll(".select-box-option");
+      const icon = selectBox2.querySelector("svg");
+      selector3.addEventListener("click", () => {
+        toggleActivatePanel(panel, icon, selector3);
+      });
+      options.forEach((option) => {
+        option.addEventListener("click", () => {
+          value.innerText = option.innerText;
+          toggleActivatePanel(panel, icon, selector3);
+        });
+      });
+    });
+  }
+  selectBox();
+
+  // assets/js/modules/bread-crumb.js
+  var separator = document.querySelectorAll(".separator");
+  separator.forEach((el) => {
+    el.innerHTML = '<svg class="icon w-6 h-6 rotate-180"><use href="#icon-Right,-Arrow"/></svg>';
+  });
+
+  // assets/js/modules/comments.js
+  function commentReply() {
+    const replyButtons = document.querySelectorAll(".reply-comment");
+    const commentFormParent = document.querySelector("#commentform #comment_parent");
+    if (!commentFormParent || !replyButtons) return;
+    replyButtons.forEach((element) => {
+      element.addEventListener("click", () => {
+        commentFormParent.value = element.getAttribute("comment-id");
+      });
+    });
+  }
+  commentReply();
+
+  // assets/js/modules/taxonomy-terms.js
+  function taxTerm() {
+    const terms = document.querySelectorAll(".term");
+    if (!terms) return;
+    function activeTax(termToggle, termPanel) {
+      var _a, _b;
+      termPanel.classList.replace("grid-rows-[0fr]", "grid-rows-[1fr]");
+      (_a = termToggle.querySelector("svg")) == null ? void 0 : _a.classList.add("rotate-180", "text-accent-50");
+      (_b = termToggle.querySelector(".title")) == null ? void 0 : _b.classList.add("text-accent-50");
+    }
+    function deActiveTax(termToggle, termPanel) {
+      var _a, _b;
+      termPanel.classList.replace("grid-rows-[1fr]", "grid-rows-[0fr]");
+      (_a = termToggle.querySelector("svg")) == null ? void 0 : _a.classList.remove("rotate-180", "text-accent-50");
+      (_b = termToggle.querySelector(".title")) == null ? void 0 : _b.classList.remove("text-accent-50");
+    }
+    terms.forEach((term) => {
+      const termToggle = term.querySelector(".term-title");
+      const termPanel = term.querySelector(".term-panel");
+      termToggle == null ? void 0 : termToggle.addEventListener("click", () => {
+        const termIsActive = termPanel.classList.contains("grid-rows-[1fr]");
+        if (termIsActive) {
+          deActiveTax(termToggle, termPanel);
+        } else {
+          activeTax(termToggle, termPanel);
+        }
+      });
+    });
+  }
+  taxTerm();
+
+  // assets/js/modules/table-of-content.js
+  document.addEventListener("DOMContentLoaded", function() {
+    const toc = document.getElementById("toc");
+    const prose = document.querySelector(".prose");
+    const headings = prose == null ? void 0 : prose.querySelectorAll("h2");
+    const icon = document.querySelector(".separator svg");
+    if (!toc || !prose || !headings || !icon) return;
+    headings.forEach(function(heading, index) {
+      const id = "section-" + index;
+      heading.setAttribute("id", id);
+      const li = document.createElement("li");
+      li.classList.add("flex", "flex-row-reverse", "justify-between", "p-1");
+      const a = document.createElement("a");
+      const svg = icon.cloneNode(true);
+      a.textContent = heading.textContent;
+      a.setAttribute("href", "#" + id);
+      li.appendChild(svg);
+      li.appendChild(a);
+      toc.appendChild(li);
+    });
+  });
+
+  // assets/js/modules/toastify.js
+  var import_toastify_js = __toESM(require_toastify());
+  var successColor = "#4caf50";
+  var errorColor = "#ef5350";
+  var successToast = (0, import_toastify_js.default)({
+    text: "\u0639\u0645\u0644\u06CC\u0627\u062A \u0628\u0627 \u0645\u0648\u0641\u0642\u06CC\u062A \u0627\u0646\u062C\u0627\u0645 \u0634\u062F",
+    style: {
+      background: successColor
+    }
+  });
+  var errorToast = (0, import_toastify_js.default)({
+    text: "\u0639\u0645\u0644\u06CC\u0627\u062A \u0628\u0627 \u062E\u0637\u0627 \u0645\u0648\u0627\u062C\u0647 \u0634\u062F",
+    style: {
+      background: errorColor
+    }
+  });
+  var successFormToast = (0, import_toastify_js.default)({
+    text: "\u0641\u0631\u0645 \u0628\u0627 \u0645\u0648\u0641\u0642\u06CC\u062A \u0627\u0631\u0633\u0627\u0644 \u0634\u062F",
+    style: {
+      background: successColor
+    }
+  });
+
+  // assets/js/modules/contact-us.js
+  function contactForm() {
+    const contactForm2 = document.querySelector("#ContactUsForm");
+    if (!contactForm2) return;
+    contactForm2.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(contactForm2);
+      jQuery(($) => {
+        $.ajax({
+          type: "POST",
+          url: restDetails.url + "cyn-api/v1/form",
+          data: formData,
+          cache: false,
+          processData: false,
+          contentType: false,
+          success: (res) => {
+            console.log(res);
+            successFormToast.showToast();
+            priceForm.reset();
+          },
+          error: (err) => {
+            console.log(err);
+            errorToast.showToast();
+          }
+        });
+      });
+      console.log(e);
+    });
+  }
+  contactForm();
+
+  // assets/js/modules/search.js
+  function searchFilter() {
+    const formSearch = document.querySelector("#formSearch");
+    if (!formSearch) return;
+    const inputRadio = formSearch.querySelectorAll('input[type="radio"]');
+    const inputSearch = formSearch.querySelector('input[type="search"]');
+    const getResultFromApi = (formData) => {
+      const postsCount = document.getElementById("postsCount");
+      const postsWrapper = document.getElementById("postsWrapper");
+      if (!inputRadio || !inputSearch) return;
+      jQuery(($) => {
+        $.ajax({
+          type: "POST",
+          url: restDetails.url + "cyn-api/v1/search",
+          data: formData,
+          cache: false,
+          processData: false,
+          contentType: false,
+          success: (res) => {
+            postsCount.innerHTML = res.found_posts;
+            postsWrapper.innerHTML = res.html;
+          }
+        });
+      });
+    };
+    inputRadio.forEach((element) => {
+      element.addEventListener("click", (event2) => {
+        const formData = new FormData(formSearch);
+        getResultFromApi(formData);
+      });
+    });
+    inputSearch.addEventListener("keyup", () => {
+      const formData = new FormData(formSearch);
+      getResultFromApi(formData);
+    });
+  }
+  searchFilter();
+
+  // assets/js/modules/popUpForm.js
+  function PopUpForm() {
+    const PopUpForm2 = document.querySelector("#reservePopUpForm");
+    if (!PopUpForm2) return;
+    PopUpForm2.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(PopUpForm2);
+      jQuery(($) => {
+        $.ajax({
+          type: "POST",
+          url: restDetails.url + "cyn-api/v1/reserve_pop_up",
+          data: formData,
+          cache: false,
+          processData: false,
+          contentType: false,
+          success: (res) => {
+            console.log(res);
+            successFormToast.showToast();
+            priceForm.reset();
+          },
+          error: (err) => {
+            console.log(err);
+            errorToast.showToast();
+          }
+        });
+      });
+      console.log(e);
+    });
+  }
+  PopUpForm();
+  function reservePopUp() {
+    const reservePopUpOpenerGroup = document.querySelectorAll(
+      ".reservePopUpOpener"
+    );
+    const reservePopUp2 = document.querySelector("#reservePopUp");
+    const reservePopUpCloser = document.querySelector("#reservePopUpCloser");
+    if (!reservePopUpOpenerGroup || !reservePopUp2 || !reservePopUpCloser) return;
+    function activatePopUp(element) {
+      element.classList.replace("opacity-0", "opacity-100");
+      element.classList.replace("pointer-events-none", "pointer-events-auto");
+    }
+    function deActivatePopUp(element) {
+      element.classList.replace("opacity-100", "opacity-0");
+      element.classList.replace("pointer-events-auto", "pointer-events-none");
+    }
+    reservePopUpOpenerGroup.forEach((openerEl) => {
+      openerEl.addEventListener("click", () => activatePopUp(reservePopUp2));
+    });
+    reservePopUpCloser.addEventListener(
+      "click",
+      () => deActivatePopUp(reservePopUp2)
+    );
+    reservePopUp2.addEventListener("click", (e) => {
+      if (e.target !== reservePopUp2) return;
+      deActivatePopUp(reservePopUp2);
+    });
+  }
+  reservePopUp();
+
   // assets/js/pages/home.js
   var containerComponent = class extends HTMLElement {
     constructor() {
@@ -16786,6 +17447,15 @@
   });
 })();
 /*! Bundled license information:
+
+toastify-js/src/toastify.js:
+  (*!
+   * Toastify js 1.12.0
+   * https://github.com/apvarun/toastify-js
+   * @license MIT licensed
+   *
+   * Copyright (C) 2018 Varun A P
+   *)
 
 gsap/gsap-core.js:
   (*!
