@@ -24,7 +24,9 @@ $doctor_posts = get_posts([
 
     <?php foreach ($doctor_posts as $index => $doctor_post) : ?>
 
-    <?php cyn_get_card('archive-doctor', ['index' => $index]) ?>
+    <?php cyn_get_card('archive-doctor', [
+            'index' => $index, 'post-id' => $doctor_post->ID
+        ]) ?>
 
     <?php endforeach; ?>
 
