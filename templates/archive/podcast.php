@@ -21,8 +21,12 @@ if (!is_array($podcasts) || count($podcasts) < 1) {
 
 
 <main>
+
+    <?php cyn_get_component('gallery-inputs') ?>
+
+
     <!-- Blog Card -->
-    <section class="container space-y-3 col-span-3 max-lg:col-span-4 max-xl:mx-5">
+    <section class="container space-y-3 col-span-3 max-lg:col-span-4 ">
 
         <!-- Title -->
         <div class="text-h1 max-lg:text-h4 pb-6">

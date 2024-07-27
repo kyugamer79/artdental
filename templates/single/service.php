@@ -39,30 +39,29 @@ $postId = $args['post-id'] ?? get_the_ID();
         <div class="pb-4"></div>
 
         <!-- Blog Content -->
-        <div
-            class="prose prose-img:w-full prose-img:rounded-3xl prose-img:object-cover min-w-full prose-p:text-primary-50 prose-p:text-body_s prose-h4:text-h4 prose-h6:text-h6">
+        <div class="prose prose-img:w-full prose-img:rounded-3xl prose-img:object-cover min-w-full prose-p:text-primary-50 prose-p:text-body_s prose-h4:text-h4 prose-h6:text-h6">
             <?php the_content() ?>
         </div>
 
         <!-- FAQ -->
-        <?php if (!is_null(get_field('faq-group', $postId))) : ?>
+        <?php if (!empty(get_field('faq-group', $postId))) : ?>
 
-        <div class="pt-[93px]"></div>
+            <div class="pt-[93px]"></div>
 
-        <div>
-            <!-- Title -->
-            <div class="text-h2">
-                <?php _e('سوالات متداول ', 'cyn-dm') . ' ' . the_title() ?>
+            <div>
+                <!-- Title -->
+                <div class="text-h2">
+                    <?php _e('سوالات متداول ', 'cyn-dm') . ' ' . the_title() ?>
+                </div>
+
+                <div class="text-h2">
+
+                </div>
+
+                <div class="p-6">
+                    <?php cyn_get_component('faq-group', ['type' => 'acf', 'acf_field' => 'faq-group', 'post-id' => $postId]) ?>
+                </div>
             </div>
-
-            <div class="text-h2">
-
-            </div>
-
-            <div class="p-6">
-                <?php cyn_get_component('faq-group', ['type' => 'acf', 'acf_field' => 'faq-group', 'post-id' => $postId]) ?>
-            </div>
-        </div>
 
         <?php endif; ?>
 

@@ -1,11 +1,5 @@
-<?php defined('ABSPATH') || exit; ?>
-
 <?php
-$query = new WP_Query([
-    'post_type' => 'service',
-    'posts_per_page' => get_option('posts_per_page'),
-])
-
+global $wp_query;
 
 ?>
 
@@ -23,21 +17,24 @@ $query = new WP_Query([
 
     </section>
 
+
     <!-- Service Card -->
     <section class="space-y-3 col-span-3 max-lg:col-span-4 max-xl:mx-5">
 
         <!-- Title -->
         <div class="text-h1 max-lg:text-h4">
-            <?php _e('همه ی خدمات', 'cyn-dm') ?>
+            <?php echo single_term_title() ?>
         </div>
 
         <div class="grid grid-cols-3 max-xl:grid-cols-2 max-sm:grid-cols-1 gap-3">
 
             <?php
-            if ($query->have_posts()) :
-                while ($query->have_posts()) : $query->the_post();
-                    cyn_get_card('service', ['post-id' => get_the_ID(), 'class' => 'min-h-[400px] first:col-span-2']);
-                endwhile;
+            if ($wp_query->have_posts()) :
+
+                foreach ($wp_query->get_posts() as $post) {
+                    cyn_get_card('service', ['post-id' => $post->ID, 'class' => 'min-h-[400px] first:col-span-2']);
+                }
+
             endif;
             ?>
 

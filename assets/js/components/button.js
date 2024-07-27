@@ -38,7 +38,7 @@ class Button extends HTMLElement {
 
 			case 'secondary':
 				this.addClass(
-					'bg-background-card_1/20 border border-primary-100 color-primary-100 hover:bg-primary-100 hover:color-primary-20 hover:border-primary-20'
+					'bg-background-card_1/20 border border-primary-100 color-primary-100 hover:bg-primary-50 hover:color-primary-20 hover:border-primary-20'
 				);
 				break;
 

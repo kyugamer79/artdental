@@ -100,6 +100,7 @@ function cyn_acf_register_price()
 		cyn_acf_add_text('brand', 'برند'),
 		cyn_acf_add_text('country', 'کشور سازنده'),
 		cyn_acf_add_text('price_per_unit', 'قیمت هر واحد'),
+		cyn_acf_add_text('price_per_unit_off', 'قیمت هر واحد با تخفیف'),
 	];
 
 	$location = [

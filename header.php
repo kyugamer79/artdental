@@ -17,6 +17,21 @@
     <?php wp_body_open() ?>
 
     <?php if ($render_template) : ?>
+    <!-- site offer -->
+    <?php if (!empty(get_option('cyn_cta_header_text'))) : ?>
+    <div id="headerCta" class="bg-accent-90 text-md flex p-2 justify-between items-center">
+        <div>
+            <?php echo get_option('cyn_cta_header_text') ?>
+        </div>
+
+        <span id="headerCtaCloser" class="cursor-pointer">
+            <svg class="icon rotate-45 size-8">
+                <use href="#icon-plus" />
+            </svg>
+        </span>
+    </div>
+    <?php endif; ?>
+
     <header class="my-8 flex justify-between container">
         <div class="flex items-center gap-5">
             <div class="logo size-10 max-md:hidden">
@@ -67,7 +82,7 @@
         </div>
 
         <div class="flex items-center gap-2">
-            <a href="/?s=">
+            <a href="/?search-type=all&s=">
                 <svg class="icon size-6">
                     <use href="#icon-search-loupe" />
                 </svg>

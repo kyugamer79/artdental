@@ -40,7 +40,7 @@ $post_categories = get_terms([
             <div class="grid gap-y-3 divide-y-[1px] divide-primary-90">
 
                 <?php foreach ($recommendPosts as $recommendPost) : ?>
-                <?php cyn_get_card('post-mini', ['post-id' => $recommendPost]) ?>
+                    <?php cyn_get_card('post-mini', ['post-id' => $recommendPost]) ?>
                 <?php endforeach ?>
 
             </div>
@@ -60,15 +60,15 @@ $post_categories = get_terms([
                 <div>
                     <ul class="space-y-3 divide-y-[1px] divide-primary-90">
                         <?php foreach ($post_categories as $term) : ?>
-                        <a href="<?php echo get_term_link($term) ?>" class="text-secondary-400 pt-3 block">
+                            <a href="<?php echo get_term_link($term) ?>" class="text-secondary-400 pt-3 block">
 
-                            <li class="flex justify-between py-1 text-body_s">
-                                <?php echo $term->name ?>
-                                <span class="text-primary-50">
-                                    <?php echo $term->count . 'مقاله'; ?>
-                                </span>
-                            </li>
-                        </a>
+                                <li class="flex justify-between py-1 text-body_s">
+                                    <?php echo $term->name ?>
+                                    <span class="text-primary-50">
+                                        <?php echo $term->count . 'مقاله'; ?>
+                                    </span>
+                                </li>
+                            </a>
 
                         <?php endforeach; ?>
                     </ul>
@@ -91,8 +91,7 @@ $post_categories = get_terms([
                 <?php $tags = get_tags(); ?>
                 <div class="flex flex-wrap gap-2">
                     <?php foreach ($tags as $tag) : ?>
-                    <a class="bg-accent-90 text-accent-50 py-2 px-3 rounded-lg text-caption"
-                        href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $tag->name; ?></a>
+                        <a class="bg-accent-90 text-accent-50 py-2 px-3 rounded-lg text-caption" href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $tag->name; ?></a>
                     <?php endforeach ?>
                 </div>
             </div>
@@ -102,17 +101,14 @@ $post_categories = get_terms([
         <!-- <div class="bg-primary-100 p-5 rounded-3xl">
 
             <div class="text-h6 font-medium">
-                <?php // _e('گالری تصاویر', 'cyn-dm') 
+                <?php //_e('گالری تصاویر', 'cyn-dm')
                 ?>
             </div>
 
             <div class="py-2"></div>
 
             <div>
-
-                <?php //$gallery = get_field('gallery_section') 
-                ?>
-
+                <?php  ?>
             </div>
 
         </div> -->

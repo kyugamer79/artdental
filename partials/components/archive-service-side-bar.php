@@ -8,12 +8,13 @@
             <?php cyn_get_component('service-side-bar-search') ?>
         </div>
 
+        <!-- Services Category -->
+        <?php cyn_get_component('service-category') ?>
+
         <!-- Special Services  -->
         <?php cyn_get_component('special-service') ?>
 
 
-        <!-- Services Category -->
-        <?php cyn_get_component('service-category') ?>
 
     </div>
 </div>

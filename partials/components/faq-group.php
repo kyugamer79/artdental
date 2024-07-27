@@ -6,35 +6,36 @@ $postId = $args['post-id'] ?? null;
 
 $faq_group = [];
 
+// Define query arguments for fetching FAQ posts by taxonomy
 $query_args = [
 	'post_type' => 'faq',
 	'fields' => 'ids',
 	'tax_query' => [
 		[
 			'taxonomy' => 'faq-cat',
-			'filed' => 'term_id',
+			'field' => 'term_id', // corrected from 'filed' to 'field'
 			'terms' => $term_ids,
 		]
 	]
 ];
 
+// Fetch FAQs based on the type specified
 if ($type === 'query') {
 	$faq_group = get_posts($query_args);
-}
-
-if ($type === 'acf') {
+} elseif ($type === 'acf') {
 	$faq_group = get_field($acf_field, $postId);
 }
 
-if (is_null($faq_group)) return;
-
+// Ensure $faq_group is an array or object before proceeding
+if (!is_array($faq_group) && !is_object($faq_group)) {
+	return;
+}
 ?>
 
-
 <div class="py-6 px-4 bg-background-card_1 divide-y divide-primary-80 rounded-3xl">
-    <?php if (!is_null($postId) && (is_array($faq_group) || is_object($faq_group))) : ?>
-    <?php foreach ($faq_group as $index => $postId) : ?>
-    <?php cyn_get_card('faq', ['post-id' => $postId]) ?>
-    <?php endforeach; ?>
-    <?php endif; ?>
+	<?php foreach ($faq_group as $index => $postId) : ?>
+		<?php if (!is_null($postId)) : ?>
+			<?php cyn_get_card('faq', ['post-id' => $postId]) ?>
+		<?php endif; ?>
+	<?php endforeach; ?>
 </div>

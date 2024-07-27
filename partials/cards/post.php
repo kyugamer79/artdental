@@ -2,7 +2,7 @@
 $postId = $args['post-id'] ?? get_the_ID();
 $class = $args['class'] ?? '';
 if ($postId === 0) {
-	throw new ErrorException('post id is invalid', 0, E_WARNING);
+    throw new ErrorException('post id is invalid', 0, E_WARNING);
 }
 
 

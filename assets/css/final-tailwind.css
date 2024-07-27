@@ -2351,6 +2351,10 @@ video {
           columns: 3;
 }
 
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -3088,6 +3092,10 @@ video {
   text-decoration-line: underline;
 }
 
+.line-through {
+  text-decoration-line: line-through;
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -3355,6 +3363,11 @@ video {
 .hover\:bg-primary-20:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(60 63 73 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-primary-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(106 111 129 / var(--tw-bg-opacity));
 }
 
 .hover\:from-primary-20:hover {
@@ -3805,6 +3818,10 @@ video {
 @media (min-width: 768px) {
   .md\:hidden {
     display: none;
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   @media (max-width: 1407px) {

@@ -2,9 +2,6 @@
 <div>
     <div>
         <!-- search not found text  -->
-        <div class="text-h1 max-lg:text-h4">
-            <?php _e('مقالات', 'cyn-dm') ?>
-        </div>
         <div class="text-body max-lg:text-body_s">
             <?php _e('متاسفانه نتیجه‌ای برای جستجوی شما یافت نشد', 'cyn-dm') ?>
         </div>
@@ -13,6 +10,7 @@
 
     <!-- search not found image  -->
     <div class="flex justify-center items-center">
-        <img src="<?php echo get_stylesheet_directory_uri()  . "/assets/img/search-not-found.png" ?>" alt="bg-404-picture">
+        <img src="<?php echo get_stylesheet_directory_uri()  . "/assets/img/search-not-found.png" ?>"
+            alt="bg-404-picture">
     </div>
 </div>

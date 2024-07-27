@@ -11,3 +11,6 @@ import './contact-us';
 import './search';
 import './toastify';
 import "./popUpForm";
+import './gallery';
+
+
