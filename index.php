@@ -1,3 +1,1 @@
-<?php defined( 'ABSPATH' ) || exit; ?>
-
-this is index.php
+<?php //silence is golden,

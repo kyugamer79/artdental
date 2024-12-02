@@ -6,7 +6,7 @@
 
 <div class="container grid grid-cols-2 items-center gap-10 max-lg:gap-4">
 
-    <div class="text-h1 max-lg:text-h3 max-lg:pt-3"><?php _e('درباره ما', 'cyn-dm') ?></div>
+    <div class="text-h1 max-lg:text-h3 pt-3"><?php _e('درباره ما', 'cyn-dm') ?></div>
 
     <div class="pb-7"></div>
 

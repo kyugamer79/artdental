@@ -23,9 +23,18 @@
             <!-- Customer  information form   -->
             <div>
                 <form class="flex gap-4 flex-col" action="/" method="post" id="ContactUsForm">
-                    <div><input class="max-lg:w-full w-4/5 p-2 rounded-3xl border border-primary-80 " type="text" placeholder="نام شما" required="required" name="name"></div>
-                    <div><input class="max-lg:w-full w-4/5 p-2 rounded-3xl border border-primary-80" type="mail" placeholder="ایمیل شما" required="required" name="email"></div>
-                    <div><textarea class="max-lg:w-full w-4/5 p-2 rounded-3xl border border-primary-80" name="message" id="message" cols="30" rows="10" placeholder="پیام خودتونو بنویسید"></textarea></div>
+                    <div class="flex w-4/5 max-lg:w-full gap-4">
+                        <!-- <?php //sanitize_textarea_field($name['textarea_input']) 
+                                ?> -->
+                        <input class=" w-1/2 max-lg:w-full p-2 rounded-3xl border border-primary-80 " type="text" placeholder="نام شما" required="required" name="name" id="name">
+                        <input class=" w-1/2 max-lg:w-full p-2 rounded-3xl border border-primary-80 " maxlength="11" type="number_format" placeholder="شماره تلفن همراه شما" required="required" name="name" id="phoneNumber">
+                    </div>
+                    <div>
+                        <input class="max-lg:w-full w-4/5 p-2 rounded-3xl border border-primary-80" type="email" placeholder="ایمیل شما" name="email" id="email">
+                    </div>
+                    <div>
+                        <textarea class="max-lg:w-full w-4/5 p-2 rounded-3xl border border-primary-80" name="message" id="message" cols="30" rows="10" placeholder="پیام خودتونو بنویسید"></textarea>
+                    </div>
                     <!-- Submit field -->
                     <div class=" flex items-end justify-end max-lg:items-center max-lg:justify-center w-4/5 max-lg:w-full">
                         <button class="max-lg:w-full max-lg:items-center max-lg:justify-center flex items-end justify-end flex-row-reverse gap-1 rounded-full transition-all duration-300 cursor-pointer
@@ -34,7 +43,7 @@
                             <div class="me-2">
                                 <?php _e('ارسال پیام', 'cyn-dm')  ?>
                             </div>
-                            <svg class="icon  text-primary-100 w-6 h-6 transform">
+                            <svg class="icon text-primary-100 w-6 h-6 transform">
                                 <use href="#icon-Send" />
                             </svg>
 

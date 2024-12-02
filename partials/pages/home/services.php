@@ -1,11 +1,11 @@
 <?php
 $services = get_field('services') ?? [];
-
+$swiper_show = $args['swiper'] ?? true;
 
 if (!is_array($services) || count($services) < 1) {
 	$services = get_posts([
 		'post_type' => 'service',
-		'posts_per_page' => 3,
+		'posts_per_page' => -1,
 		'fields' => 'ids',
 	]);
 }
@@ -18,17 +18,21 @@ if (!is_array($services) || count($services) < 1) {
 			<div class="text-h1 max-lg:text-h3 max-md:text-h5 text-primary-100">
 				<?php _e('خدمات مرکز', 'cyn-dm') ?>
 			</div>
-			<div class="flex gap-2">
-				<div id="servicesPrev" class="-rotate-90">
-					<cyn-icon-button type="primary" icon="#icon-chevron-down">
-					</cyn-icon-button>
-				</div>
+			<?php if (false !== $swiper_show) : ?>
 
-				<div id="servicesNext" class="rotate-90">
-					<cyn-icon-button type="primary" icon="#icon-chevron-down">
-					</cyn-icon-button>
+				<div class="flex gap-2">
+					<div id="servicesPrev" class="-rotate-90" >
+						<cyn-icon-button type="primary" icon="#icon-chevron-down">
+						</cyn-icon-button>
+					</div>
+
+					<div id="servicesNext" class="rotate-90">
+						<cyn-icon-button type="primary" icon="#icon-chevron-down">
+						</cyn-icon-button>
+					</div>
 				</div>
-			</div>
+			<?php endif; ?>
+
 		</div>
 	</div>
 

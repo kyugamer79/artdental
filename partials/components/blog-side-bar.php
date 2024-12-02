@@ -27,7 +27,9 @@ $post_categories = get_terms([
     <div class="grid justify-evenly sticky top-3 space-y-3">
         <!-- Search -->
         <?php cyn_get_component('blog-side-bar-search') ?>
-
+        
+        
+        
         <!-- Suggestion Blogs -->
         <div class="bg-primary-100 p-5 rounded-3xl">
 
@@ -42,9 +44,7 @@ $post_categories = get_terms([
                 <?php foreach ($recommendPosts as $recommendPost) : ?>
                     <?php cyn_get_card('post-mini', ['post-id' => $recommendPost]) ?>
                 <?php endforeach ?>
-
             </div>
-
         </div>
 
         <!-- Category -->

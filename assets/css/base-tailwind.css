@@ -108,9 +108,21 @@
 	}
 }
 
-@layer {
+@layer base {
 	.bg-noise {
 		@apply bg-background-card_2 bg-[url(../img/noise.png)] bg-blend-soft-light;
 	}
+}
 
+@layer base {
+	.rank-math-breadcrumb p > * {
+		@apply min-w-fit;
+	}
+}
+
+/*plyr poster*/
+@layer base {
+	.plyr {
+		@apply rounded-xl overflow-hidden;
+	}
 }

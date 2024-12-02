@@ -1,5 +1,3 @@
-<?php defined('ABSPATH') || exit; ?>
-
 <?php
 
 /****************************** Required Files */
@@ -11,13 +9,17 @@ require_once(__DIR__ . '/inc/classes/cyn-theme-init.php');
 require_once(__DIR__ . '/inc/classes/cyn-customize.php');
 require_once(__DIR__ . '/inc/classes/cyn-register.php');
 require_once(__DIR__ . '/inc/classes/cyn-search.php');
+require_once(__DIR__ . '/inc/classes/cyn-custom-code.php');
+require_once(__DIR__ . '/inc/classes/cyn-actions.php');
+require_once(__DIR__ . '/inc/classes/cyn-rest.php');
+
 
 
 //functions
 require_once(__DIR__ . '/inc/functions/cyn-general.php');
 require_once(__DIR__ . '/inc/functions/cyn-update-checker.php');
 require_once(__DIR__ . '/inc/functions/cyn-menu.php');
-require_once(__DIR__ . '/inc/functions/cyn-api.php');
+
 
 //acf
 include_once(CYN_ACF_PATH . 'acf.php');
@@ -25,7 +27,10 @@ require_once(__DIR__ . '/inc/functions/cyn-acf-fields.php');
 require_once(__DIR__ . '/inc/functions/cyn-acf.php');
 
 //instance classes
-new cyn_theme_init(false, '0.0.0');
+new cyn_theme_init(false, '1.0.0');
 new cyn_register();
 new cyn_customize();
 new cyn_search();
+new cyn_custom_code();
+new cyn_actions();
+new cyn_rest();

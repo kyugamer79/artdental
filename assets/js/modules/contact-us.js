@@ -2,7 +2,7 @@ import { errorToast, successFormToast } from "./toastify";
 
 function contactForm() {
   const contactForm = document.querySelector("#ContactUsForm");
-
+  document.contact;
   if (!contactForm) return;
 
   contactForm.addEventListener("submit", (e) => {
@@ -20,19 +20,15 @@ function contactForm() {
         contentType: false,
 
         success: (res) => {
-          console.log(res);
           successFormToast.showToast();
-          priceForm.reset();
+          contactForm.reset();
         },
 
         error: (err) => {
-          console.log(err);
           errorToast.showToast();
         },
       });
     });
-
-    console.log(e);
   });
 }
 contactForm();

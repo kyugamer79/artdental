@@ -2,23 +2,26 @@
 
 <?php get_header() ?>
 
-<?php cyn_get_page_template( 'home/hero' ); ?>
+<?php cyn_get_page_template('home/hero'); ?>
 <div class="py-6"></div>
-<?php cyn_get_page_template( 'home/features' ); ?>
+<?php cyn_get_page_template('home/features'); ?>
 <div class="py-6"></div>
-<?php cyn_get_page_template( 'home/services' ); ?>
+<?php cyn_get_page_template('home/services'); ?>
 <div class="py-6"></div>
-<?php cyn_get_page_template( 'home/videos' ); ?>
+<?php cyn_get_page_template('home/videos');
+?>
 <div class="py-6"></div>
-<?php cyn_get_page_template( 'home/price' ); ?>
+<div id="price_section" class=" scroll-mt-8 ">
+    <?php cyn_get_page_template('home/price'); ?>
+</div>
 <div class="py-6"></div>
-<?php cyn_get_page_template( 'home/testimonials' ); ?>
+<!-- <?php //cyn_get_page_template('home/testimonials'); 
+        ?> -->
+<!-- <div class="py-6"></div> -->
+<?php cyn_get_page_template('home/doctors'); ?>
 <div class="py-6"></div>
-<?php cyn_get_page_template( 'home/doctors' ); ?>
+<?php cyn_get_page_template('home/blogs'); ?>
 <div class="py-6"></div>
-<?php cyn_get_page_template( 'home/blogs' ); ?>
+<?php cyn_get_page_template('home/faq'); ?>
 <div class="py-6"></div>
-<?php cyn_get_page_template( 'home/faq' ); ?>
-<div class="py-6"></div>
-
 <?php get_footer() ?>

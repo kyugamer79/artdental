@@ -13,18 +13,18 @@ function videoPopUp() {
     video.play();
   });
 
-  reservePopUpOpenerGroup.forEach((openerEl) => {
-    openerEl.addEventListener("click", () => activateVideoPopUp(reservePopUp));
+  videoPopUpOpenerGroup.forEach((openerEl) => {
+    openerEl.addEventListener("click", () => activateVideoPopUp(videoPopUp));
   });
 
-  reservePopUpCloser.addEventListener("click", () =>
-    deActivateVideoPopUp(reservePopUp)
+  videoPopUpCloser.addEventListener("click", () =>
+    deActivateVideoPopUp(videoPopUp)
   );
 
-  reservePopUp.addEventListener("click", (e) => {
-    if (e.target !== reservePopUp) return;
-    deActivateVideoPopUp(reservePopUp);
+  videoPopUp.addEventListener("click", (e) => {
+    if (e.target !== videoPopUp) return;
+    deActivateVideoPopUp(videoPopUp);
   });
 }
 
-reservePopUp();
+videoPopUp();

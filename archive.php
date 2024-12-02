@@ -1,25 +1,43 @@
-<?php
-defined('ABSPATH') || exit;
+<!-- Archive Blog Page -->
+<?php get_header() ?>
 
-global $wp_query;
+<?php cyn_get_component( 'breadcrumb' ) ?>
 
-if (isset($wp_query->post->post_type)) {
-	get_template_part('templates/archive/' . $wp_query->post->post_type);
-	exit();
-}
+<main class="container grid grid-cols-4 gap-3">
 
-if (is_category() || is_date() || is_tag() || is_author()) {
-	get_template_part('templates/archive/post');
-	exit();
-}
+	<!-- Side Bar -->
+	<section class="col-span-1 max-lg:col-span-4 max-lg:order-1">
 
-$query_array = explode(' ', $wp_query->request);
-$query_array = array_splice($query_array, 0);
-$post_type_needle_index = array_search('((wp_posts.post_type', $query_array);
-$req_post_type = str_replace("'", "", $query_array[$post_type_needle_index + 2]);
+		<?php cyn_get_component( "blog-side-bar" ) ?>
 
-if ($req_post_type) {
-	get_template_part('templates/archive/' . $req_post_type);
-} else {
-	wp_die('not template found!');
-}
+	</section>
+
+	<!-- Blog Card -->
+	<section class="space-y-3 col-span-3 max-lg:col-span-4 max-xl:mx-5">
+
+		<!-- Title -->
+		<div class="text-h1 max-lg:text-h4">
+			<?php _e( 'همه ی مقالات', 'cyn-dm' ) ?>
+		</div>
+
+
+		<div class="grid grid-cols-3 max-xl:grid-cols-2 max-sm:grid-cols-1 gap-3">
+			<?php
+			if ( have_posts() ) :
+				while ( have_posts() ) :
+					the_post();
+					cyn_get_card( 'post', [ 'post-id' => get_the_ID(), 'class' => 'min-h-[400px] first:col-span-2 first:max-xl:col-span-1' ] );
+				endwhile;
+				wp_reset_postdata();
+			endif;
+			?>
+		</div>
+
+		<!-- Pagination -->
+		<?php cyn_get_component( 'pagination' ) ?>
+
+	</section>
+
+</main>
+
+<?php get_footer() ?>

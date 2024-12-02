@@ -21,7 +21,13 @@ function PopUpForm() {
         success: (res) => {
           console.log(res);
           successFormToast.showToast();
-          priceForm.reset();
+          PopUpForm.reset();
+          document
+            .querySelector("#reservePopUp")
+            .classList.replace("opacity-100", "opacity-0");
+          document
+            .querySelector("#reservePopUp")
+            .classList.replace("pointer-events-auto", "pointer-events-none");
         },
 
         error: (err) => {
@@ -38,7 +44,8 @@ PopUpForm();
 
 function reservePopUp() {
   const reservePopUpOpenerGroup = document.querySelectorAll(
-    ".reservePopUpOpener");
+    ".reservePopUpOpener"
+  );
   const reservePopUp = document.querySelector("#reservePopUp");
   const reservePopUpCloser = document.querySelector("#reservePopUpCloser");
 

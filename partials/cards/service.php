@@ -23,6 +23,8 @@ $terms = get_the_terms($postId, 'service-cat');
             <?php endif; ?>
         </div>
 
+        
+        
         <div class="text-h6">
             <?php echo get_the_title($postId) ?>
         </div>

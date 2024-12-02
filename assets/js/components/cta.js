@@ -1,34 +1,35 @@
 class CTA extends HTMLElement {
-	constructor() {
-		super();
+  constructor() {
+    super();
 
-		this.title = 'مشاوره رایگان';
-		this.description = 'جهت رزرو نوبت مشاوره رایگان در مرکز اینجا کلیک کن';
-		this.button = `
+    this.title = "مشاوره رایگان";
+    this.description = "جهت رزرو نوبت مشاوره رایگان در مرکز اینجا کلیک کن";
+    this.button = `
                 <cyn-button type="accent"
 							href="#"
+							class="reservePopUpOpener"
 							size="md">
 					رزرو نوبت
 				</cyn-button>
         `;
 
-		this.classes = '';
-	}
+    this.classes = "";
+  }
 
-	addClass(classes) {
-		this.classes = this.classes + ' ' + classes;
-	}
+  addClass(classes) {
+    this.classes = this.classes + " " + classes;
+  }
 
-	connectedCallback() {
-		this.title = this.getAttribute('title') ?? this.title;
-		this.description = this.getAttribute('description') ?? this.description;
-		// this.button = this.innerHTML ?? this.button;
+  connectedCallback() {
+    this.title = this.getAttribute("title") ?? this.title;
+    this.description = this.getAttribute("description") ?? this.description;
+    // this.button = this.innerHTML ?? this.button;
 
-		this.render();
-	}
+    this.render();
+  }
 
-	render() {
-		this.innerHTML = `
+  render() {
+    this.innerHTML = `
             <div class="rounded-2xl bg-accent-90 px-4 py-6">
                 <div>
                     <div class="text-h4 text-primary-0">
@@ -44,7 +45,7 @@ class CTA extends HTMLElement {
                 </div>
             </div>
         `;
-	}
+  }
 }
 
-customElements.define('cyn-cta', CTA);
+customElements.define("cyn-cta", CTA);

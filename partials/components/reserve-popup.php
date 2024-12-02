@@ -9,9 +9,7 @@ $services = get_posts([
 
 ?>
 
-<section
-    class="z-50 backdrop-blur w-full h-full fixed inset-0 flex justify-center items-center overflow-hidden opacity-0 pointer-events-none transition-all duration-300"
-    id="reservePopUp">
+<section class="z-50 backdrop-blur w-full h-full fixed inset-0 flex justify-center items-center overflow-hidden opacity-0 pointer-events-none transition-all duration-300" id="reservePopUp">
     <!-- form  -->
     <div class="bg-primary-100 flex flex-col rounded-3xl">
         <!--close form button -->
@@ -31,11 +29,9 @@ $services = get_posts([
             <!-- fist row  -->
             <div class="flex gap-4 w-full max-lg:flex-col">
                 <!--first name and last name -->
-                <input name="name" type="text" required="required" placeholder="نام و نام خانوادگی"
-                    class="py-1 pr-3 h-9 rounded-3xl border border-primary-80 w-2/4 max-lg:w-full">
+                <input name="name" type="text" required="required" placeholder="نام و نام خانوادگی" class="py-1 pr-3 h-9 rounded-3xl border border-primary-80 w-2/4 max-lg:w-full">
                 <!-- gender  -->
-                <select name="gender" id="gender"
-                    class="h-10 text-primary-50 rounded-3xl border border-primary-80 w-2/4 max-lg:w-full">
+                <select name="gender" id="gender" class="h-10 text-primary-50 rounded-3xl border border-primary-80 w-2/4 max-lg:w-full">
                     <option value=""><?php _e('انتخاب جنسیت', 'cyn-dm') ?></option>
                     <option value="woman"><?php _e('زن', 'cyn-dm') ?></option>
                     <option value="man"><?php _e('مرد', 'cyn-dm') ?></option>
@@ -45,13 +41,12 @@ $services = get_posts([
             <div class="flex gap-4 w-full max-lg:flex-col">
                 <!-- services  -->
                 <!-- w-2/4 max-lg:w-full  -->
-                <select name="services" id="services"
-                    class=" text-primary-50 rounded-3xl border border-primary-80 h-9  w-full">
+                <select name="services" id="services" class=" text-primary-50 rounded-3xl border border-primary-80 h-9  w-full">
                     <option value=""><?php _e('انتخاب خدمات', 'cyn-dm') ?></option>
                     <?php foreach ($services as $index => $service) : ?>
-                    <option value="<?php echo $service->post_title ?>">
-                        <?php echo $service->post_title ?>
-                    </option>
+                        <option value="<?php echo $service->post_title ?>">
+                            <?php echo $service->post_title ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
                 <!-- reservation date and time -->
@@ -67,14 +62,9 @@ $services = get_posts([
             <!-- third row  -->
             <div class="flex gap-4 w-full max-lg:flex-col">
                 <!-- phone number   -->
-                <input type="text" required="required" id="phone_number" aria-describedby="helper-text-explanation"
-                    placeholder="تلفن همراه"
-                    class="py-0.5 pr-3 h-9 rounded-3xl border border-primary-80 w-2/4 max-lg:w-full"
-                    name="phone_number">
+                <input type="text" required="required" id="phone_number" aria-describedby="helper-text-explanation" placeholder="تلفن همراه" class="py-0.5 pr-3 h-9 rounded-3xl border border-primary-80 w-2/4 max-lg:w-full" name="phone_number">
                 <!-- email -->
-                <input type="mail" placeholder="ایمیل(اختیاری)"
-                    class="py-0.5 pr-3 h-9 rounded-3xl border border-primary-80  w-2/4 max-lg:w-full" name="email"
-                    id="email">
+                <input type="mail" placeholder="ایمیل(اختیاری)" class="py-0.5 pr-3 h-9 rounded-3xl border border-primary-80  w-2/4 max-lg:w-full" name="email" id="email">
             </div>
             <div>
                 <!-- Further Details  -->
@@ -83,21 +73,17 @@ $services = get_posts([
                         <use href="#icon-Chat,-Messages-1" />
                     </svg>
                 </div>
-                <textarea name="message" id="message" cols="30" rows="5" placeholder="توضیحات تکمیلی"
-                    class="py-1 pr-10 rounded-3xl border border-primary-80 w-full"></textarea>
+                <textarea name="message" id="message" cols="30" rows="5" placeholder="توضیحات تکمیلی" class="py-1 pr-10 rounded-3xl border border-primary-80 w-full"></textarea>
             </div>
             <!-- form buttons  -->
-            <div
-                class="flex items-end justify-end gap-3 max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:w-full">
+            <div class="flex items-end justify-end gap-3 max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:w-full">
                 <!-- call button  -->
                 <div class="flex items-end justify-end max-lg:items-center max-lg:justify-center max-lg:w-full ">
-                    <button
-                        class=" border max-lg:w-full max-lg:items-center max-lg:justify-center flex items-center justify-center flex-row-reverse gap-1 rounded-full transition-all py-2 px-4 duration-300 cursor-pointer text-body_s">
+                    <a href=" tel:09353900271" class=" border max-lg:w-full max-lg:items-center max-lg:justify-center flex items-center justify-center flex-row-reverse gap-1 rounded-full transition-all py-2 px-4 duration-300 cursor-pointer text-body_s">
+
                         <div>
-                            <a href="tel:021-22443568 tel:021-22443568">
-                                <?php _e('تماس', 'cyn-dm') ?></a>
-                        </div>
-                    </button>
+                            <?php _e('تماس', 'cyn-dm') ?></div>
+                    </a>
                 </div>
                 <!-- Submit button  -->
                 <div class="flex items-end justify-end max-lg:items-center max-lg:justify-center max-lg:w-full">

@@ -15,13 +15,13 @@ if ( ! is_array( $doctors ) || count( $doctors ) < 1 ) {
 <div class="container space-y-4">
 	<div class="flex justify-between items-center">
 		<span class="text-h1 max-lg:text-h5">
-			<?php _e( 'متخصص های مجموعه', 'cyn-dm' ) ?>
+			<?php _e( 'متخصص‌های مجموعه', 'cyn-dm' ) ?>
 		</span>
 
 		<cyn-button type="secondary-dark"
 					size="md"
 					class="max-lg:hidden"
-					href="<?php get_post_type_archive_link( 'doctor' ) ?>">
+					href="<?php echo get_post_type_archive_link( 'doctor' ) ?>">
 			<?php _e( 'مشاهده همه', 'cyn-dm' ) ?>
 		</cyn-button>
 	</div>
@@ -36,7 +36,7 @@ if ( ! is_array( $doctors ) || count( $doctors ) < 1 ) {
 		<?php endforeach; ?>
 	</div>
 
-	<div class="lg:hidden">
+	<div class="lg:hidden ">
 		<swiper-container slides-per-view="auto"
 						  space-between="12"
 						  pagination='true'>
@@ -52,7 +52,7 @@ if ( ! is_array( $doctors ) || count( $doctors ) < 1 ) {
 	<cyn-button type="secondary-dark"
 				size="md"
 				class="justify-center mt-3 lg:hidden"
-				href="<?php get_post_type_archive_link( 'doctor' ) ?>">
+				href="<?php echo get_post_type_archive_link( 'doctor' ) ?>">
 		<?php _e( 'مشاهده همه', 'cyn-dm' ) ?>
 	</cyn-button>
 </div>

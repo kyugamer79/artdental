@@ -31,5 +31,4 @@ var_dump($link_video)
         </div>
 
     </div>
-    </div>
 </section>

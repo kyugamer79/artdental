@@ -12,38 +12,39 @@
  * 
  * @return array
  */
-function cyn_category_info( $post_id, $url_all, $taxonomy ) {
+function cyn_category_info($post_id, $url_all, $taxonomy)
+{
 	$current_post_cat_ids = [];
-	foreach ( get_the_category( $post_id ) as $cat ) {
-		array_push( $current_post_cat_ids, $cat->term_id );
+	foreach (get_the_category($post_id) as $cat) {
+		array_push($current_post_cat_ids, $cat->term_id);
 	}
 
-	$categories = get_categories( [ 
+	$categories = get_categories([
 		'orderby' => 'id',
 		'hide_empty' => false,
 		'taxonomy' => $taxonomy
-	] );
+	]);
 
 	$categories_link = [];
-	foreach ( $categories as $cat ) {
-		array_push( $categories_link, get_category_link( $cat->term_id ) );
+	foreach ($categories as $cat) {
+		array_push($categories_link, get_category_link($cat->term_id));
 	}
 
-	$info_categories = [ 
-		[ 
+	$info_categories = [
+		[
 			'name' => 'All',
 			'link' => $url_all,
 			'in_category_exist' => true
 		]
 	];
 
-	for ( $i = 0; $i < count( $categories ); $i++ ) {
+	for ($i = 0; $i < count($categories); $i++) {
 		array_push(
 			$info_categories,
-			[ 
-				'name' => $categories[ $i ]->name,
-				'link' => $categories_link[ $i ],
-				'in_category_exist' => in_array( $categories[ $i ]->term_id, $current_post_cat_ids )
+			[
+				'name' => $categories[$i]->name,
+				'link' => $categories_link[$i],
+				'in_category_exist' => in_array($categories[$i]->term_id, $current_post_cat_ids)
 			]
 		);
 	}
@@ -57,23 +58,32 @@ function cyn_category_info( $post_id, $url_all, $taxonomy ) {
  * @param int $id //post id
  * @return string //reading time + ' Min'
  */
-function cyn_reading_time( $id ) {
-	$content = get_post_field( 'post_content', $id );
-	$word_count = str_word_count( strip_tags( $content ) );
-	$reading_time = ceil( $word_count / 50 );
+function cyn_reading_time($id)
+{
+	$content = get_post_field('post_content', $id);
+	$word_count = str_word_count(strip_tags($content));
+	$reading_time = ceil($word_count / 50);
 	return $reading_time . ' Min';
 }
 
-function cyn_get_component( $name, $args = [] ) {
-	get_template_part( '/partials/components/' . $name, null, $args );
+function cyn_get_component($name, $args = [])
+{
+	get_template_part('/partials/components/' . $name, null, $args);
 }
 
-function cyn_get_card( $name, $args = [] ) {
-	get_template_part( '/partials/cards/' . $name, null, $args );
+function cyn_get_card($name, $args = [])
+{
+	get_template_part('/partials/cards/' . $name, null, $args);
 }
 
-function cyn_get_page_template( $name, $args = [] ) {
-	get_template_part( '/partials/pages/' . $name, null, $args );
+function cyn_get_page_template($name, $args = [])
+{
+	get_template_part('/partials/pages/' . $name, null, $args);
+}
+
+function cyn_get_popup($name, $args = [])
+{
+	get_template_part('/partials/popups/' . $name, null, $args);
 }
 
 /**
@@ -81,9 +91,10 @@ function cyn_get_page_template( $name, $args = [] ) {
  * @param DateTime $date
  * @return bool|string
  */
-function cyn_format_date( $date, $format = '' ) {
+function cyn_format_date($date, $format = '')
+{
 
-	if ( $format == '' ) {
+	if ($format == '') {
 		$format = 'yyyy/MM/dd';
 	}
 
@@ -93,18 +104,20 @@ function cyn_format_date( $date, $format = '' ) {
 		IntlDateFormatter::FULL,
 		'Asia/Tehran',
 		IntlDateFormatter::TRADITIONAL,
-		$format );
+		$format
+	);
 
-	return $formatter->format( $date );
+	return $formatter->format($date);
 }
 
-function cyn_format_acf_date( $field_name, $post_id, $format = '' ) {
-	$field = get_field( $field_name, $post_id );
-	$field = explode( '/', $field );
-	$field = implode( '/', array_reverse( $field ) );
+function cyn_format_acf_date($field_name, $post_id, $format = '')
+{
+	$field = get_field($field_name, $post_id);
+	$field = explode('/', $field);
+	$field = implode('/', array_reverse($field));
 
-	$formatted_date = date_create( $field );
-	$formatted_date = cyn_format_date( $formatted_date, $format );
+	$formatted_date = date_create($field);
+	$formatted_date = cyn_format_date($formatted_date, $format);
 
 	return $formatted_date;
 }

@@ -15,58 +15,56 @@ $postId = $args['post-id'] ?? 0;
 
             <!-- Name -->
             <div class="text-h5 font-medium max-lg:hidden">
-                <?php echo the_title() ?>
+                <?php echo get_the_title($postId) ?>
             </div>
 
 
             <!-- Expert -->
             <div class="text-body_s font-normal max-lg:hidden">
-                <?php echo get_field('expert') ?>
+                <?php echo get_field('expert', $postId) ?>
             </div>
 
 
             <!-- Info -->
             <div class="prose-h4:text-[20px] prose-p:text-[16px]">
-                <?php echo the_content() ?>
+                <?php echo get_the_content($postId) ?>
             </div>
         </div>
     </div>
 
 
     <!-- Swiper Image -->
-    <div
-        class="col-span-1 space-y-5 max-lg:col-span-3 max-lg:order-1 <?php echo $index % 2 === 0 ? 'order-3' : 'order-0' ?>">
+    <div class="col-span-1 space-y-5 max-lg:col-span-3 max-lg:order-1 <?php echo $index % 2 === 0 ? 'order-3' : 'order-0' ?>">
 
         <!-- Mobile Name Responsive -->
         <div class="hidden max-lg:block">
             <!-- Name -->
             <div class="text-h5 font-medium">
-                <?php echo the_title() ?>
+                <?php echo get_the_title($postId) ?>
             </div>
 
 
             <!-- Expert -->
             <div class="text-body_s font-normal">
-                <?php echo get_field('expert') ?>
+                <?php echo get_field('expert', $postId) ?>
             </div>
         </div>
 
         <div>
-            <swiper-container navigation-next-el="#servicesNext" navigation-prev-el="#servicesPrev" space-between="12"
-                slides-per-view="1">
+            <swiper-container navigation-next-el="#servicesNext" navigation-prev-el="#servicesPrev" space-between="12" slides-per-view="1">
 
                 <?php for ($i = 1; $i <= 6; $i++) : ?>
-                <swiper-slide class="fade-in-down ">
+                    <swiper-slide class="fade-in-down ">
 
-                    <?php
+                        <?php
 
-                        $slideShow_image = get_field("slideshow_group_image_$i");
+                        $slideShow_image = get_field("slideshow_group_image_$i", $postId);
 
                         echo wp_get_attachment_image($slideShow_image, "full", false, ["class" => "rounded-2xl w-full "]);
 
                         ?>
 
-                </swiper-slide>
+                    </swiper-slide>
                 <?php endfor; ?>
             </swiper-container>
         </div>

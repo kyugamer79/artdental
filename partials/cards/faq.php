@@ -22,7 +22,7 @@ if ($postId === 0) {
         <div class="overflow-hidden">
             <div class="pt-4">
                 <?php echo get_the_content(null, false, $postId) ?>
-            </div>
+            </div> 
         </div>
     </div>
 </div>
