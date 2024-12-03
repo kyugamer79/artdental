@@ -29,6 +29,4 @@
 
 <div class="py-6"></div>
 
-
-
 <?php get_footer() ?>
