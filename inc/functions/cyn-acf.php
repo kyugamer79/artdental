@@ -5,7 +5,7 @@ add_action('acf/include_fields', 'cyn_register_acf');
 
 function cyn_register_acf()
 {
-	if (! function_exists('acf_add_local_field_group')) {
+	if (!function_exists('acf_add_local_field_group')) {
 		return;
 	}
 	cyn_acf_register_home_page();
@@ -15,8 +15,7 @@ function cyn_register_acf()
 	cyn_acf_register_service();
 	cyn_acf_register_video();
 	cyn_acf_register_ads();
-	// cyn_acf_register_price_group();
-	// cyn_acf_register_faq();
+	cyn_acf_register_yalda_ads();
 }
 
 
@@ -101,7 +100,6 @@ function cyn_acf_register_home_page()
 	cyn_register_acf_group('تنظیمات صفحه اصلی', $fields, $location);
 }
 
-
 function cyn_acf_register_price()
 {
 
@@ -125,7 +123,6 @@ function cyn_acf_register_price()
 
 	cyn_register_acf_group('تنظیمات ', $fields, $location);
 }
-
 
 function cyn_acf_register_doctor()
 {
@@ -250,7 +247,6 @@ function cyn_acf_register_service()
 	cyn_register_acf_group('تنظیمات', $fields, $location);
 }
 
-
 function cyn_acf_register_video()
 {
 	$fields = [
@@ -268,8 +264,6 @@ function cyn_acf_register_video()
 	cyn_register_acf_group('تنظیمات ', $fields, $location);
 }
 
-
-// ADS ACF 
 function cyn_acf_register_ads()
 {
 
@@ -296,7 +290,7 @@ function cyn_acf_register_ads()
 
 
 		cyn_acf_add_tab('توضیحات بیشتر2'),
-		cyn_acf_add_text('description_title2', 'سربرگ توضیحات', 0, 33),
+		cyn_acf_add_text('description_title2', 'سربرگ توضیحت', 0, 33),
 		cyn_acf_add_wysiwyg('description_txt2', 'متن توضیحات'),
 
 
@@ -314,10 +308,6 @@ function cyn_acf_register_ads()
 
 
 		cyn_acf_add_tab('معرفی'),
-
-
-
-
 	];
 
 
@@ -328,13 +318,13 @@ function cyn_acf_register_ads()
 	}
 
 
-	array_push($fields, cyn_acf_add_tab('نظرات مشتریان ما '),);
+	array_push($fields, cyn_acf_add_tab('نظرات مشتریان ما '), );
 	array_push($fields, cyn_acf_add_boolean('Customer_comments_section_off', 'نمایش نظرات مشتریان', 20));
 	for ($i = 1; $i <= 10; $i++) {
 		array_push($fields, cyn_acf_add_file("Customers_Comments_video_$i", "فایل ویدئو$i", 50));
 		array_push($fields, cyn_acf_add_image("Customers_Comments_cover_$i", "کاور ویدئو$i", 50));
 	}
-	array_push($fields, cyn_acf_add_tab('سوالات متداول'),);
+	array_push($fields, cyn_acf_add_tab('سوالات متداول'), );
 	array_push($fields, cyn_acf_add_post_object('faq-group', 'سوالات متداول', 'faq', '', 1));
 
 
@@ -351,28 +341,92 @@ function cyn_acf_register_ads()
 	cyn_register_acf_group('تنظیمات', $fields, $location);
 }
 
+function cyn_acf_register_yalda_ads()
+{
+	$swiperImages = [];
+	for ($i = 1; $i <= 4; $i++) {
+		array_push($swiperImages, cyn_acf_add_group("images_$i", "عکس $i", [
+			cyn_acf_add_image("swiper_desktop_img", "عکس دسکتاپ", 50),
+			cyn_acf_add_image("swiper_mobile_img", "عکس موبایل", 50),
+		], 50));
+	}
+	
+	$swiperImageFields = [
+		cyn_acf_add_tab('هیرو'),
+		cyn_acf_add_group('swiperImages_group', '', $swiperImages),
+	];
 
-// archive prices 
-// function cyn_acf_register_price_group()
-// {
-// 	$fields = [
+	$videoFields = [
+		cyn_acf_add_tab('ویدئو'),
+		cyn_acf_add_file('yalda_video_file', 'فایل ویدئو', 100),
+		cyn_acf_add_text('yalda_video_title', 'تایتل', 0, 100),
+		cyn_acf_add_wysiwyg('yalda_video_txt', 'توضیحات', 100),
+	];
+
+	$services = [
+		cyn_acf_add_tab('خدمات'),
+		cyn_acf_add_post_object('services', 'انتخاب خدمات', 'service', '', 1),
+	];
+
+	$descriptionGroup = [];
+	for ($i = 1; $i <= 2; $i++) {
+		array_push($descriptionGroup, cyn_acf_add_group("descriptions_$i", "توضیحات $i", [
+			cyn_acf_add_text('desc_title', 'تایتل', 0, 100),
+			cyn_acf_add_wysiwyg('desc_text', 'متن', 100),
+		], 50));
+	}
 
 
-// 		cyn_acf_add_tab('قیمت ها'),
-// 		cyn_acf_add_text('price_title_', 'متن اصلی', 0, 33),
-// 		cyn_acf_add_tab('انتخاب قیمت ها'),
+	$description = [
+		cyn_acf_add_tab('توضیحات'),
+		cyn_acf_add_group('description_group', '', $descriptionGroup),
+	];
 
-// 		cyn_acf_add_post_object('prices', 'انتخاب قیمت ها', 'price', '', 3),
+	$price = [
+		cyn_acf_add_tab('قیمت ها'),
+		cyn_acf_add_text('price_title', 'تایتل', 0, 100),
+		cyn_acf_add_post_object('prices', 'انتخاب قیمت ها', 'price', '', 1),
+		cyn_acf_add_url('archive_price', ' مشاهده همه', 'link'),
+	];
 
-// 	];
-// 	$location = [
-// 		[
-// 			[
-// 				'param' => 'post_type',
-// 				'operator' => '==',
-// 				'value' => 'price'
-// 			]
-// 		]
-// 	];
-// 	cyn_register_acf_group('تنظیمات', $fields, $location);
-// }
+	$featuresGroup = [];
+	for ($i = 1; $i <= 3; $i++) {
+		array_push($featuresGroup, cyn_acf_add_group("features_$i", "ویژگی $i", [
+			cyn_acf_add_text('feature_title', 'تایتل', 0, 100),
+			cyn_acf_add_wysiwyg('feature_text', 'متن', 100),
+			cyn_acf_add_image('feature_image', 'تصویر', 100)
+		], 33));
+	}
+
+
+	$features = [
+		cyn_acf_add_tab('ویژگی های کلینیک'),
+		cyn_acf_add_group('features_group', '', $featuresGroup),
+	];
+
+	$testimonial = [
+		cyn_acf_add_tab('نظرات'),
+		cyn_acf_add_post_object('testimonials', 'انتخاب نظرات', 'testimonial', '', 1),
+	];
+
+	$faq = [
+		cyn_acf_add_tab('سوالات متداول '),
+		cyn_acf_add_text('faq_title', 'تایتل سوالات متداول'),
+		cyn_acf_add_tax('faq-cat', 'انتخاب دسته بندی سوالات', 'faq-cat'),
+
+	];
+
+	$fields = array_merge($swiperImageFields, $videoFields,$services, $description, $price, $features, $testimonial, $faq);
+
+	$location = [
+		[
+			[
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'templates/ads-yalda.php'
+			]
+		]
+	];
+
+	cyn_register_acf_group('تنظیمات صفحه یلدا', $fields, $location);
+}
