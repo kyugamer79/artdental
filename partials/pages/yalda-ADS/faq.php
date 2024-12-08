@@ -17,35 +17,6 @@ $faq_select = get_field('faq-cat');
         </div>
     </div>
 
-    <div class="col-span-6 md:hidden py-3">
-        <div class="select-box relative">
-            <div
-                class="select-box-panel | bg-[#666] px-4 rounded-xl divide-y divide-primary-90  shadow-md absolute top-12 w-full z-50 opacity-0 -translate-y-4 pointer-events-none transition-all duration-300">
-
-                <?php foreach ($faq_select as $index => $category):
-                    $category = get_term_by('id', $category, 'faq-cat');
-                    ?>
-                    <div id="<?php echo "faq-cat-" . $category->term_id ?>" class="faq-handler | py-3 select-box-option">
-                        <?php echo $category->name ?>
-                    </div>
-                <?php endforeach; ?>
-
-            </div>
-            <div
-                class="select-box-selector | rounded-full pl-3 pr-4 py-2 border bg-background-card_1 border-primary-70 flex justify-between items-center">
-
-                <span class="select-box-value">
-                    <?php echo $category->name ?>
-                </span>
-
-                <svg class="size-4 transition-all duration-300">
-                    <use href="#icon-chevron-down"></use>
-                </svg>
-            </div>
-
-        </div>
-    </div>
-
     <div class="col-span-5 max-md:col-span-6">
         <div class="fade-in-down" anim-delay="0.8">
             <?php foreach ($faq_select as $category): ?>

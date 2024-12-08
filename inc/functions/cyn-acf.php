@@ -348,6 +348,8 @@ function cyn_acf_register_yalda_ads()
 		array_push($swiperImages, cyn_acf_add_group("images_$i", "عکس $i", [
 			cyn_acf_add_image("swiper_desktop_img", "عکس دسکتاپ", 50),
 			cyn_acf_add_image("swiper_mobile_img", "عکس موبایل", 50),
+			cyn_acf_add_text('swiper_img_link', 'لینک عکس',0, 100),
+
 		], 50));
 	}
 	
@@ -386,7 +388,7 @@ function cyn_acf_register_yalda_ads()
 		cyn_acf_add_tab('قیمت ها'),
 		cyn_acf_add_text('price_title', 'تایتل', 0, 100),
 		cyn_acf_add_post_object('prices', 'انتخاب قیمت ها', 'price', '', 1),
-		cyn_acf_add_url('archive_price', ' مشاهده همه', 'link'),
+		cyn_acf_add_url('archive_price', ' مشاهده همه',0, 100),
 	];
 
 	$featuresGroup = [];

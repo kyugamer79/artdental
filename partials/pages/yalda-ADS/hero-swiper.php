@@ -9,7 +9,9 @@ $swiperImages = get_field('swiperImages_group');
             <?php foreach ($swiperImages as $swiperImage): ?>
                 <?php if (!empty($swiperImage['swiper_desktop_img'])): ?>
                     <swiper-slide class="object-cover">
-                        <?php echo wp_get_attachment_image($swiperImage['swiper_desktop_img'], 'full', false, ['class' => 'w-full h-auto rounded-[32px]']); ?>
+                        <a href="<?php echo esc_url($swiperImage['swiper_img_link']); ?>">
+                            <?php echo wp_get_attachment_image($swiperImage['swiper_desktop_img'], 'full', false, ['class' => 'w-full h-auto rounded-[32px]']); ?>
+                        </a>
                     </swiper-slide>
                 <?php endif; ?>
             <?php endforeach; ?>
@@ -22,7 +24,9 @@ $swiperImages = get_field('swiperImages_group');
             <?php foreach ($swiperImages as $swiperImage): ?>
                 <?php if (!empty($swiperImage['swiper_mobile_img'])): ?>
                     <swiper-slide class="object-cover">
-                        <?php echo wp_get_attachment_image($swiperImage['swiper_mobile_img'], 'full', false, ['class' => 'w-full h-auto rounded-[32px]']); ?>
+                        <a href="<?php echo esc_url($swiperImage['swiper_img_link']); ?>">
+                            <?php echo wp_get_attachment_image($swiperImage['swiper_mobile_img'], 'full', false, ['class' => 'w-full h-auto rounded-[32px]']); ?>
+                        </a>
                     </swiper-slide>
                 <?php endif; ?>
             <?php endforeach; ?>

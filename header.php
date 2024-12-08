@@ -21,7 +21,7 @@
     <?php if ($render_template) : ?>
         <!-- site offer -->
         <div class="sticky top-0 w-full z-50">
-            <?php if (!empty(get_option('cyn_cta_header_text'))) : ?>
+            <?php if (!empty(get_option('cyn_cta_header_text')) && get_option('cyn_cta_header_text') !== 'default') : ?>
                 <div id="headerCta" class="bg-accent-90 text-md p-2 ">
                     <div class="container flex justify-between items-center">
                         <a href="/#price_section" class="justify-center items-center font-bold">
