@@ -18,10 +18,10 @@ $service_terms = get_terms([
 
     <div class="grid gap-4 divide-y-[1px] divide-primary-90">
 
-        <?php foreach ($service_terms as $service_term) :
+        <?php foreach ($service_terms as $service_term):
 
             $posts = get_posts([
-                'post_type'  => 'service',
+                'post_type' => 'service',
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'service-cat',
@@ -48,11 +48,12 @@ $service_terms = get_terms([
                 </div>
 
                 <!-- Taxonomy Terms -->
-                <div class="term-panel grid grid-rows-[0fr] transition-all duration-300 " id="terms-<?php echo $service_term->slug; ?>">
+                <div class="term-panel grid grid-rows-[0fr] transition-all duration-300 "
+                    id="terms-<?php echo $service_term->slug; ?>">
 
                     <div class="overflow-hidden rounded-xl">
 
-                        <?php foreach ($posts as $post) : ?>
+                        <?php foreach ($posts as $post): ?>
 
                             <div class="term-child | bg-primary-80 p-2">
                                 <a href="<?php echo get_permalink($post->ID) ?>">
@@ -66,12 +67,7 @@ $service_terms = get_terms([
                 </div>
             </div>
 
-
-
         <?php endforeach; ?>
-
-
-
     </div>
 </div>
 

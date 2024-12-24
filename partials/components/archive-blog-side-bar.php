@@ -27,9 +27,7 @@ $post_categories = get_terms([
     <div class="grid justify-evenly sticky top-3 space-y-3">
         <!-- Search -->
         <?php cyn_get_component('blog-side-bar-search') ?>
-        
-        
-        
+
         <!-- Suggestion Blogs -->
         <div class="bg-primary-100 p-5 rounded-3xl">
 
@@ -41,7 +39,7 @@ $post_categories = get_terms([
 
             <div class="grid gap-y-3 divide-y-[1px] divide-primary-90">
 
-                <?php foreach ($recommendPosts as $recommendPost) : ?>
+                <?php foreach ($recommendPosts as $recommendPost): ?>
                     <?php cyn_get_card('post-mini', ['post-id' => $recommendPost]) ?>
                 <?php endforeach ?>
             </div>
@@ -59,7 +57,7 @@ $post_categories = get_terms([
             <div>
                 <div>
                     <ul class="space-y-3 divide-y-[1px] divide-primary-90">
-                        <?php foreach ($post_categories as $term) : ?>
+                        <?php foreach ($post_categories as $term): ?>
                             <a href="<?php echo get_term_link($term) ?>" class="text-secondary-400 pt-3 block">
 
                                 <li class="flex justify-between py-1 text-body_s">
@@ -77,41 +75,6 @@ $post_categories = get_terms([
             </div>
 
         </div>
-
-        <!-- Tags -->
-        <div class="bg-primary-100 p-5 rounded-3xl">
-
-            <div class="text-h6 font-medium">
-                <?php _e('تگ ها', 'cyn-dm') ?>
-            </div>
-
-            <div class="py-2"></div>
-
-            <div>
-                <?php $tags = get_tags(); ?>
-                <div class="flex flex-wrap gap-2">
-                    <?php foreach ($tags as $tag) : ?>
-                        <a class="bg-accent-90 text-accent-50 py-2 px-3 rounded-lg text-caption" href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $tag->name; ?></a>
-                    <?php endforeach ?>
-                </div>
-            </div>
-        </div>
-
-        <!-- Gallery -->
-        <!-- <div class="bg-primary-100 p-5 rounded-3xl">
-
-            <div class="text-h6 font-medium">
-                <?php //_e('گالری تصاویر', 'cyn-dm')
-                ?>
-            </div>
-
-            <div class="py-2"></div>
-
-            <div>
-                <?php  ?>
-            </div>
-
-        </div> -->
 
     </div>
 </div>

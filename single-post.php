@@ -15,7 +15,7 @@ $authorId = $post->post_author;
 	<!-- Side Bar -->
 	<section class="col-span-1  max-lg:col-span-4 max-lg:order-2">
 
-		<?php cyn_get_component( "blog-side-bar" ) ?>
+		<?php cyn_get_component( "single-blog-side-bar" ) ?>
 
 	</section>
 

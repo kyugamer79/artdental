@@ -29,7 +29,7 @@ $cats = get_categories([
 
                 <h2></h2>
 
-                <ul class="toc flex flex-col flex-auto gap-3 divide-y divide-primary-90 "></ul>
+                <ul class="toc flex flex-col flex-auto gap-3 divide-y list-disc list-outside px-5 divide-primary-90 "></ul>
 
             </div>
 

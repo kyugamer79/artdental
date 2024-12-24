@@ -2770,6 +2770,14 @@ select {
   scroll-margin-top: 32px;
 }
 
+.list-outside {
+  list-style-position: outside;
+}
+
+.list-disc {
+  list-style-type: disc;
+}
+
 .columns-3 {
   -webkit-columns: 3;
      -moz-columns: 3;
@@ -3364,9 +3372,9 @@ select {
   padding-bottom: 56px;
 }
 
-.py-17 {
-  padding-top: 120px;
-  padding-bottom: 120px;
+.py-14 {
+  padding-top: 72px;
+  padding-bottom: 72px;
 }
 
 .py-2 {
@@ -3384,14 +3392,14 @@ select {
   padding-bottom: 16px;
 }
 
+.py-5 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .py-6 {
   padding-top: 24px;
   padding-bottom: 24px;
-}
-
-.py-7 {
-  padding-top: 28px;
-  padding-bottom: 28px;
 }
 
 .py-8 {
@@ -3417,26 +3425,6 @@ select {
 .py-\[52px\] {
   padding-top: 52px;
   padding-bottom: 52px;
-}
-
-.py-5 {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.py-10 {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-.py-15 {
-  padding-top: 80px;
-  padding-bottom: 80px;
-}
-
-.py-14 {
-  padding-top: 72px;
-  padding-bottom: 72px;
 }
 
 .pb-17 {
@@ -4637,29 +4625,14 @@ select {
     padding-right: 40px;
   }
 
-  .md\:py-8 {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
-
-  .md\:py-17 {
-    padding-top: 120px;
-    padding-bottom: 120px;
-  }
-
-  .md\:py-6 {
-    padding-top: 24px;
-    padding-bottom: 24px;
+  .md\:py-16 {
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
 
   .md\:py-7 {
     padding-top: 28px;
     padding-bottom: 28px;
-  }
-
-  .md\:py-16 {
-    padding-top: 100px;
-    padding-bottom: 100px;
   }
 
   .md\:text-\[40px\] {

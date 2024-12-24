@@ -3,9 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const prose = document.querySelector(".prose");
   const headings = prose?.querySelectorAll("h2");
 
-  const icon = document.querySelector(".separator svg");
+  // const icon = document.querySelector(".separator svg");
 
-  if (!tocGroup || !prose || !headings || !icon) return;
+  if (!tocGroup || !prose || !headings) {
+    console.log('one of tocGroup, prose, heading or icon is not defined');
+    return;
+  };
 
   if (headings.length < 1) {
     tocGroup.forEach((toc) => {
@@ -22,14 +25,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Create a list item for the TOC
     const li = document.createElement("li");
-    li.classList.add("flex", "flex-row-reverse", "justify-between", "p-1");
+    li.classList.add("p-1");
     const a = document.createElement("a");
-    const svg = icon.cloneNode(true);
-    svg.classList.add("min-w-4");
+    // const svg = icon.cloneNode(true);
+    // svg.classList.add("min-w-4");
 
     a.textContent = heading.textContent;
     a.setAttribute("href", "#" + id);
-    li.appendChild(svg);
+    // li.appendChild(svg);
     li.appendChild(a);
 
     tocGroup.forEach((toc) => {
